@@ -1,0 +1,28 @@
+.notice-title {
+            color: red;
+        }
+ 
+ .notice-content {
+     position: relative;
+     width: 560px;
+     height: 30px;
+     white-space: nowrap;
+     overflow: hidden;
+     float: left;
+     margin-left: 55px;
+     margin-top: -30px;
+ 
+            /*背景透明度
+            background-color: #fff;
+            filter:alpha(opacity=10);
+            -moz-opacity:0.5;
+            -khtml-opacity: 0.5;
+            opacity: 0.5;
+            */
+        }
+ .notice-text {
+	 top: 2px;
+     color: #0D0DE5;
+     font-size: 16px;
+     position: absolute;
+   }
