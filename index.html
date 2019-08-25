@@ -606,6 +606,147 @@ color="45, 241, 10" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
 
 
   
+    <article id="post-三个数之和" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+  
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/08/25/三个数之和/">三个数之和</a>
+    </h1>
+  
+
+        
+        <link href="https://cdn.staticfile.org/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet">
+
+        
+      </header>
+    
+			
+    <div class="article-entry" itemprop="articleBody">
+	
+	 <div class="headband">
+           <a href="https://github.com/janlee151/"><img style="position: absolute; top: 0; right: 0; border: 0;height: 30px; width: 30px;color: yellow" src="/img/github.png" alt="Fork me on GitHub"></a>
+     </div>
+      
+        <h3 id="三个数之和"><a class="header-anchor" href="#三个数之和"></a><a href="https://leetcode-cn.com/problems/3sum/" target="_blank" rel="noopener">三个数之和</a></h3>
+<h4 id="题目描述"><a class="header-anchor" href="#题目描述"></a>题目描述</h4>
+<blockquote>
+<p>给定一个包含 n 个整数的数组 nums，判断 nums 中是否存在三个元素 a，b，c ，使得 a + b + c = 0 ？找出所有满足条件且不重复的三元组。</p>
+</blockquote>
+<p>注意：答案中不可以包含重复的三元组。</p>
+<h4 id="解决思路"><a class="header-anchor" href="#解决思路"></a>解决思路</h4>
+<ul>
+<li>暴力方法<br>
+算法复杂度是o(n^3)</li>
+<li>双指针方案<br>
+算法复杂度是o(n^2)<br>
+在这里我们不使用暴力方法，暴力方法也比较简单</li>
+</ul>
+<h3 id="双指针方案"><a class="header-anchor" href="#双指针方案"></a>双指针方案</h3>
+<h4 id="思路图解"><a class="header-anchor" href="#思路图解"></a>思路图解</h4>
+<ul>
+<li>首先我们我们对数组进行遍历：<br>
+<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1566749770249.png" alt></li>
+<li>我们再定义两个指针分别指向后边子数组的起始下标和结束下标位置：</li>
+</ul>
+<p><img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1566750265331.png" alt><br>
+注意地方：<br>
+1.j的下标边界是[0,nums.length-3]<br>
+2.如果nums[j] ==nums[j-1],那么就跳过此次循环，这是为什么呢？<br>
+因为数组排序了啊，如果j在此处就符合，那么必出现重复的情况，不符合题目要求。</p>
+<ul>
+<li>问题解决<br>
+nums[j]+nums[i]+nums[k]?等于target<br>
+分情况讨论：
+<ul>
+<li>如果上面三个之和大于target就将k–</li>
+<li>如果上边三个数之和小于target就将i++</li>
+<li>如果等于就将结果添加到集合中</li>
+</ul>
+</li>
+</ul>
+<h3 id="代码实现："><a class="header-anchor" href="#代码实现："></a>代码实现：</h3>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> List&lt;List&lt;Integer&gt;&gt; threeSum(<span class="keyword">int</span>[] nums) &#123;</span><br><span class="line">      List&lt;List&lt;Integer&gt;&gt; result = <span class="keyword">new</span> LinkedList&lt;&gt;();</span><br><span class="line">      Arrays.sort(nums);</span><br><span class="line">      <span class="keyword">for</span> (<span class="keyword">int</span> k = <span class="number">0</span>; k &lt;nums.length-<span class="number">2</span> ; k++) &#123;</span><br><span class="line">         <span class="keyword">if</span>(nums[k] &gt; <span class="number">0</span>)&#123;</span><br><span class="line">           <span class="keyword">continue</span>;</span><br><span class="line">         &#125;</span><br><span class="line">      <span class="keyword">if</span>(k&gt;<span class="number">0</span>&amp;&amp;nums[k]==nums[k-<span class="number">1</span>])&#123;</span><br><span class="line">        <span class="keyword">continue</span>;</span><br><span class="line">      &#125;</span><br><span class="line">       <span class="keyword">int</span> i = k+<span class="number">1</span>,j = nums.length-<span class="number">1</span>;</span><br><span class="line">       <span class="keyword">while</span> (i&lt;j)&#123;</span><br><span class="line">        <span class="keyword">int</span> sum = nums[k]+nums[i]+nums[j];</span><br><span class="line">        <span class="keyword">if</span>(sum&lt;<span class="number">0</span>)&#123;</span><br><span class="line">          i++;</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(sum&gt;<span class="number">0</span>)&#123;</span><br><span class="line">          j--;</span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">          List&lt;Integer&gt; list = <span class="keyword">new</span> LinkedList&lt;&gt;();</span><br><span class="line">          list.add(nums[k]);</span><br><span class="line">          list.add(nums[i]);</span><br><span class="line">          list.add(nums[j]);</span><br><span class="line">          result.add(list);</span><br><span class="line">          <span class="keyword">while</span>(i&lt;j&amp;&amp;nums[i]==nums[i+<span class="number">1</span>])&#123;</span><br><span class="line">            i++;</span><br><span class="line">          &#125;</span><br><span class="line">          <span class="keyword">while</span> (i&lt;j&amp;&amp;nums[j]==nums[j-<span class="number">1</span>])&#123;</span><br><span class="line">            j--;</span><br><span class="line">          &#125;</span><br><span class="line">           i++;</span><br><span class="line">           j--;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> result; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="总结"><a class="header-anchor" href="#总结"></a>总结</h3>
+<blockquote>
+<p>算法思路很清晰，只需要应用两个指针进行夹逼，最后得到最后的结果。算法实现复杂度就是o(n^2),降低了一般方法的复杂度。</p>
+</blockquote>
+
+      
+	  <!--增加版权-->
+     
+  
+  <div class="declare" hidden="hidden"></div>
+
+<!--文章末尾添加致谢-->
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">leetcode</a>
+        		</li>
+      		
+		</ul>
+		
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/算法//" class="article-tag-list-link color3">算法</a>
+        		</li>
+      		
+		</ul>
+		
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/08/25/三个数之和/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+				
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+      
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-快速排序" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
   
@@ -1184,23 +1325,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">子查询</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">exists</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">连接</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">徐志摩</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">现代诗</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1209,6 +1334,22 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">html</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">子查询</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">徐志摩</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">现代诗</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1228,6 +1369,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">连接</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">markdown</a>
               </li>
              
@@ -1239,7 +1384,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           </ul>
         </div>
 		  
-		   <span style="color:#0BF9D5;background:black">&nbsp;&nbsp;&nbsp;<i class="icon ion-document"></i>&nbsp;&nbsp;博客文章数 ：7</span>
+		   <span style="color:#0BF9D5;background:black">&nbsp;&nbsp;&nbsp;<i class="icon ion-document"></i>&nbsp;&nbsp;博客文章数 ：8</span>
         <ul class="search-ul">
           <p q-show="jsonFail" style="padding: 20px; font-size: 12px;">
             缺失模块。<br/>1、请确保node版本大于6.2<br/>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br/> npm i hexo-generator-json-content --save<br/><br/>
