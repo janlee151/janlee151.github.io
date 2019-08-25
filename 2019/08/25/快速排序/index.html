@@ -22,7 +22,7 @@
 <meta property="og:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1566738519112.png">
 <meta property="og:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1566738567700.png">
 <meta property="og:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1566738605577.png">
-<meta property="og:updated_time" content="2019-08-25T13:19:33.009Z">
+<meta property="og:updated_time" content="2019-08-25T13:28:14.297Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="快速排序">
 <meta name="twitter:description" content="算法介绍 算法思想 快速排序应用的算法思想主要是分治，将整个问题的解决，切分成局部问题进行解决。然后将局部结果进行合并，递归就是将局部合并的结果进行返回 算法实现思路 算法的图解 我们首先定义两个指针i，j。我们注意了i的值是数组起始下标的前面的一个位置，也就是i的初始值是-1.j的初始值我们指向数组起始下标。我们定义变量pivot用于存储数组最后边的元素。">
@@ -334,7 +334,31 @@ color="45, 241, 10" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
         
       </header>
     
-			
+	
+    <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none;color:red;">
+          <span class="btn-bg"></span>
+          <span class="btn-text"><i class="icon ion-eye"></i>文章目录</span>
+          </p>
+	<div id="toc-article" class="toc-article">
+	    <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+		<strong class="toc-title">文章目录</strong>
+           <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#算法介绍"><span class="toc-number">1.</span> <span class="toc-text">算法介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#算法思想"><span class="toc-number">1.1.</span> <span class="toc-text">算法思想</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#算法实现思路"><span class="toc-number">2.</span> <span class="toc-text">算法实现思路</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#算法的图解"><span class="toc-number">2.1.</span> <span class="toc-text">算法的图解</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#代码实现："><span class="toc-number">3.</span> <span class="toc-text">代码实现：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#算法时间复杂度"><span class="toc-number">4.</span> <span class="toc-text">算法时间复杂度</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#总结"><span class="toc-number">5.</span> <span class="toc-text">总结</span></a></li></ol>
+         </div>
+   <script type="text/javascript">
+	function showToc(){
+		var toc_article = document.getElementById("toc-article");
+		var show_toc_btn = document.getElementById("show-toc-btn");
+		toc_article.setAttribute("style","display:block");
+		show_toc_btn.setAttribute("style","display:none");
+		};
+	function showBtn(){
+		var toc_article = document.getElementById("toc-article");
+		var show_toc_btn = document.getElementById("show-toc-btn");
+		toc_article.setAttribute("style","display:none");
+		show_toc_btn.setAttribute("style","display:block");
+		};
+   </script>
+      		
     <div class="article-entry" itemprop="articleBody">
 	
 	 <div class="headband">
@@ -374,7 +398,21 @@ color="45, 241, 10" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
 	  <!--增加版权-->
      
   
-  <div class="declare" hidden="hidden"></div>
+   <div class="declare">
+    <strong>本文作者：</strong>
+    
+      JanLee
+    
+    <br>
+    <strong>本文链接：</strong>
+    <a rel="license" href="http://yoursite.com/2019/08/25/快速排序/">http://yoursite.com/2019/08/25/快速排序/</a>
+    <br>
+    <strong>版权声明：</strong>
+    本作品采用
+    <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>
+    进行许可。转载请注明出处！
+    
+  </div>
 
 <!--文章末尾添加致谢-->
 
@@ -747,19 +785,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">连接</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">exists</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">html</a>
+                <a href="javascript:void(0)" class="js-tag color3">连接</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -771,15 +801,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">文档说明</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">快速排序</a>
+                <a href="javascript:void(0)" class="js-tag color5">html</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -796,6 +822,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">文档说明</a>
               </li>
             
             <div class="clearfix"></div>
