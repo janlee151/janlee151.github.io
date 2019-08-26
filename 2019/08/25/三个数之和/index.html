@@ -8,20 +8,20 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>三个数之和 | 我的地盘我做主</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="三个数之和 题目描述  给定一个包含 n 个整数的数组 nums，判断 nums 中是否存在三个元素 a，b，c ，使得 a + b + c = 0 ？找出所有满足条件且不重复的三元组。  注意：答案中不可以包含重复的三元组。 解决思路  暴力方法 算法复杂度是o(n^3) 双指针方案 算法复杂度是o(n^2) 在这里我们不使用暴力方法，暴力方法也比较简单  双指针方案 思路图解  首先我们我们对">
+  <meta name="description" content="三个数之和 题目描述  给定一个包含 n 个整数的数组 nums，判断 nums 中是否存在三个元素 a，b，c ，使得 a + b + c = 0 ？找出所有满足条件且不重复的三元组。  注意：答案中不可以包含重复的三元组。 解决思路">
 <meta name="keywords" content="leetcode">
 <meta property="og:type" content="article">
 <meta property="og:title" content="三个数之和">
 <meta property="og:url" content="http://yoursite.com/2019/08/25/三个数之和/index.html">
 <meta property="og:site_name" content="我的地盘我做主">
-<meta property="og:description" content="三个数之和 题目描述  给定一个包含 n 个整数的数组 nums，判断 nums 中是否存在三个元素 a，b，c ，使得 a + b + c = 0 ？找出所有满足条件且不重复的三元组。  注意：答案中不可以包含重复的三元组。 解决思路  暴力方法 算法复杂度是o(n^3) 双指针方案 算法复杂度是o(n^2) 在这里我们不使用暴力方法，暴力方法也比较简单  双指针方案 思路图解  首先我们我们对">
+<meta property="og:description" content="三个数之和 题目描述  给定一个包含 n 个整数的数组 nums，判断 nums 中是否存在三个元素 a，b，c ，使得 a + b + c = 0 ？找出所有满足条件且不重复的三元组。  注意：答案中不可以包含重复的三元组。 解决思路">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1566749770249.png">
 <meta property="og:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1566750265331.png">
-<meta property="og:updated_time" content="2019-08-25T17:06:01.626Z">
+<meta property="og:updated_time" content="2019-08-26T09:02:04.912Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="三个数之和">
-<meta name="twitter:description" content="三个数之和 题目描述  给定一个包含 n 个整数的数组 nums，判断 nums 中是否存在三个元素 a，b，c ，使得 a + b + c = 0 ？找出所有满足条件且不重复的三元组。  注意：答案中不可以包含重复的三元组。 解决思路  暴力方法 算法复杂度是o(n^3) 双指针方案 算法复杂度是o(n^2) 在这里我们不使用暴力方法，暴力方法也比较简单  双指针方案 思路图解  首先我们我们对">
+<meta name="twitter:description" content="三个数之和 题目描述  给定一个包含 n 个整数的数组 nums，判断 nums 中是否存在三个元素 a，b，c ，使得 a + b + c = 0 ？找出所有满足条件且不重复的三元组。  注意：答案中不可以包含重复的三元组。 解决思路">
 <meta name="twitter:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1566749770249.png">
   
     <link rel="alternative" href="/atom.xml" title="我的地盘我做主" type="application/atom+xml">
@@ -338,7 +338,7 @@ color="45, 241, 10" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
 	<div id="toc-article" class="toc-article">
 	    <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
 		<strong class="toc-title">文章目录</strong>
-           <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#三个数之和"><span class="toc-number">1.</span> <span class="toc-text">三个数之和</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#题目描述"><span class="toc-number">1.1.</span> <span class="toc-text">题目描述</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#解决思路"><span class="toc-number">1.2.</span> <span class="toc-text">解决思路</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#双指针方案"><span class="toc-number">2.</span> <span class="toc-text">双指针方案</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#思路图解"><span class="toc-number">2.1.</span> <span class="toc-text">思路图解</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#代码实现："><span class="toc-number">3.</span> <span class="toc-text">代码实现：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#总结"><span class="toc-number">4.</span> <span class="toc-text">总结</span></a></li></ol>
+           <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#三个数之和"><span class="toc-number">1.</span> <span class="toc-text">三个数之和</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#题目描述"><span class="toc-number">1.1.</span> <span class="toc-text">题目描述</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#解决思路-more"><span class="toc-number">1.2.</span> <span class="toc-text">解决思路</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#双指针方案"><span class="toc-number">2.</span> <span class="toc-text">双指针方案</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#思路图解"><span class="toc-number">2.1.</span> <span class="toc-text">思路图解</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#代码实现："><span class="toc-number">3.</span> <span class="toc-text">代码实现：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#总结"><span class="toc-number">4.</span> <span class="toc-text">总结</span></a></li></ol>
          </div>
    <script type="text/javascript">
 	function showToc(){
@@ -367,7 +367,7 @@ color="45, 241, 10" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
 <p>给定一个包含 n 个整数的数组 nums，判断 nums 中是否存在三个元素 a，b，c ，使得 a + b + c = 0 ？找出所有满足条件且不重复的三元组。</p>
 </blockquote>
 <p>注意：答案中不可以包含重复的三元组。</p>
-<h4 id="解决思路"><a class="header-anchor" href="#解决思路"></a>解决思路</h4>
+<h4 id="解决思路-more"><a class="header-anchor" href="#解决思路-more"></a>解决思路<a id="more"></a></h4>
 <ul>
 <li>暴力方法<br>
 算法复杂度是o(n^3)</li>
@@ -562,6 +562,15 @@ nums[j]+nums[i]+nums[k]?等于target<br>
 
   
 <nav id="article-nav">
+  
+    <a href="/2019/08/26/迷宫走出的方案/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          迷宫走出的方案
+        
+      </div>
+    </a>
   
   
     <a href="/2019/08/25/快速排序/" id="article-nav-older" class="article-nav-link-wrap">
@@ -780,6 +789,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">连接</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">子查询</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">exists</a>
               </li>
              
@@ -792,11 +809,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
+                <a href="javascript:void(0)" class="js-tag color5">动态规划</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">子查询</a>
+                <a href="javascript:void(0)" class="js-tag color3">递归</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -808,11 +829,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">分治算法</a>
+                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">递归</a>
+                <a href="javascript:void(0)" class="js-tag color5">文档说明</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">分治算法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -822,24 +847,12 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">连接</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">文档说明</a>
-              </li>
             
             <div class="clearfix"></div>
           </ul>
         </div>
 		  
-		   <span style="color:#0BF9D5;background:black">&nbsp;&nbsp;&nbsp;<i class="icon ion-document"></i>&nbsp;&nbsp;博客文章数 ：8</span>
+		   <span style="color:#0BF9D5;background:black">&nbsp;&nbsp;&nbsp;<i class="icon ion-document"></i>&nbsp;&nbsp;博客文章数 ：9</span>
         <ul class="search-ul">
           <p q-show="jsonFail" style="padding: 20px; font-size: 12px;">
             缺失模块。<br/>1、请确保node版本大于6.2<br/>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br/> npm i hexo-generator-json-content --save<br/><br/>
