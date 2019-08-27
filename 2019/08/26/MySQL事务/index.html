@@ -6,27 +6,44 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>快速排序 | 我的地盘我做主</title>
+  <title>MySQL事务 | 我的地盘我做主</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="算法介绍 算法思想 快速排序应用的算法思想主要是分治，将整个问题的解决，切分成局部问题进行解决。然后将局部结果进行合并，递归就是将局部合并的结果进行返回 算法实现思路 算法的图解 我们首先定义两个指针i，j。我们注意了i的值是数组起始下标的前面的一个位置，也就是i的初始值是-1.j的初始值我们指向数组起始下标。我们定义变量pivot用于存储数组最后边的元素。">
-<meta name="keywords" content="分治算法,递归,排序,数据结构">
+  <meta name="description" content="事务 定义 一个或者一组SQL语句组成的单元，这个单元中执行的SQL语句不能分割。如果单元中某一条SQL语句执行失败，那么事务就会回滚，将数据库的状态恢复到执行单元之前的状态。如果单元执行成功，那么事务就执行完毕了。 存储引擎">
+<meta name="keywords" content="mysql,事务">
 <meta property="og:type" content="article">
-<meta property="og:title" content="快速排序">
-<meta property="og:url" content="http://yoursite.com/2019/08/25/快速排序/index.html">
+<meta property="og:title" content="MySQL事务">
+<meta property="og:url" content="http://yoursite.com/2019/08/26/MySQL事务/index.html">
 <meta property="og:site_name" content="我的地盘我做主">
-<meta property="og:description" content="算法介绍 算法思想 快速排序应用的算法思想主要是分治，将整个问题的解决，切分成局部问题进行解决。然后将局部结果进行合并，递归就是将局部合并的结果进行返回 算法实现思路 算法的图解 我们首先定义两个指针i，j。我们注意了i的值是数组起始下标的前面的一个位置，也就是i的初始值是-1.j的初始值我们指向数组起始下标。我们定义变量pivot用于存储数组最后边的元素。">
+<meta property="og:description" content="事务 定义 一个或者一组SQL语句组成的单元，这个单元中执行的SQL语句不能分割。如果单元中某一条SQL语句执行失败，那么事务就会回滚，将数据库的状态恢复到执行单元之前的状态。如果单元执行成功，那么事务就执行完毕了。 存储引擎">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1566735991123.png">
-<meta property="og:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1566736718876.png">
-<meta property="og:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1566738447063.png">
-<meta property="og:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1566738519112.png">
-<meta property="og:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1566738567700.png">
-<meta property="og:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1566738605577.png">
-<meta property="og:updated_time" content="2019-08-25T13:28:14.297Z">
+<meta property="og:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1566814427061.png">
+<meta property="og:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1566825474271.png">
+<meta property="og:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1566828321455.png">
+<meta property="og:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1566896134319.png">
+<meta property="og:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1566897321460.png">
+<meta property="og:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1566897759889.png">
+<meta property="og:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1566898950477.png">
+<meta property="og:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1566901398507.png">
+<meta property="og:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1566901872577.png">
+<meta property="og:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1566904355431.png">
+<meta property="og:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1566904654321.png">
+<meta property="og:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1566916039289.png">
+<meta property="og:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1566916256572.png">
+<meta property="og:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1566916537608.png">
+<meta property="og:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1566920382223.png">
+<meta property="og:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1566920678444.png">
+<meta property="og:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1566922619227.png">
+<meta property="og:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1566922836937.png">
+<meta property="og:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1566924168156.png">
+<meta property="og:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1566924334745.png">
+<meta property="og:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1566924474149.png">
+<meta property="og:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1566925280693.png">
+<meta property="og:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1566925512943.png">
+<meta property="og:updated_time" content="2019-08-27T17:46:01.086Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="快速排序">
-<meta name="twitter:description" content="算法介绍 算法思想 快速排序应用的算法思想主要是分治，将整个问题的解决，切分成局部问题进行解决。然后将局部结果进行合并，递归就是将局部合并的结果进行返回 算法实现思路 算法的图解 我们首先定义两个指针i，j。我们注意了i的值是数组起始下标的前面的一个位置，也就是i的初始值是-1.j的初始值我们指向数组起始下标。我们定义变量pivot用于存储数组最后边的元素。">
-<meta name="twitter:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1566735991123.png">
+<meta name="twitter:title" content="MySQL事务">
+<meta name="twitter:description" content="事务 定义 一个或者一组SQL语句组成的单元，这个单元中执行的SQL语句不能分割。如果单元中某一条SQL语句执行失败，那么事务就会回滚，将数据库的状态恢复到执行单元之前的状态。如果单元执行成功，那么事务就执行完毕了。 存储引擎">
+<meta name="twitter:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1566814427061.png">
   
     <link rel="alternative" href="/atom.xml" title="我的地盘我做主" type="application/atom+xml">
   
@@ -291,7 +308,7 @@ color="45, 241, 10" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
           </div>
           <div id="js-content" class="content-ll">
             
-<article id="post-快速排序" class="article article-type-post " itemscope itemprop="blogPost">
+<article id="post-MySQL事务" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
   
     
@@ -299,7 +316,7 @@ color="45, 241, 10" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
         
   
     <h1 class="article-title" itemprop="name">
-      快速排序
+      MySQL事务
     </h1>
   
 
@@ -311,7 +328,7 @@ color="45, 241, 10" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> <B>文章字数:</B></span>
-      <span class="post-count"><B>598字</B></span>
+      <span class="post-count"><B>3k字</B></span>
     </span>
   </span>
    <b><span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
@@ -321,13 +338,13 @@ color="45, 241, 10" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
       &nbsp; | &nbsp;
 	    <B><i class="icon ion-clock"></i></B>
         <span class="post-meta-item-text"> <B> 阅读时长:</B> </span>
-        <span class="post-count"><B>2分</B></span>
+        <span class="post-count"><B>11分</B></span>
       </span>
     </span>
    <!-- 不蒜子统计 -->
    <b>
-   <a href="/2019/08/25/快速排序/" class="archive-article-date">
-	 <time datetime="2019-08-25T08:42:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-25</time>
+   <a href="/2019/08/26/MySQL事务/" class="archive-article-date">
+	 <time datetime="2019-08-26T09:20:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-26</time>
 	</a></b>
 </div>
 
@@ -342,7 +359,7 @@ color="45, 241, 10" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
 	<div id="toc-article" class="toc-article">
 	    <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
 		<strong class="toc-title">文章目录</strong>
-           <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#算法介绍"><span class="toc-number">1.</span> <span class="toc-text">算法介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#算法思想"><span class="toc-number">1.1.</span> <span class="toc-text">算法思想</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#算法实现思路"><span class="toc-number">2.</span> <span class="toc-text">算法实现思路</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#算法的图解"><span class="toc-number">2.1.</span> <span class="toc-text">算法的图解</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#代码实现："><span class="toc-number">3.</span> <span class="toc-text">代码实现：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#算法时间复杂度"><span class="toc-number">4.</span> <span class="toc-text">算法时间复杂度</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#总结"><span class="toc-number">5.</span> <span class="toc-text">总结</span></a></li></ol>
+           <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#事务"><span class="toc-number">1.</span> <span class="toc-text">事务</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#定义"><span class="toc-number">1.1.</span> <span class="toc-text">定义</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#存储引擎-more"><span class="toc-number">1.2.</span> <span class="toc-text">存储引擎</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#需要掌握的存储引擎"><span class="toc-number">1.3.</span> <span class="toc-text">需要掌握的存储引擎</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#事务的属性-acid"><span class="toc-number">1.4.</span> <span class="toc-text">事务的属性(ACID)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#事务的类型"><span class="toc-number">1.5.</span> <span class="toc-text">事务的类型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#创建事务"><span class="toc-number">1.6.</span> <span class="toc-text">创建事务</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#注意"><span class="toc-number">1.7.</span> <span class="toc-text">注意</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#隔离级别"><span class="toc-number">1.8.</span> <span class="toc-text">隔离级别</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#应用场景"><span class="toc-number">1.8.1.</span> <span class="toc-text">应用场景</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#不设置隔离级别带来的问题"><span class="toc-number">1.8.2.</span> <span class="toc-text">不设置隔离级别带来的问题</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#展示事务各个隔离级别的表现"><span class="toc-number">2.</span> <span class="toc-text">展示事务各个隔离级别的表现</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#read-uncommitted"><span class="toc-number">2.1.</span> <span class="toc-text">read uncommitted</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#read-committed"><span class="toc-number">2.2.</span> <span class="toc-text">read committed</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#repeatale-read"><span class="toc-number">2.3.</span> <span class="toc-text">repeatale read</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#验证read-committed是否保证可重复读"><span class="toc-number">2.4.</span> <span class="toc-text">验证read committed是否保证可重复读</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#验证repeatable-read是否可以保证可重复读"><span class="toc-number">2.5.</span> <span class="toc-text">验证REPEATABLE-READ是否可以保证可重复读</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#验证repeatable-read是否可以保证幻读"><span class="toc-number">2.6.</span> <span class="toc-text">验证REPEATABLE-READ是否可以保证幻读</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#serializable"><span class="toc-number">2.7.</span> <span class="toc-text">Serializable</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#总结"><span class="toc-number">3.</span> <span class="toc-text">总结</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#心得"><span class="toc-number">4.</span> <span class="toc-text">心得</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#知识拓展"><span class="toc-number">5.</span> <span class="toc-text">知识拓展</span></a></li></ol>
          </div>
    <script type="text/javascript">
 	function showToc(){
@@ -365,33 +382,294 @@ color="45, 241, 10" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
            <a href="https://github.com/janlee151/"><img style="position: absolute; top: 0; right: 0; border: 0;height: 30px; width: 30px;color: yellow" src="/img/github.png" alt="Fork me on GitHub"></a>
      </div>
       
-        <h3 id="算法介绍"><a class="header-anchor" href="#算法介绍"></a>算法介绍</h3>
-<h4 id="算法思想"><a class="header-anchor" href="#算法思想"></a>算法思想</h4>
-<p>快速排序应用的算法思想主要是分治，将整个问题的解决，切分成局部问题进行解决。然后将局部结果进行合并，递归就是将局部合并的结果进行返回</p>
-<h3 id="算法实现思路"><a class="header-anchor" href="#算法实现思路"></a>算法实现思路</h3>
-<h4 id="算法的图解"><a class="header-anchor" href="#算法的图解"></a>算法的图解</h4>
-<p>我们首先定义两个指针i，j。我们注意了i的值是数组起始下标的前面的一个位置，也就是i的初始值是-1.j的初始值我们指向数组起始下标。我们定义变量pivot用于存储数组最后边的元素。<a id="more"></a><br>
-<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1566735991123.png" alt><br>
-我们首先遍历数组，遍历时我们比较下标为j元素与pivot的数值大小，如果下标为j的元素值比pivot的值小，我们将i的值进行++操作，然后交换下标为i和下标为j的值。</p>
-<p><img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1566736718876.png" alt="enter description here"><br>
-如果i++之后和j是同一个下标，交换之后还是同一个元素<i class="fas fa-highlighter">注意i是++之后的</i></p>
-<p><img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1566738447063.png" alt></p>
-<p>如果i++之后和j不是同一个下标，那么就是下面的操作：</p>
-<p><img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1566738519112.png" alt></p>
-<p>一次遍历之后：<br>
-<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1566738567700.png" alt="enter description here"><br>
-然后对i进行++操作,我们与数组最后一个元素进行交换得到：</p>
-<p><img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1566738605577.png" alt="enter description here"><br>
-我们将此时的i值进行返回，我们对i左边和右边的子数组分别进行上述同样的操作。</p>
-<h3 id="代码实现："><a class="header-anchor" href="#代码实现："></a>代码实现：</h3>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">partition</span><span class="params">(<span class="keyword">int</span> arr[], <span class="keyword">int</span> low, <span class="keyword">int</span> high)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> pivot = arr[high];</span><br><span class="line">        <span class="keyword">int</span> i = (low-<span class="number">1</span>);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j=low; j&lt;high; j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (arr[j] &lt;= pivot)</span><br><span class="line">            &#123;</span><br><span class="line">                i++;</span><br><span class="line">                <span class="keyword">int</span> temp = arr[i];</span><br><span class="line">                arr[i] = arr[j];</span><br><span class="line">                arr[j] = temp;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> temp = arr[i+<span class="number">1</span>];</span><br><span class="line">        arr[i+<span class="number">1</span>] = arr[high];</span><br><span class="line">        arr[high] = temp;</span><br><span class="line">        <span class="keyword">return</span> i+<span class="number">1</span>;<span class="comment">//i+1这个位置就是比pivot小的数和比pivot大的数的分界线</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">sort</span><span class="params">(<span class="keyword">int</span> arr[], <span class="keyword">int</span> low, <span class="keyword">int</span> high)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (low &lt; high)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">int</span> pi = partition(arr, low, high);</span><br><span class="line">            sort(arr, low, pi-<span class="number">1</span>);</span><br><span class="line">            sort(arr, pi+<span class="number">1</span>, high);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<h3 id="算法时间复杂度"><a class="header-anchor" href="#算法时间复杂度"></a>算法时间复杂度</h3>
+        <h3 id="事务"><a class="header-anchor" href="#事务"></a>事务</h3>
+<h4 id="定义"><a class="header-anchor" href="#定义"></a>定义</h4>
+<p>一个或者一组SQL语句组成的单元，这个单元中执行的SQL语句不能分割。如果单元中某一条SQL语句执行失败，那么事务就会回滚，将数据库的状态恢复到执行单元之前的状态。如果单元执行成功，那么事务就执行完毕了。</p>
+<h4 id="存储引擎-more"><a class="header-anchor" href="#存储引擎-more"></a>存储引擎<a id="more"></a></h4>
+<p>将数据存储到文件的不同技术，我们通过命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show ENGINES;</span><br></pre></td></tr></table></figure>
+<p>可以查看MySQL数据库支持的存储引擎：<br>
+<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1566814427061.png" alt="enter description here"></p>
+<h4 id="需要掌握的存储引擎"><a class="header-anchor" href="#需要掌握的存储引擎"></a>需要掌握的存储引擎</h4>
+<ul>
+<li>MEMORY</li>
+<li>InnoDB</li>
+<li>MyISAM<br>
+InnoDB支持事务，MyISAM和MEMORY不支持事务。</li>
+</ul>
+<h4 id="事务的属性-acid"><a class="header-anchor" href="#事务的属性-acid"></a>事务的属性(ACID)</h4>
+<ul>
+<li>A(Atomicity)原子性：事务是一个不可分割的单元。要么事务的SQL语句都执行完毕，要么一个都不执行。</li>
+<li>C(Consistency)一致性：数据库执行事务之前和执行事务之后数据具有一致性。
+<ul>
+<li>什么是一致性呢？<br>
+举例：小明账户余额100元，小红账户余额100元，无论小明和小红之间如何进行转账操作，最后他俩的账户总额还     是200元</li>
+</ul>
+</li>
+<li>I(Isolation)隔离性：并发情况下，一个事务的执行不会被其他事务的干扰。</li>
+<li>D(Durability)持久性：一旦一个事务成功执行，那么对数据库的操作是永久的。</li>
+</ul>
+<h4 id="事务的类型"><a class="header-anchor" href="#事务的类型"></a>事务的类型</h4>
+<ul>
+<li>隐式事务
+<ul>
+<li>事务没有明显的开启和结束事务的声明，它是默认开启的，并且update、delete、insert都是应用默认的事务。</li>
+</ul>
+</li>
+<li>显式事务
+<ul>
+<li>事务需要自己声明事务的开始和结束，它是需要手动开启和结束，并且一个事务包含多条SQL操作。<br>
+我们如何查看事务是不是默认开启的：</li>
+</ul>
+</li>
+</ul>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show VARIABLES like &apos;autocommit&apos;</span><br></pre></td></tr></table></figure>
+<p>我们看看运行截图：<br>
+<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1566825474271.png" alt="enter description here"><br>
+我们看到autocommit是ON，也就是默认开启的自动提交。</p>
+<h4 id="创建事务"><a class="header-anchor" href="#创建事务"></a>创建事务</h4>
+<p>update user set  account = 50  where name  = '张三丰’<br>
+update user set account = 150 where name = '郭襄’<br>
+创建事务之前，我们首先将隐式的事务关闭，为什么关闭呢？因为是自动提交，所以我们如果不关闭的话就会将我们 的第一条update语句就提交了，执行第二句是另一个事务了。<br>
+1.首先set autocommit = 0;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SET autocommit = 0;</span><br><span class="line">show VARIABLES like &apos;autocommit&apos;;</span><br></pre></td></tr></table></figure>
+<p>我们看看autocommit的值是：<br>
+<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1566828321455.png" alt="enter description here"><br>
+2.start transaction  开启事务(可选)<br>
+3.写SQL语句(一组)</p>
+<ul>
+<li>语句1</li>
+<li>语句2</li>
+<li>。。。</li>
+</ul>
 <blockquote>
-<p>o(nlogn)</p>
+<p>指明一下SQL语句是select、delete、update、insert，只有这些语句设计事务</p>
 </blockquote>
+<p>5、执行commit或者rollback</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">SET autocommit = 0;</span><br><span class="line">TRANSACTION </span><br><span class="line">UPDATE `user` </span><br><span class="line">SET account = 100 </span><br><span class="line">WHERE</span><br><span class="line">	NAME = &apos;张无忌&apos;;</span><br><span class="line">UPDATE `user` </span><br><span class="line">SET account = 100 </span><br><span class="line">WHERE</span><br><span class="line">	NAME = &apos;郭襄&apos;;</span><br><span class="line">-- COMMIT;</span><br><span class="line">-- ROLLBACK;</span><br></pre></td></tr></table></figure>
+<h4 id="注意"><a class="header-anchor" href="#注意"></a>注意</h4>
+<p>1、事务commit之前，将数据存储到内存的，这时可以回滚<br>
+2、事务提交之后数据从内存存储到磁盘文件，这时候就不能回滚了，这时候的数据已经持久化了。</p>
+<h4 id="隔离级别"><a class="header-anchor" href="#隔离级别"></a>隔离级别</h4>
+<h5 id="应用场景"><a class="header-anchor" href="#应用场景"></a>应用场景</h5>
+<p>在高并发的情况下，多个线程开启多个事务对数据库中同一个数据进行操作时。</p>
+<h5 id="不设置隔离级别带来的问题"><a class="header-anchor" href="#不设置隔离级别带来的问题"></a>不设置隔离级别带来的问题</h5>
+<p>1.脏读<br>
+两个事务T1和T2访问同一个数据，如果T1对数据库中的数据进行更新操作了，但是没有提交事务，那么T2访问的数据就是改未提交的数据，如果T1事务对数据的操作失败回滚了，那么事务T2就出现了脏读现象<br>
+2.不可重复读<br>
+两个事务T1和T2访问同一个数据，T1对数据库中的某一数据进行了读操作，T2对同一数据进行更新操作，当T1再次读取次数据时出现上一次读的数据和这次读的数据不同。<br>
+3.幻读<br>
+两个事务T1和T2访问同一个表，T1对数据库的操作是获取表格的行数，如果某一时刻T2对数据库的操作是插入数据，当T1再次对数据库获取表格的行数时发现多了几行。出现幻觉。</p>
+<table>
+<thead>
+<tr>
+<th>隔离级别</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>读未提交(read uncommit)</td>
+<td>允许事务读取其他事务未提交的数据，脏读、幻读和不可重复读都不能避免</td>
+</tr>
+<tr>
+<td>读已提交 (read commit)</td>
+<td>只允许事务读取其他事务提交的数据，可以解决脏读，但是幻读和不可重复读不能避免</td>
+</tr>
+<tr>
+<td>可重复读(repeatable read</td>
+<td>确保一个事物对数据库中某一个字段的多次读取相同的字段值，在这个事务操作期间不允许其他事务对该字段进行更新操作，可避免脏读、幻读和可重复度</td>
+</tr>
+<tr>
+<td>串行化(serializable)</td>
+<td>确保事务可以从一个表中读取相同的行在这个事务的持续期间内，禁止其他事务对该表进行操作插入、更新、删除操作可以避免所有并发问题</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>串行化虽然保证了数据库的安全性操作，但是这种方法的效率很低。<br>
+Oracle数据库只支持两种事务的隔离级别:读已提交(read commit)、串行化(serializable)</p>
+</blockquote>
+<h3 id="展示事务各个隔离级别的表现"><a class="header-anchor" href="#展示事务各个隔离级别的表现"></a>展示事务各个隔离级别的表现</h3>
+<p>首先我们查看一下数据库默认的隔离级别：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select @@tx_isolation;</span><br></pre></td></tr></table></figure>
+<p>运行截图：<br>
+<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1566896134319.png" alt><br>
+我们将数据库的隔离级别设置成最低级别的：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">set session transaction isolation level read uncommitted;//改变事务的隔离级别</span><br><span class="line">select @@tx_isolation;//查看当前事务的隔离级别</span><br></pre></td></tr></table></figure>
+<p>运行截图：<br>
+<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1566897321460.png" alt><br>
+我们切换到user数据库：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">use user;//切换数据库</span><br><span class="line"> select * from user;</span><br></pre></td></tr></table></figure>
+<p>运行截图：<br>
+<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1566897759889.png" alt><br>
+这时候我们看到中文出现乱码，我们通过下面的命令进行编码设置：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">set names jbk;//解决中文乱码</span><br><span class="line"> select * from user;</span><br></pre></td></tr></table></figure>
+<p>运行截图：<br>
+<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1566898950477.png" alt><br>
+我们打开两个dos窗口用于模拟两个事务：</p>
+<h4 id="read-uncommitted"><a class="header-anchor" href="#read-uncommitted"></a>read uncommitted</h4>
+<p>事务1窗口：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">set autocommit = 0;//创建事务</span><br><span class="line">update user set name = &apos;jan&apos; where id = 1;</span><br></pre></td></tr></table></figure>
+<p>并且事务1没有提交更新操作，这时进行如下操作：<br>
+事务2窗口</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">set autocommit = 0;</span><br><span class="line">select * from user;</span><br></pre></td></tr></table></figure>
+<p>运行截图：<br>
+<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1566901398507.png" alt><br>
+我们发现事务2出现了脏读现象，读取了事务1未提交的更新操作。<br>
+这时事务1我们执行回滚：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rollback;//回滚</span><br><span class="line">select * from user;</span><br></pre></td></tr></table></figure>
+<p><img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1566901872577.png" alt></p>
+<blockquote>
+<p>事务1更新了数据，没有提交更新，但是事务2能够读取到事务1未提交的更新。</p>
+</blockquote>
+<h4 id="read-committed"><a class="header-anchor" href="#read-committed"></a>read committed</h4>
+<p>事务1窗口：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">use user;</span><br><span class="line">set session transaction isolation level read committed;</span><br><span class="line">set autocommit = 0;</span><br><span class="line"> update user set name = &apos;jan&apos; where id = 1;</span><br></pre></td></tr></table></figure>
+<p><strong>注意上面的事务没有提交更新操作</strong><br>
+事务2窗口：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">use user;</span><br><span class="line">set session transaction isolation level read committed;</span><br><span class="line">set autocommit = 0;</span><br><span class="line"> select * from user;</span><br></pre></td></tr></table></figure>
+<p>运行截图：<br>
+<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1566904355431.png" alt><br>
+我们发现事务1执行了更新操作，但是未提交，通过运行截图我们看到事务2窗口没有读取到事务1未提交的更新。<br>
+当事务1窗口执行commit之后，事务2窗口再次执行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from user</span><br></pre></td></tr></table></figure>
+<p>运行截图：<br>
+<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1566904654321.png" alt></p>
+<blockquote>
+<p>事务1更新了数据，但是未提交，事务2读取数据时读取不到事务1更新之后的数据，当事务1commit之后，事务2就读取到了更新之后的数据了。</p>
+</blockquote>
+<h4 id="repeatale-read"><a class="header-anchor" href="#repeatale-read"></a>repeatale read</h4>
+<p>事务1窗口</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">set autocommit = 0;//开启事务</span><br><span class="line">select * from user;</span><br></pre></td></tr></table></figure>
+<p><strong>注意此时我们的事务没有提交</strong><br>
+运行结果：<br>
+<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1566916039289.png" alt><br>
+我们在此时开启事务2窗口：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">set autocommit = 0;</span><br><span class="line">insert into user values(null,&apos;jeny&apos;,100);</span><br><span class="line">commit;</span><br></pre></td></tr></table></figure>
+<p>事务2我们提交了。<br>
+我们切换到事务1的窗口再次执行：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from user;</span><br></pre></td></tr></table></figure>
+<p>运行结果：<br>
+<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1566916256572.png" alt><br>
+我们发现事务2提交的插入操作事务1访问不到插入的新数据：这就是所谓的可重复读！！！<br>
+我们提交事务1，此时我们再次执行：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">commit;</span><br><span class="line">select * from user;</span><br></pre></td></tr></table></figure>
+<p>我们再次看运行结果：<br>
+<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1566916537608.png" alt><br>
+此时我们看到事务2提交的插入新数据我们可以看到了。</p>
+<h4 id="验证read-committed是否保证可重复读"><a class="header-anchor" href="#验证read-committed是否保证可重复读"></a>验证read committed是否保证可重复读</h4>
+<p>我们还是窗口1开启一个事务，并且我们设置事务的隔离级别是read commited</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">set session transaction isolation level read committed;</span><br><span class="line">set autocommit = 0;</span><br><span class="line">select * from user;</span><br></pre></td></tr></table></figure>
+<p>运行截图：<br>
+<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1566920382223.png" alt><br>
+<strong>注意事务1没有进行提交操作</strong><br>
+这时候我们打开新窗口开启事务2：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">set session transaction isolation level read committed;</span><br><span class="line">set autocommit = 0;</span><br><span class="line">update user set name=&apos;关羽&apos; where id = 1;</span><br><span class="line">commit;</span><br></pre></td></tr></table></figure>
+<p><strong>注意事务2执行了提交操作</strong><br>
+我们切换到事务2窗口执行:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from user;</span><br></pre></td></tr></table></figure>
+<p><img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1566920678444.png" alt><br>
+开启事务1，对数据库进行查询操作，查询一次获得结果1，但是未提交事务1,此时打开另一个窗口开启事务2，对数据表进行更新或者插入操作，然后提交事务2的操作，我们切换到事务1窗口再次执行查询操作获取的结果2和结果1不同，这就是不能重复度。</p>
+<blockquote>
+<p>结论：read committed 不能保证可重复读</p>
+</blockquote>
+<h4 id="验证repeatable-read是否可以保证可重复读"><a class="header-anchor" href="#验证repeatable-read是否可以保证可重复读"></a>验证REPEATABLE-READ是否可以保证可重复读</h4>
+<p>数据库默认的事务级别就是REPEATABLE-READ(可重复读），所以我们不用设置了。<br>
+打开窗口1创建事务：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">set autocommit = 0;</span><br><span class="line">select * from user;</span><br></pre></td></tr></table></figure>
+<p>运行结果如下：<br>
+<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1566922619227.png" alt><br>
+打开新窗口2创建事务：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">set autocommit = 0;</span><br><span class="line"> update user set name = &apos;孙权&apos; where id = 8;</span><br><span class="line"> commit;</span><br></pre></td></tr></table></figure>
+<p>我们再次切换到窗口1执行：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from user;</span><br></pre></td></tr></table></figure>
+<p>运行结果：<br>
+<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1566922836937.png" alt="enter description here"><br>
+我们发现事务1查询的结果是一样的，这就保证了可重复读。</p>
+<h4 id="验证repeatable-read是否可以保证幻读"><a class="header-anchor" href="#验证repeatable-read是否可以保证幻读"></a>验证REPEATABLE-READ是否可以保证幻读</h4>
+<p>我认为幻读是一个很隐蔽的，<br>
+我们打开一个窗口1创建事务：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">set autocommit = 0;</span><br><span class="line">select * from user;</span><br></pre></td></tr></table></figure>
+<p>运行结果：<br>
+<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1566924168156.png" alt><br>
+我们打开新窗口2创建事务：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">set autocommit = 0;</span><br><span class="line">insert into user values(null,&apos;李逵&apos;,100);</span><br><span class="line"> commit;</span><br></pre></td></tr></table></figure>
+<p>我们切换到窗口1，我们查询数据：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from user;</span><br></pre></td></tr></table></figure>
+<p>运行结果：<br>
+<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1566924334745.png" alt><br>
+到此处我们得出的结论是课重复度，但是当我们在窗口1执行一次更新语句：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">update user set name = &apos;哈哈&apos;;</span><br></pre></td></tr></table></figure>
+<p><img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1566924474149.png" alt><br>
+上面截图却显示匹配5条记录，明明查询的结果是4条记录啊，这就是幻觉了。所以REPEATABLE-READ不能保证幻读。</p>
+<h4 id="serializable"><a class="header-anchor" href="#serializable"></a>Serializable</h4>
+<p>我打开窗口1开启事务：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">set autocommit = 0;</span><br><span class="line">select * from user;</span><br></pre></td></tr></table></figure>
+<p>运行结果：<br>
+<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1566925280693.png" alt><br>
+然后我们打开窗口2开启事务：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">set autocommit = 0;</span><br><span class="line">insert into user values(null,&apos;李逵&apos;,100);</span><br></pre></td></tr></table></figure>
+<p>我发现这句插入操作根本不能执行下去，光标一直闪烁处于阻塞状态，超过timeout之后出现：<br>
+<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1566925512943.png" alt></p>
 <h3 id="总结"><a class="header-anchor" href="#总结"></a>总结</h3>
 <blockquote>
-<p>经过数组的一次遍历之后，我们得出下标i的位置是比pivot小的元素中的最后一个元素。然后我们i++之后与最后一个元素（pivot）进行交换操作，然后递归实现对i左边和i右边的子数组分别进行同样的操作就实现了对数组的排序，递归结束的条件start&lt;end。其中start和end分别是数组的其实下标和结束下标。</p>
+<p>终于有了深刻的理解：<br>
+读未提交：事务1修改字段的值，但是没有提交修改操作，这时事务2读取到了事务1未提交的更新数据<br>
+读已提交：事务1修改字段的值，并且提交了，这时事务2才能读取事务1的更新数据。<br>
+可重复读：事务1对表格进行修改，并且提交修改，但是事务2在事务1修改之前和修改之后读取的结果是一样的。<br>
+幻读：事务1插入一条记录了，但是事务2查询数据的结果和事务1插入之前和插入之后是一样的。但是事务2更新操作时会出现更新的数据条数多了。<br>
+自我认知，通过操作的过程我们看出<i style="color: red">注意这里只是我的猜想，不知道大家有何理解</i>：</p>
+<table>
+<thead>
+<tr>
+<th>隔离级别</th>
+<th>锁级别</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>read uncommitted</td>
+<td>未加锁</td>
+</tr>
+<tr>
+<td>read committed</td>
+<td>字段锁</td>
+</tr>
+<tr>
+<td>repeatable read</td>
+<td>行锁</td>
+</tr>
+<tr>
+<td>Serializable</td>
+<td>表锁</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<h3 id="心得"><a class="header-anchor" href="#心得"></a>心得</h3>
+<blockquote>
+<p>好多东西去实际操作就会有很大的感悟</p>
+</blockquote>
+<h3 id="知识拓展"><a class="header-anchor" href="#知识拓展"></a>知识拓展</h3>
+<blockquote>
+<p>我这里的操作都是在dos命令下执行的：<br>
+开启数据库服务：net start mysql<br>
+关闭数据库服务：net stop mysql<br>
+进入数据库：mysql -u***  -p ***<br>
+退出数据库：\q或者exit或者quit<br>
+查看数据库存储引擎：SHOW ENGINES;<br>
+查看数据库隔离级别：select @@tx_isolation;<br>
+开启事务：</p>
+<ul>
+<li>关闭自提交 set autocommit = 0;</li>
+<li>transaction(可选);<br>
+设置事务隔离级别：set session transaction isolation level  隔离级别名称<br>
+解决中文乱码： set names gbk;<br>
+提交事务：commit;<br>
+事务回滚：rollback;<br>
+清屏：cls</li>
+</ul>
 </blockquote>
 
       
@@ -405,7 +683,7 @@ color="45, 241, 10" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
     
     <br>
     <strong>本文链接：</strong>
-    <a rel="license" href="http://yoursite.com/2019/08/25/快速排序/">http://yoursite.com/2019/08/25/快速排序/</a>
+    <a rel="license" href="http://yoursite.com/2019/08/26/MySQL事务/">http://yoursite.com/2019/08/26/MySQL事务/</a>
     <br>
     <strong>版权声明：</strong>
     本作品采用
@@ -469,19 +747,11 @@ color="45, 241, 10" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">分治算法</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">递归</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">排序</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">事务</a>
         		</li>
       		
 		</ul>
@@ -494,7 +764,7 @@ color="45, 241, 10" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/算法//" class="article-tag-list-link color3">算法</a>
+        			<a href="/categories/笔记//" class="article-tag-list-link color3">笔记</a>
         		</li>
       		
 		</ul>
@@ -550,7 +820,7 @@ color="45, 241, 10" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://janlee151.github.io/2019/08/25/快速排序/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://janlee151.github.io/2019/08/26/MySQL事务/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -564,18 +834,9 @@ color="45, 241, 10" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
   
 <nav id="article-nav">
   
-    <a href="/2019/08/25/三个数之和/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          三个数之和
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/08/22/博客写文章说明/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">博客写文章说明</div>
+    <a href="/2019/08/26/迷宫走出的方案/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">迷宫走出的方案</div>
       <i class="icon-circle-right"></i>
     </a>
   
