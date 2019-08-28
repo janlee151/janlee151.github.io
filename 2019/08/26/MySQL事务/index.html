@@ -39,7 +39,7 @@
 <meta property="og:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1566924474149.png">
 <meta property="og:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1566925280693.png">
 <meta property="og:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1566925512943.png">
-<meta property="og:updated_time" content="2019-08-27T17:46:01.086Z">
+<meta property="og:updated_time" content="2019-08-28T00:11:53.566Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MySQL事务">
 <meta name="twitter:description" content="事务 定义 一个或者一组SQL语句组成的单元，这个单元中执行的SQL语句不能分割。如果单元中某一条SQL语句执行失败，那么事务就会回滚，将数据库的状态恢复到执行单元之前的状态。如果单元执行成功，那么事务就执行完毕了。 存储引擎">
@@ -359,7 +359,7 @@ color="45, 241, 10" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
 	<div id="toc-article" class="toc-article">
 	    <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
 		<strong class="toc-title">文章目录</strong>
-           <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#事务"><span class="toc-number">1.</span> <span class="toc-text">事务</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#定义"><span class="toc-number">1.1.</span> <span class="toc-text">定义</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#存储引擎-more"><span class="toc-number">1.2.</span> <span class="toc-text">存储引擎</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#需要掌握的存储引擎"><span class="toc-number">1.3.</span> <span class="toc-text">需要掌握的存储引擎</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#事务的属性-acid"><span class="toc-number">1.4.</span> <span class="toc-text">事务的属性(ACID)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#事务的类型"><span class="toc-number">1.5.</span> <span class="toc-text">事务的类型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#创建事务"><span class="toc-number">1.6.</span> <span class="toc-text">创建事务</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#注意"><span class="toc-number">1.7.</span> <span class="toc-text">注意</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#隔离级别"><span class="toc-number">1.8.</span> <span class="toc-text">隔离级别</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#应用场景"><span class="toc-number">1.8.1.</span> <span class="toc-text">应用场景</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#不设置隔离级别带来的问题"><span class="toc-number">1.8.2.</span> <span class="toc-text">不设置隔离级别带来的问题</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#展示事务各个隔离级别的表现"><span class="toc-number">2.</span> <span class="toc-text">展示事务各个隔离级别的表现</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#read-uncommitted"><span class="toc-number">2.1.</span> <span class="toc-text">read uncommitted</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#read-committed"><span class="toc-number">2.2.</span> <span class="toc-text">read committed</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#repeatale-read"><span class="toc-number">2.3.</span> <span class="toc-text">repeatale read</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#验证read-committed是否保证可重复读"><span class="toc-number">2.4.</span> <span class="toc-text">验证read committed是否保证可重复读</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#验证repeatable-read是否可以保证可重复读"><span class="toc-number">2.5.</span> <span class="toc-text">验证REPEATABLE-READ是否可以保证可重复读</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#验证repeatable-read是否可以保证幻读"><span class="toc-number">2.6.</span> <span class="toc-text">验证REPEATABLE-READ是否可以保证幻读</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#serializable"><span class="toc-number">2.7.</span> <span class="toc-text">Serializable</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#总结"><span class="toc-number">3.</span> <span class="toc-text">总结</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#心得"><span class="toc-number">4.</span> <span class="toc-text">心得</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#知识拓展"><span class="toc-number">5.</span> <span class="toc-text">知识拓展</span></a></li></ol>
+           <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#事务"><span class="toc-number">1.</span> <span class="toc-text">事务</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#定义"><span class="toc-number">1.1.</span> <span class="toc-text">定义</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#存储引擎-more"><span class="toc-number">1.2.</span> <span class="toc-text">存储引擎</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#需要掌握的存储引擎"><span class="toc-number">1.3.</span> <span class="toc-text">需要掌握的存储引擎</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#事务的属性-acid"><span class="toc-number">1.4.</span> <span class="toc-text">事务的属性(ACID)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#事务的类型"><span class="toc-number">1.5.</span> <span class="toc-text">事务的类型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#创建事务"><span class="toc-number">1.6.</span> <span class="toc-text">创建事务</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#注意"><span class="toc-number">1.7.</span> <span class="toc-text">注意</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#隔离级别"><span class="toc-number">1.8.</span> <span class="toc-text">隔离级别</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#应用场景"><span class="toc-number">1.8.1.</span> <span class="toc-text">应用场景</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#不设置隔离级别带来的问题"><span class="toc-number">1.8.2.</span> <span class="toc-text">不设置隔离级别带来的问题</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#展示事务各个隔离级别的表现"><span class="toc-number">2.</span> <span class="toc-text">展示事务各个隔离级别的表现</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#read-uncommitted"><span class="toc-number">2.1.</span> <span class="toc-text">read uncommitted</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#read-committed"><span class="toc-number">2.2.</span> <span class="toc-text">read committed</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#repeatale-read"><span class="toc-number">2.3.</span> <span class="toc-text">repeatale read</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#验证read-committed是否保证可重复读"><span class="toc-number">2.4.</span> <span class="toc-text">验证read committed是否保证可重复读</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#验证repeatable-read是否可以保证可重复读"><span class="toc-number">2.5.</span> <span class="toc-text">验证REPEATABLE-READ是否可以保证可重复读</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#验证repeatable-read是否可以保证幻读"><span class="toc-number">2.6.</span> <span class="toc-text">验证REPEATABLE-READ是否可以保证幻读</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#serializable"><span class="toc-number">2.7.</span> <span class="toc-text">Serializable</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#总结"><span class="toc-number">3.</span> <span class="toc-text">总结</span></a></li></ol>
          </div>
    <script type="text/javascript">
 	function showToc(){
@@ -646,13 +646,6 @@ Oracle数据库只支持两种事务的隔离级别:读已提交(read commit)、
 </tr>
 </tbody>
 </table>
-</blockquote>
-<h3 id="心得"><a class="header-anchor" href="#心得"></a>心得</h3>
-<blockquote>
-<p>好多东西去实际操作就会有很大的感悟</p>
-</blockquote>
-<h3 id="知识拓展"><a class="header-anchor" href="#知识拓展"></a>知识拓展</h3>
-<blockquote>
 <p>我这里的操作都是在dos命令下执行的：<br>
 开启数据库服务：net start mysql<br>
 关闭数据库服务：net stop mysql<br>
@@ -1051,19 +1044,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">连接</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">子查询</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">exists</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
+                <a href="javascript:void(0)" class="js-tag color3">连接</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1075,6 +1060,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">徐志摩</a>
               </li>
              
@@ -1083,11 +1072,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">文档说明</a>
+                <a href="javascript:void(0)" class="js-tag color2">exists</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1108,6 +1093,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">动态规划</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">文档说明</a>
               </li>
              
               <li class="article-tag-list-item">
