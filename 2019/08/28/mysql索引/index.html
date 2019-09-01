@@ -8,13 +8,13 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>mysql索引 | 我的地盘我做主</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="索引 定义 帮助MySQL高效获取数据的数据结构。 分类 1.单值索引：表的一个字段作为索引，并且一个数据库表可以有多个单值索引 2.唯一索引：表中字段的值不能重复，例如：主键 3.复合索引：多个字段组成的索引。 索引操作 user表：  创建索引 方式一 格式：create 索引类型  索引名   on 表名(字段名) 1.创建单值索引： 案例：create  index  name_index">
+  <meta name="description" content="索引 定义 帮助MySQL高效获取数据的数据结构。 分类 1.单值索引：表的一个字段作为索引，并且一个数据库表可以有多个单值索引">
 <meta name="keywords" content="mysql,索引">
 <meta property="og:type" content="article">
 <meta property="og:title" content="mysql索引">
 <meta property="og:url" content="http://yoursite.com/2019/08/28/mysql索引/index.html">
 <meta property="og:site_name" content="我的地盘我做主">
-<meta property="og:description" content="索引 定义 帮助MySQL高效获取数据的数据结构。 分类 1.单值索引：表的一个字段作为索引，并且一个数据库表可以有多个单值索引 2.唯一索引：表中字段的值不能重复，例如：主键 3.复合索引：多个字段组成的索引。 索引操作 user表：  创建索引 方式一 格式：create 索引类型  索引名   on 表名(字段名) 1.创建单值索引： 案例：create  index  name_index">
+<meta property="og:description" content="索引 定义 帮助MySQL高效获取数据的数据结构。 分类 1.单值索引：表的一个字段作为索引，并且一个数据库表可以有多个单值索引">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1566976468429.png">
 <meta property="og:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/B%E6%A0%91_(1).png">
@@ -37,10 +37,10 @@
 <meta property="og:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1567047473262.png">
 <meta property="og:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1567047564441.png">
 <meta property="og:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1567047824859.png">
-<meta property="og:updated_time" content="2019-09-01T03:37:40.406Z">
+<meta property="og:updated_time" content="2019-09-01T03:52:01.951Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="mysql索引">
-<meta name="twitter:description" content="索引 定义 帮助MySQL高效获取数据的数据结构。 分类 1.单值索引：表的一个字段作为索引，并且一个数据库表可以有多个单值索引 2.唯一索引：表中字段的值不能重复，例如：主键 3.复合索引：多个字段组成的索引。 索引操作 user表：  创建索引 方式一 格式：create 索引类型  索引名   on 表名(字段名) 1.创建单值索引： 案例：create  index  name_index">
+<meta name="twitter:description" content="索引 定义 帮助MySQL高效获取数据的数据结构。 分类 1.单值索引：表的一个字段作为索引，并且一个数据库表可以有多个单值索引">
 <meta name="twitter:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1566976468429.png">
   
     <link rel="alternative" href="/atom.xml" title="我的地盘我做主" type="application/atom+xml">
@@ -384,7 +384,7 @@ color="45, 241, 10" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
 <h4 id="定义"><a class="header-anchor" href="#定义"></a>定义</h4>
 <p>帮助MySQL高效获取数据的数据结构。</p>
 <h4 id="分类"><a class="header-anchor" href="#分类"></a>分类</h4>
-<p>1.单值索引：表的一个字段作为索引，并且一个数据库表可以有多个单值索引<br>
+<p>1.单值索引：表的一个字段作为索引，并且一个数据库表可以有多个单值索引<a id="more"></a><br>
 2.唯一索引：表中字段的值不能重复，例如：主键<br>
 3.复合索引：多个字段组成的索引。</p>
 <h4 id="索引操作"><a class="header-anchor" href="#索引操作"></a>索引操作</h4>
@@ -932,11 +932,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+                <a href="javascript:void(0)" class="js-tag color5">进阶指令</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">进阶指令</a>
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -960,11 +960,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">子查询</a>
+                <a href="javascript:void(0)" class="js-tag color3">连接</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">连接</a>
+                <a href="javascript:void(0)" class="js-tag color4">子查询</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -981,6 +981,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">徐志摩</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">现代诗</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1020,19 +1028,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">徐志摩</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">现代诗</a>
+                <a href="javascript:void(0)" class="js-tag color3">事务</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">索引</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">事务</a>
               </li>
             
             <div class="clearfix"></div>

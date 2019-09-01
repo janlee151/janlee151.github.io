@@ -1085,11 +1085,11 @@ color="45, 241, 10" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">进阶指令</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">进阶指令</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
         		</li>
       		
 		</ul>
@@ -1279,170 +1279,8 @@ color="45, 241, 10" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
 <h4 id="定义"><a class="header-anchor" href="#定义"></a>定义</h4>
 <p>帮助MySQL高效获取数据的数据结构。</p>
 <h4 id="分类"><a class="header-anchor" href="#分类"></a>分类</h4>
-<p>1.单值索引：表的一个字段作为索引，并且一个数据库表可以有多个单值索引<br>
-2.唯一索引：表中字段的值不能重复，例如：主键<br>
-3.复合索引：多个字段组成的索引。</p>
-<h4 id="索引操作"><a class="header-anchor" href="#索引操作"></a>索引操作</h4>
-<p>user表：<br>
-<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1566976468429.png" alt="数据库表"></p>
-<h5 id="创建索引"><a class="header-anchor" href="#创建索引"></a>创建索引</h5>
-<p>方式一<br>
-格式：create 索引类型  索引名   on 表名(字段名)<br>
-1.创建单值索引：<br>
-案例：create  index  name_index  on  user(name);<br>
-2.创建唯一索引：<br>
-案例：create unique index  id_index on user(id);<br>
-3.创建复合索引：<br>
-案例：create index name_account_index on user(name,account);<br>
-方式二<br>
-格式：alter table 表名 add 索引类型 索引名(字段)<br>
-1.创建单值索引：<br>
-alter table user add index name_index(name);<br>
-2.创建唯一索引<br>
-alter table user add unique index id_index(id);<br>
-3.创建组合索引<br>
-alter table user add index  name_account_index(name,account);<br>
-如果某个字段设置成 primary key主键，那么它默认是唯一索引<br>
-主键索引和唯一索引有一点区别：<br>
-主键索引的值不能为null，但是唯一索引的值可以为null</p>
-<h5 id="删除索引"><a class="header-anchor" href="#删除索引"></a>删除索引</h5>
-<p>drop index  索引名 on 表名</p>
-<h5 id="查询索引"><a class="header-anchor" href="#查询索引"></a>查询索引</h5>
-<p>show index from 表名</p>
-<h4 id="索引结构"><a class="header-anchor" href="#索引结构"></a>索引结构</h4>
-<p>B+树<br>
-<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/B%E6%A0%91_(1).png" alt="B树 1"><br>
-真正的数据存储的位置是叶子结点。</p>
-<h4 id="sql优化"><a class="header-anchor" href="#sql优化"></a>SQL优化</h4>
-<p>关键字：Explain用于查看SQL语句的执行计划。<br>
-用法就是：Explain +SQL 语句，SQL执行计划的指标：<br>
-<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1566990170212.png" alt="enter description here"><br>
-id:select 查询的序列号，包含一组数字，表示查询中执行select子句或 操作表的顺序。<br>
-案例分析：<br>
-员工表：<br>
-<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1566993345209.png" alt="enter description here"><br>
-部门表：<br>
-<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1566993363342.png" alt="enter description here"><br>
-位置表：<br>
-<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1566993387016.png" alt="enter description here"></p>
-<h5 id="id"><a class="header-anchor" href="#id"></a>id</h5>
-<p>我们执行：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">EXPLAIN SELECT</span><br><span class="line">	employee.`name`,</span><br><span class="line">	employee.salary </span><br><span class="line">FROM</span><br><span class="line">	employee,</span><br><span class="line">	department,</span><br><span class="line">	location </span><br><span class="line">WHERE</span><br><span class="line">	employee.de_id = department.de_id </span><br><span class="line">	AND department.lo_id = location.lo_id </span><br><span class="line">	AND location.`name` = &apos;海淀区&apos;;</span><br></pre></td></tr></table></figure>
-<p>运行截图：<br>
-<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1567001806062.png" alt="enter description here"><br>
-我们看到id是一样的，这时候查询的表格是按照从上到下的顺序来的：location、department、employee。我们看到并不是按照我们from后边表格的顺序进行查询的。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">SELECT</span><br><span class="line">	employee.`name`,</span><br><span class="line">	employee.salary </span><br><span class="line">FROM</span><br><span class="line">	employee </span><br><span class="line">WHERE</span><br><span class="line">	employee.de_id = ( SELECT department.de_id FROM department WHERE department.lo_id = ( SELECT location.lo_id FROM location WHERE location.`name` = &apos;海淀区&apos; ) );</span><br></pre></td></tr></table></figure>
-<p>运行截图：<br>
-<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1567001932023.png" alt="enter description here"><br>
-通过上面我们看到id不同了，SQL优化器查询表格的先后顺序是与id的大小相关的，三个表格查询的先后顺序：location、department、employee。id越大执行的优先级越高。</p>
-<h5 id="select-type"><a class="header-anchor" href="#select-type"></a>select_type</h5>
-<p>常见的值：</p>
-<table>
-<thead>
-<tr>
-<th>id</th>
-<th>select_type</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>simple</td>
-</tr>
-<tr>
-<td>2</td>
-<td>primary</td>
-</tr>
-<tr>
-<td>3</td>
-<td>subquery</td>
-</tr>
-<tr>
-<td>4</td>
-<td>derived</td>
-</tr>
-<tr>
-<td>5</td>
-<td>union</td>
-</tr>
-<tr>
-<td>6</td>
-<td>union result</td>
-</tr>
-</tbody>
-</table>
-<p>simple:<br>
-就是一般的查询语句：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">explain select * from employee;</span><br></pre></td></tr></table></figure>
-<p><img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1567003451260.png" alt="enter description here">.<br>
-primary和subquery<br>
-子查询中主查询和子查询</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">explain SELECT employee.`name`,employee.salary from employee where employee.de_id = (SELECT department.de_id FROM department WHERE department.lo_id = (SELECT location.lo_id FROM location where location.`name` = &apos;海淀区&apos;));</span><br></pre></td></tr></table></figure>
-<p><img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1567003674084.png" alt="enter description here"><br>
-derived<br>
-子查询中中间表中查数据：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">explain SELECT name ,salary from (select name,salary from employee ) t1;</span><br></pre></td></tr></table></figure>
-<p><img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1567004320042.png" alt="enter description here"><br>
-union和union result<br>
-联合查询：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">explain SELECT employee.*,department.* FROM employee LEFT JOIN department ON employee.de_id = department.de_id UNION SELECT employee.*,department.* from employee RIGHT JOIN department ON employee.de_id = department.de_id;</span><br></pre></td></tr></table></figure>
-<p><img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1567005054399.png" alt="enter description here"></p>
-<h5 id="type"><a class="header-anchor" href="#type"></a>type</h5>
-<p>8种值</p>
-<table>
-<thead>
-<tr>
-<th>ALL</th>
-<th>index</th>
-<th>range</th>
-<th>ref</th>
-<th>eq_ref</th>
-<th>const</th>
-<th>system</th>
-<th>NULL</th>
-</tr>
-</thead>
-<tbody></tbody>
-</table>
-<p>查询效率从最好到最坏依次：system&gt;const&gt;eq_ref&gt;ref&gt;range&gt;index&gt;ALL<br>
-const：这种类型查找的效率很高，我们通过代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">explain select * from employee where em_id = 1;</span><br></pre></td></tr></table></figure>
-<p>运行截图：<br>
-<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1567042138571.png" alt="enter description here"><br>
-我们可以看出主键（唯一索引）直接定位到所要查询的结果，效率最快。<br>
-eq_ref ： 得到这个查询的类型我尝试了多次，对唯一索引进行扫描，代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">create unique index de_id_index on employee(de_id);</span><br><span class="line">explain SELECT * from employee,department where employee.de_id = department.de_id;</span><br></pre></td></tr></table></figure>
-<p>员工表和部门表通过外键建立关联，在这里呢我们首先将员工表中的外键（部门id）建立唯一索引，在部门表中只有一条记录。我们查看运行截图：<br>
-<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1567043496026.png" alt="enter description here"><br>
-ref：对非唯一性索引进行扫描，匹配的结果是一组值，代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">creat index name_index on employee(name);</span><br><span class="line">explain select * from employee where name=&apos;小红&apos;;</span><br></pre></td></tr></table></figure>
-<p>运行截图：<br>
-<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1567043903352.png" alt="enter description here"><br>
-对员工表中name字段建立字段索引，员工表中name是小红的可能有多个。<br>
-range：<br>
-如果我们查询员工表中薪资范围在4500~9000范围的员工名：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">explain SELECT name FROM employee WHERE salary BETWEEN 4500 AND 9000;</span><br></pre></td></tr></table></figure>
-<p>我们看一下查询类型：<br>
-<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1567045661495.png" alt="enter description here"><br>
-说明我们查询某一范围的字段值时，扫描了整个表的记录，将符合范围的返回。<br>
-这时我们为字段salary添加索引：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">create index salary_index on employee(salary);</span><br><span class="line">explain SELECT name FROM employee WHERE salary BETWEEN 4500 AND 9000;</span><br></pre></td></tr></table></figure>
-<p>我们在看一下查询类型是range<br>
-<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1567045872760.png" alt="enter description here"><br>
-说明它查询的类型不是全表扫描搜索，而是区间搜索，也就是只扫描在4500~9000范围内的记录，其他记录的没有扫描。这样提高了效率。<br>
-index：<br>
-索引全部扫描，但是索引文件比数据文件要小，所以查询效率比all快：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">explain select em_id from employee;</span><br></pre></td></tr></table></figure>
-<p>运行截图：<br>
-<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1567046446567.png" alt="enter description here"><br>
-possible_keys、key、key_len:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">explain SELECT name FROM employee WHERE salary BETWEEN 4500 AND 9000;</span><br></pre></td></tr></table></figure>
-<p><img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1567047473262.png" alt="enter description here"></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">explain select em_id from employee;</span><br></pre></td></tr></table></figure>
-<p><img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1567047564441.png" alt="enter description here"></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">explain SELECT * from employee,department where employee.de_id = department.de_id;</span><br></pre></td></tr></table></figure>
-<p><img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1567047824859.png" alt="enter description here"></p>
-
+<p>1.单值索引：表的一个字段作为索引，并且一个数据库表可以有多个单值索引
+        
       
 	  <!--增加版权-->
      
@@ -1652,11 +1490,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+                <a href="javascript:void(0)" class="js-tag color5">进阶指令</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">进阶指令</a>
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1680,11 +1518,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">子查询</a>
+                <a href="javascript:void(0)" class="js-tag color3">连接</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">连接</a>
+                <a href="javascript:void(0)" class="js-tag color4">子查询</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1701,6 +1539,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">徐志摩</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">现代诗</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1740,19 +1586,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">徐志摩</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">现代诗</a>
+                <a href="javascript:void(0)" class="js-tag color3">事务</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">索引</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">事务</a>
               </li>
             
             <div class="clearfix"></div>
