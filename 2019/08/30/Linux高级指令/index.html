@@ -26,7 +26,7 @@
 <meta property="og:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1567168670775.png">
 <meta property="og:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1567174244044.png">
 <meta property="og:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1567175593706.png">
-<meta property="og:updated_time" content="2019-09-01T03:36:22.681Z">
+<meta property="og:updated_time" content="2019-09-01T08:25:24.160Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux高级指令">
 <meta name="twitter:description" content="ps -ef -e 列出全部进程 -f 列出全部的列信息 执行结果是列出系统当前的全部进程。">
@@ -373,14 +373,14 @@ color="45, 241, 10" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
 <p>-e 列出全部进程<br>
 -f 列出全部的列信息<br>
 执行结果是列出系统当前的全部进程。<a id="more"></a></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#ps -ef</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps -ef</span><br></pre></td></tr></table></figure>
 <p><img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1567159561060.png" alt="enter description here"><br>
 标题：<br>
 UID：进程执行的用户id<br>
 PID：进程id<br>
 PPID：该进程的父级进程id，如果某一个进程的父进程id不存在，那么这个进程就是僵尸进程。<br>
 C：进程占用CPU的百分比</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#ps -ef | grep gnome-shell</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps -ef | grep gnome-shell</span><br></pre></td></tr></table></figure>
 <p><img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1567160195487.png" alt="enter description here"><br>
 我们看到上面的截图中展示出两个进程，其实你仔细看了之后你会发现有一个进程就是我们执行查看进程命令的进程。</p>
 <h4 id="top"><a class="header-anchor" href="#top"></a>top</h4>
@@ -389,7 +389,7 @@ C：进程占用CPU的百分比</p>
 <li>进入命令：#top   动态显示进程</li>
 <li>退出命令：q</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#top</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">top</span><br></pre></td></tr></table></figure>
 <p><img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1567160775257.png" alt="enter description here"><br>
 最开始几行的参数或者数值表示的意义：<br>
 top：只当前执行的命令<br>
@@ -431,37 +431,37 @@ COMMAND：表示进程名称或者路径。<br>
 f：表示查找的文件<br>
 d：表示文件夹<br>
 案例代码：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#find /etc/ -type d</span></span><br><span class="line"><span class="comment">#find /etc/ -type f</span></span><br><span class="line"><span class="comment">#find /etc/ -name *.txt</span></span><br><span class="line"><span class="comment">#find /etc/ -name a.txt</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">find /etc/ -<span class="built_in">type</span> d</span><br><span class="line">find /etc/ -<span class="built_in">type</span> f</span><br><span class="line">find /etc/ -name *.txt</span><br><span class="line">find /etc/ -name a.txt</span><br></pre></td></tr></table></figure>
 <p>上面的代码查找的是etc目录下：按照文件类型查找文件夹/文件；按照文件名模糊查询/精确查询<br>
 我们同样可以查看某一个路径下查询结果中文件的个数：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#find /etc/ -type f | wc -l</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find /etc/ -<span class="built_in">type</span> f | wc -l</span><br></pre></td></tr></table></figure>
 <p>这里我只举一个案例，我们按照文件类型查找etc路径下的文件，获取到匹配的文件数。</p>
 <h4 id="service-重点"><a class="header-anchor" href="#service-重点"></a>service(重点)</h4>
 <p>作用：控制一些软件服务的启动/停止/重启<br>
 语法：#service   服务名  start/stop/restart</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#service httpd start</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service httpd start</span><br></pre></td></tr></table></figure>
 <h4 id="kill-重点"><a class="header-anchor" href="#kill-重点"></a>kill（重点）</h4>
 <p>用法：kill  进程pid<br>
 killall  进程名字<br>
 1.kill 进程pid  需要配合ps命令</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#ps -ef | grep 进程名</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps -ef | grep 进程名</span><br></pre></td></tr></table></figure>
 <p>我们获取进程的pid，然后用命令kill  进程pid进行杀死进程：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#  ps -ef |grep bash</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps -ef |grep bash</span><br></pre></td></tr></table></figure>
 <p><img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1567174244044.png" alt="enter description here"><br>
 然后我们kill相应的pid:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#kill (pid)</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">kill</span> (pid)</span><br></pre></td></tr></table></figure>
 <p>对于killall命令是个最好用命令，我们想要杀死相同进程名的进程（杀死多个）</p>
 <h4 id="ifconfig-重点"><a class="header-anchor" href="#ifconfig-重点"></a>ifconfig(重点)</h4>
 <p>作用：用于操作网卡<br>
 语法：#ifconfig</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#ifconfig</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ifconfig</span><br></pre></td></tr></table></figure>
 <p><img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1567175593706.png" alt="enter description here"><br>
 注意：inet addr 就是网卡的IP地址。</p>
 <h4 id="reboot"><a class="header-anchor" href="#reboot"></a>reboot</h4>
 <p>作用就是重启计算机 : #reboot</p>
 <h4 id="du-sh"><a class="header-anchor" href="#du-sh"></a>du -sh</h4>
 <p>作用就是查看某个路径下文件所占的磁盘空间</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#du -sh /etc</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">du -sh /etc</span><br></pre></td></tr></table></figure>
 <p>查看etc文件夹所占的磁盘空间</p>
 <h4 id="注意事项"><a class="header-anchor" href="#注意事项"></a>注意事项</h4>
 <p>区分：rm  -rf  /etc/    此命令的目的是将etc文件夹以及此文件夹的所有子文件夹和文件进行删除<br>
@@ -851,11 +851,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">进阶指令</a>
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+                <a href="javascript:void(0)" class="js-tag color3">网络</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ssh</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -863,7 +867,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">进阶指令</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">高级指令</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">子查询</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">连接</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -875,27 +895,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">连接</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">子查询</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">exists</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vim</a>
+                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">编辑器</a>
+                <a href="javascript:void(0)" class="js-tag color5">文档说明</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -908,14 +916,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">现代诗</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">文档说明</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -947,6 +947,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vim</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">编辑器</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">事务</a>
               </li>
              
@@ -958,7 +966,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           </ul>
         </div>
 		  
-		   <span style="color:#0BF9D5;background:black">&nbsp;&nbsp;&nbsp;<i class="icon ion-document"></i>&nbsp;&nbsp;博客文章数 ：17</span>
+		   <span style="color:#0BF9D5;background:black">&nbsp;&nbsp;&nbsp;<i class="icon ion-document"></i>&nbsp;&nbsp;博客文章数 ：18</span>
         <ul class="search-ul">
           <p q-show="jsonFail" style="padding: 20px; font-size: 12px;">
             缺失模块。<br/>1、请确保node版本大于6.2<br/>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br/> npm i hexo-generator-json-content --save<br/><br/>

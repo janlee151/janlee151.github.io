@@ -28,7 +28,7 @@
 <meta property="og:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1567304932848.png">
 <meta property="og:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1567305755703.png">
 <meta property="og:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1567305835222.png">
-<meta property="og:updated_time" content="2019-09-01T03:26:34.823Z">
+<meta property="og:updated_time" content="2019-09-01T08:26:55.516Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux用户和用户组">
 <meta name="twitter:description" content="用户和用户组 介绍 Linux是一个多用户，多任务的操作系统，任何一个使用系统资源的用户必须向系统管理员申请一个账号，然后以账号的身份进入资源。 每一个用户都必有一个唯一的用户名（系统的所有用户的用户名不能相同） 管理用户的文件">
@@ -389,13 +389,13 @@ color="45, 241, 10" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
 </ul>
 <h5 id="创建普通用户和案例"><a class="header-anchor" href="#创建普通用户和案例"></a>创建普通用户和案例</h5>
 <p>不使用选项创建用户：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#useradd zhangsan</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">useradd zhangsan</span><br></pre></td></tr></table></figure>
 <p>这样创建的用户和用户组是同名，也就是说这个用户属于自己<br>
 使用选项创建用户：<br>
 首先我们查看一下两个存在用户的id:<br>
 <img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1567266436808.png" alt="enter description here"><br>
 我们看到用户liyang的用户id是1000，zhangsan的用户id是1001</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># useradd -g 1001 -G 1000 -u 666 lisi</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">useradd -g 1001 -G 1000 -u 666 lisi</span><br></pre></td></tr></table></figure>
 <p>上面的命令我们创建lisi用户，主组id是1001（zhangsan用户） 附组id是1000（liyang用户id)  666是lisi的用户id，用户名：lisi  ，查看/etc/passwd文件。<br>
 <img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1567266766423.png" alt="enter description here"></p>
 <blockquote>
@@ -408,7 +408,7 @@ lisi的附组就在这里查看：<br>
 </blockquote>
 <p>通过上面的命令我们可以实现创建用户，我们怎么证明我们创建了用户了呢？<br>
 1.我们在：/etc/passwd   文件可以查看普通用户信息：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#tail /etc/passwd</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tail /etc/passwd</span><br></pre></td></tr></table></figure>
 <p>我们可以看到如下内容：<br>
 <img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1567263812087.png" alt="enter description here"></p>
 <table>
@@ -436,7 +436,7 @@ lisi的附组就在这里查看：<br>
 </tbody>
 </table>
 <p>2.我们在：/home</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#cd /home</span></span><br><span class="line"><span class="comment">#ls -l</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /home</span><br><span class="line">ls -l</span><br></pre></td></tr></table></figure>
 <p><img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1567263953535.png" alt="enter description here"></p>
 <h4 id="用户组管理"><a class="header-anchor" href="#用户组管理"></a>用户组管理</h4>
 <h5 id="用户组的创建"><a class="header-anchor" href="#用户组的创建"></a>用户组的创建</h5>
@@ -446,14 +446,14 @@ lisi的附组就在这里查看：<br>
 <li>-g ：这个表示用户组的id，<br>
 案例：</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#groupadd myadmin</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">groupadd myadmin</span><br></pre></td></tr></table></figure>
 <p>我们查看用户组信息，进入/etc/group:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># tail -1 /etc/group</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tail -1 /etc/group</span><br></pre></td></tr></table></figure>
 <p><img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1567298740686.png" alt="enter description here"><br>
 这个文件中一行表示的数据含义：<br>
 用户组名：用户组密码占位符：用户组的用户id：用户组的用户成员<br>
 我们使用选项添加用户组：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#groupadd -g 667 wangwu</span></span><br><span class="line"><span class="comment">#tail -1 /etc/group</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">groupadd -g 667 wangwu</span><br><span class="line">tail -1 /etc/group</span><br></pre></td></tr></table></figure>
 <p><img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1567299023937.png" alt="enter description here"></p>
 <h5 id="用户组的编辑"><a class="header-anchor" href="#用户组的编辑"></a>用户组的编辑</h5>
 <p>格式：groupmod 选项 待修改的用户组名<br>
@@ -462,17 +462,17 @@ lisi的附组就在这里查看：<br>
 <li>-g自己设定用户组id</li>
 <li>-n:用于修改用户组的名称</li>
 </ul>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#groupmod -g 700 -n xixixi wangwu</span></span><br></pre></td></tr></table></figure>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">groupmod -g 700 -n xixixi wangwu</span><br></pre></td></tr></table></figure>
 <p>开始用户组名字是wangwu,用户组id是667：<br>
 <img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1567304763560.png" alt="enter description here"><br>
 执行上面的命令之后：<br>
 <img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1567304932848.png" alt="enter description here"></p>
 <h5 id="用户组删除"><a class="header-anchor" href="#用户组删除"></a>用户组删除</h5>
 <p>格式：groupdel  用户组名</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#groupdel xixixi</span></span><br><span class="line">groupdel myadmin</span><br></pre></td></tr></table></figure>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">groupdel xixixi</span><br><span class="line">groupdel myadmin</span><br></pre></td></tr></table></figure>
 <p>这样我们实现将：/etc/group 文件中的用户组xixixi 和myadmin删除了<br>
 我们再次执行：</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#groupdel zhangsan</span></span><br></pre></td></tr></table></figure>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">groupdel zhangsan</span><br></pre></td></tr></table></figure>
 <p>运行截图：<br>
 <img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1567305755703.png" alt="enter description here"><br>
 我们再次查看： /etc/passwd   这个文件：<br>
@@ -480,7 +480,7 @@ lisi的附组就在这里查看：<br>
 我们发现zhangsan这个用户组是lisi用户的主组，所以这个组不能删除。如果非要删除这个组，我们必须将该组内的用户清空。如同qq分组一样，如果分组中有好友呢，我们是不可能删除分组的。<br>
 我们如何将一个用户移除一个主组呢？<br>
 我们使用以下命令：</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#usermod -g  数值  用户名</span></span><br></pre></td></tr></table></figure>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">usermod -g  数值  用户名</span><br></pre></td></tr></table></figure>
 <p>数值是存在的其他用户组的id值，移除之后我们就可以删除这个用户组了。</p>
 <blockquote>
 <p>总结：<br>
@@ -646,6 +646,15 @@ lisi的附组就在这里查看：<br>
 
   
 <nav id="article-nav">
+  
+    <a href="/2019/09/01/Linux网络配置/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Linux网络配置
+        
+      </div>
+    </a>
   
   
     <a href="/2019/08/31/vim编辑器/" id="article-nav-older" class="article-nav-link-wrap">
@@ -860,11 +869,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">进阶指令</a>
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+                <a href="javascript:void(0)" class="js-tag color3">网络</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ssh</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -872,7 +885,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">进阶指令</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">高级指令</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">子查询</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">连接</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -884,27 +913,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">连接</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">子查询</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">exists</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vim</a>
+                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">编辑器</a>
+                <a href="javascript:void(0)" class="js-tag color5">文档说明</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -917,14 +934,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">现代诗</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">文档说明</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -956,6 +965,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vim</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">编辑器</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">事务</a>
               </li>
              
@@ -967,7 +984,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           </ul>
         </div>
 		  
-		   <span style="color:#0BF9D5;background:black">&nbsp;&nbsp;&nbsp;<i class="icon ion-document"></i>&nbsp;&nbsp;博客文章数 ：17</span>
+		   <span style="color:#0BF9D5;background:black">&nbsp;&nbsp;&nbsp;<i class="icon ion-document"></i>&nbsp;&nbsp;博客文章数 ：18</span>
         <ul class="search-ul">
           <p q-show="jsonFail" style="padding: 20px; font-size: 12px;">
             缺失模块。<br/>1、请确保node版本大于6.2<br/>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br/> npm i hexo-generator-json-content --save<br/><br/>
