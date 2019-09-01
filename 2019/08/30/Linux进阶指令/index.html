@@ -8,13 +8,13 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>Linux进阶指令 | 我的地盘我做主</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="进阶指令 df指令 用于查看磁盘的占用情况 1# df &amp;lt;!--more--&amp;gt;  1#df -h  它的作用就是磁盘占用、可用等以合理的单位显示出来。 free 用于查看内存的占用情况 1# free  内存情况以字节为单位进行查看 1# free -m 内存情况以兆（m)为单位进行查看 head 格式：#head  -n 路径下的文件  （n是数字，用于显示文件的前多少行数据） 用于">
+  <meta name="description" content="进阶指令 df指令 用于查看磁盘的占用情况 1# df  1#df -h">
 <meta name="keywords" content="Linux,进阶指令">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux进阶指令">
 <meta property="og:url" content="http://yoursite.com/2019/08/30/Linux进阶指令/index.html">
 <meta property="og:site_name" content="我的地盘我做主">
-<meta property="og:description" content="进阶指令 df指令 用于查看磁盘的占用情况 1# df &amp;lt;!--more--&amp;gt;  1#df -h  它的作用就是磁盘占用、可用等以合理的单位显示出来。 free 用于查看内存的占用情况 1# free  内存情况以字节为单位进行查看 1# free -m 内存情况以兆（m)为单位进行查看 head 格式：#head  -n 路径下的文件  （n是数字，用于显示文件的前多少行数据） 用于">
+<meta property="og:description" content="进阶指令 df指令 用于查看磁盘的占用情况 1# df  1#df -h">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1567128702383.png">
 <meta property="og:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1567128789145.png">
@@ -26,10 +26,10 @@
 <meta property="og:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1567137234879.png">
 <meta property="og:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1567137332799.png">
 <meta property="og:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1567151210248.png">
-<meta property="og:updated_time" content="2019-09-01T03:43:57.675Z">
+<meta property="og:updated_time" content="2019-09-01T03:48:37.339Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux进阶指令">
-<meta name="twitter:description" content="进阶指令 df指令 用于查看磁盘的占用情况 1# df &amp;lt;!--more--&amp;gt;  1#df -h  它的作用就是磁盘占用、可用等以合理的单位显示出来。 free 用于查看内存的占用情况 1# free  内存情况以字节为单位进行查看 1# free -m 内存情况以兆（m)为单位进行查看 head 格式：#head  -n 路径下的文件  （n是数字，用于显示文件的前多少行数据） 用于">
+<meta name="twitter:description" content="进阶指令 df指令 用于查看磁盘的占用情况 1# df  1#df -h">
 <meta name="twitter:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1567128702383.png">
   
     <link rel="alternative" href="/atom.xml" title="我的地盘我做主" type="application/atom+xml">
@@ -315,7 +315,7 @@ color="45, 241, 10" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> <B>文章字数:</B></span>
-      <span class="post-count"><B>666字</B></span>
+      <span class="post-count"><B>663字</B></span>
     </span>
   </span>
    <b><span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
@@ -372,9 +372,10 @@ color="45, 241, 10" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
         <h3 id="进阶指令"><a class="header-anchor" href="#进阶指令"></a>进阶指令</h3>
 <h4 id="df指令"><a class="header-anchor" href="#df指令"></a>df指令</h4>
 <p>用于查看磁盘的占用情况</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># df &lt;!--more--&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># df</span></span><br></pre></td></tr></table></figure>
 <p><img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1567128702383.png" alt="enter description here"></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#df -h</span></span><br></pre></td></tr></table></figure>
+<a id="more"></a>
 <p><img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1567128789145.png" alt="enter description here"><br>
 它的作用就是磁盘占用、可用等以合理的单位显示出来。</p>
 <h4 id="free"><a class="header-anchor" href="#free"></a>free</h4>
@@ -818,11 +819,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">基础指令</a>
+                <a href="javascript:void(0)" class="js-tag color5">进阶指令</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">进阶指令</a>
+                <a href="javascript:void(0)" class="js-tag color5">基础指令</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -842,7 +843,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">exists</a>
+                <a href="javascript:void(0)" class="js-tag color4">子查询</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -850,15 +851,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">exists</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vim</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">编辑器</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">徐志摩</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">现代诗</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -867,14 +872,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">文档说明</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">ip</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">网络配置</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -894,27 +891,31 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">ip</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">网络配置</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">动态规划</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">子查询</a>
+                <a href="javascript:void(0)" class="js-tag color4">徐志摩</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vim</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">编辑器</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">事务</a>
+                <a href="javascript:void(0)" class="js-tag color4">现代诗</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">索引</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">事务</a>
               </li>
             
             <div class="clearfix"></div>
