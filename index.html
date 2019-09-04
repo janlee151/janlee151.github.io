@@ -606,6 +606,315 @@ color="45, 241, 10" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
 
 
   
+    <article id="post-二叉树遍历" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+  
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/09/03/二叉树遍历/">二叉树遍历</a>
+    </h1>
+  
+
+        
+        <link href="https://cdn.staticfile.org/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet">
+
+        
+      </header>
+    
+			
+    <div class="article-entry" itemprop="articleBody">
+	
+	 <div class="headband">
+           <a href="https://github.com/janlee151/"><img style="position: absolute; top: 0; right: 0; border: 0;height: 30px; width: 30px;color: yellow" src="/img/github.png" alt="Fork me on GitHub"></a>
+     </div>
+      
+        <h3 id="定义二叉树节点"><a class="header-anchor" href="#定义二叉树节点"></a>定义二叉树节点</h3>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TreeNode</span></span>&#123; </span><br><span class="line">   TreeNode left;</span><br><span class="line">   TreeNode right;</span><br><span class="line">    <span class="keyword">int</span> val;</span><br><span class="line">&#125;   &lt;!--more--&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="前序遍历"><a class="header-anchor" href="#前序遍历"></a>前序遍历</h3>
+<p>前序遍历的顺序：根节点、左孩子节点、右孩子节点</p>
+<h4 id="递归遍历"><a class="header-anchor" href="#递归遍历"></a>递归遍历</h4>
+<p>我们知道二叉树的实现就是递归实现的，我们自然想到递归方法实现二叉树的遍历：<br>
+递归实现我们首先找到递归出口，当节点的左孩子节点和右孩子节点都为空是说明就是叶节点，我们直接返回：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">preTraversal</span><span class="params">(TreeNode root)</span></span>&#123;</span><br><span class="line">       <span class="keyword">if</span>(root!=<span class="keyword">null</span>)&#123;</span><br><span class="line">	     System.out.println(root.val);</span><br><span class="line">		 preTraversal(root.left);</span><br><span class="line">		 preTraversal(root.right);</span><br><span class="line">		 &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="非递归遍历"><a class="header-anchor" href="#非递归遍历"></a>非递归遍历</h4>
+<p>我们应用栈来实现二叉树节点的遍历<br>
+<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1567587945139.png" alt="enter description here"><br>
+我们首先迭代到二叉树的左边的节点，并且将节点压入栈，迭代的同时将节点的val值进行输出。到达最左边的节点，此时最左边的节点在栈的最顶端，我们将栈顶节点出栈（节点4）然后我们判断节点4是否有右孩子节点，如果有右孩子节点：<br>
+<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1567589377687.png" alt="enter description here"><br>
+接下来我们将节点7作为右子树的根节点重复上面的操作：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span>  <span class="title">preTraversal</span><span class="params">(TreeNode root)</span></span>&#123;</span><br><span class="line">   Stack&lt;Node&gt; stack = <span class="keyword">new</span> Stack&lt;&gt;();</span><br><span class="line">   Node node = root;</span><br><span class="line">   <span class="keyword">while</span>(node!= <span class="keyword">null</span>||!stack.isEmpty())&#123;</span><br><span class="line">     <span class="keyword">while</span>(node!=<span class="keyword">null</span>)&#123;</span><br><span class="line">       System.out.print(node.val+<span class="string">" "</span>);</span><br><span class="line">       stack.push(node);</span><br><span class="line">       node = node.left;</span><br><span class="line">      &#125;</span><br><span class="line">    <span class="keyword">if</span>(!stack.isEmpty())&#123;</span><br><span class="line">     node = stack.pop();</span><br><span class="line">     node = node.right;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="中序遍历"><a class="header-anchor" href="#中序遍历"></a>中序遍历</h3>
+<p>中序遍历的顺序：左子树节点、根节点、右子树节点</p>
+<h4 id="递归实现"><a class="header-anchor" href="#递归实现"></a>递归实现</h4>
+<p>递归出口和前序遍历是一样：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">midTraversal</span><span class="params">(Node root)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (root != <span class="keyword">null</span>) &#123;</span><br><span class="line">      midTraversal(root.left);</span><br><span class="line">      System.out.print(root.val + <span class="string">" "</span>);</span><br><span class="line">      midTraversal(root.right);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<h4 id="非递归实现"><a class="header-anchor" href="#非递归实现"></a>非递归实现</h4>
+<p>我们同样迭代到二叉树左边的节点，并且将迭代过程中的节点压入栈：<br>
+<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1567593679312.png" alt="enter description here"><br>
+此时栈顶的元素就是二叉树最左边的节点，此时我们需要弹出栈顶元素（就是二叉树最左边的节点）也就是中序遍历最先输出的节点，同样这个节点我们也把它当成根节点，然后判断这个节点是否有右子树节点，如果有我们重复上面的操作：</p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">midStackTraversal</span><span class="params">(Node root)</span></span>&#123;</span><br><span class="line">   Node node = root;</span><br><span class="line">   Stack&lt;Node&gt; stack = <span class="keyword">new</span> Stack&lt;&gt;();</span><br><span class="line">   <span class="keyword">while</span>(node!=<span class="keyword">null</span>||!stack.isEmpty())&#123;</span><br><span class="line">     <span class="keyword">while</span>(node!=<span class="keyword">null</span>)&#123;</span><br><span class="line">       stack.push(node);</span><br><span class="line">       node = node.left;</span><br><span class="line">     &#125;</span><br><span class="line">     <span class="keyword">if</span>(!stack.isEmpty())&#123;</span><br><span class="line">       node = stack.pop();</span><br><span class="line">       System.out.print(node.val+<span class="string">" "</span>);</span><br><span class="line">       node = node.right;</span><br><span class="line">     &#125;</span><br><span class="line">   &#125;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="后序遍历"><a class="header-anchor" href="#后序遍历"></a>后序遍历</h3>
+<p>遍历顺序：左子树节点、右子树节点、根节点</p>
+<h4 id="递归实现-v2"><a class="header-anchor" href="#递归实现-v2"></a>递归实现</h4>
+<p>递归出口不变：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">lastTraversal</span><span class="params">(Node root)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(root!=<span class="keyword">null</span>)&#123;</span><br><span class="line">      lastTraversal(root.left);</span><br><span class="line">      lastTraversal(root.right);</span><br><span class="line">      System.out.print(root.val+<span class="string">" "</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<h4 id="非递归实现-v2"><a class="header-anchor" href="#非递归实现-v2"></a>非递归实现</h4>
+<p>这个方法有些复杂：<br>
+<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1567615936156.png" alt="enter description here"><br>
+我们从根节点开始迭代，依次将节点入栈，如果我们迭代到最左侧的节点，不一定是叶节点（此节点可能还有右孩子节点）<br>
+我们将node变量指向栈顶元素：<br>
+<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1567616290133.png" alt="enter description here"><br>
+然后我们判断node是否有右孩子节点，如果node的右孩子节点为空，此时说明node就是叶子节点了，我们直接将节点的val输出，然后我们弹出栈顶元素：<br>
+<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1567616791180.png" alt="enter description here"><br>
+我们再次将node指向栈顶元素：<br>
+<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1567617187581.png" alt="enter description here"><br>
+node的右孩子节点不为空，lastVisit不是node的右孩子节点：<br>
+<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1567617333339.png" alt="enter description here"><br>
+我们将右孩子节点入栈：<br>
+<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1567617596908.png" alt="enter description here"><br>
+我们将node指向栈顶元素，node的右孩子节点为null，栈顶元素出栈，我们将lastVisit指向右孩子节点：<br>
+<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1567617775591.png" alt="enter description here"><br>
+我们再次将node指向栈顶元素：<br>
+<img src="https://markdown.xiaoshujiang.com/img/spinner.gif" alt="enter description here" title="[[[1567618173831]]]"><br>
+到此我们就完成了一一个小子树的后序遍历：<br>
+<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1567618284285.png" alt="enter description here"><br>
+我们知道一个二叉树是由这样的单元组成，其他的操作就是循环。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">lastStackTraversal</span><span class="params">(Node root)</span></span>&#123;</span><br><span class="line">    Node node = root;</span><br><span class="line">    Node lastVisit = root;</span><br><span class="line">    Stack&lt;Node&gt; stack = <span class="keyword">new</span> Stack&lt;&gt;();</span><br><span class="line">    <span class="keyword">while</span> (node!=<span class="keyword">null</span>||!stack.isEmpty())&#123;</span><br><span class="line">      <span class="keyword">while</span>(node!=<span class="keyword">null</span>)&#123;</span><br><span class="line">        stack.push(node);</span><br><span class="line">        node = node.getLeft();</span><br><span class="line">      &#125;</span><br><span class="line">      node = stack.peek();</span><br><span class="line">      <span class="keyword">if</span>(node.getRight()==<span class="keyword">null</span>||lastVisit==node.getRight())&#123;</span><br><span class="line">        System.out.print(node.getData()+<span class="string">" "</span>);</span><br><span class="line">        stack.pop();</span><br><span class="line">        lastVisit = node;</span><br><span class="line">        node = <span class="keyword">null</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">else</span>&#123;</span><br><span class="line">        node = node.getRight();</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>指点迷津：<br>
+我们的lastVisit指向的是二叉树组成单元的两个左或者右子节点：<br>
+<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1567619028554.png" alt="enter description here"><br>
+<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1567619049948.png" alt="enter description here"><br>
+它是用来标记子节点是不是访问过了。</p>
+</blockquote>
+
+      
+	  <!--增加版权-->
+     
+  
+  <div class="declare" hidden="hidden"></div>
+
+<!--文章末尾添加致谢-->
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">二叉树</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">遍历</a>
+        		</li>
+      		
+		</ul>
+		
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/算法//" class="article-tag-list-link color3">算法</a>
+        		</li>
+      		
+		</ul>
+		
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/09/03/二叉树遍历/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+				
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+      
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-SQL优化案例" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+  
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/09/03/SQL优化案例/">SQL优化案例</a>
+    </h1>
+  
+
+        
+        <link href="https://cdn.staticfile.org/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet">
+
+        
+      </header>
+    
+			
+    <div class="article-entry" itemprop="articleBody">
+	
+	 <div class="headband">
+           <a href="https://github.com/janlee151/"><img style="position: absolute; top: 0; right: 0; border: 0;height: 30px; width: 30px;color: yellow" src="/img/github.png" alt="Fork me on GitHub"></a>
+     </div>
+      
+        
+      
+	  <!--增加版权-->
+     
+  
+  <div class="declare" hidden="hidden"></div>
+
+<!--文章末尾添加致谢-->
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/09/03/SQL优化案例/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+				
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+      
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Nginx" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+  
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/09/02/Nginx/">Nginx</a>
+    </h1>
+  
+
+        
+        <link href="https://cdn.staticfile.org/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet">
+
+        
+      </header>
+    
+			
+    <div class="article-entry" itemprop="articleBody">
+	
+	 <div class="headband">
+           <a href="https://github.com/janlee151/"><img style="position: absolute; top: 0; right: 0; border: 0;height: 30px; width: 30px;color: yellow" src="/img/github.png" alt="Fork me on GitHub"></a>
+     </div>
+      
+        
+      
+	  <!--增加版权-->
+     
+  
+  <div class="declare" hidden="hidden"></div>
+
+<!--文章末尾添加致谢-->
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/09/02/Nginx/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+				
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+      
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Linux网络配置" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
   
@@ -1038,330 +1347,9 @@ color="45, 241, 10" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
 
 
   
-    <article id="post-Linux高级指令" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-  
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/30/Linux高级指令/">Linux高级指令</a>
-    </h1>
-  
-
-        
-        <link href="https://cdn.staticfile.org/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet">
-
-        
-      </header>
-    
-			
-    <div class="article-entry" itemprop="articleBody">
-	
-	 <div class="headband">
-           <a href="https://github.com/janlee151/"><img style="position: absolute; top: 0; right: 0; border: 0;height: 30px; width: 30px;color: yellow" src="/img/github.png" alt="Fork me on GitHub"></a>
-     </div>
-      
-        <h4 id="ps-ef"><a class="header-anchor" href="#ps-ef"></a>ps -ef</h4>
-<p>-e 列出全部进程<br>
--f 列出全部的列信息<br>
-执行结果是列出系统当前的全部进程。
-        
-      
-	  <!--增加版权-->
-     
-  
-  <div class="declare" hidden="hidden"></div>
-
-<!--文章末尾添加致谢-->
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">高级指令</a>
-        		</li>
-      		
-		</ul>
-		
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/笔记//" class="article-tag-list-link color3">笔记</a>
-        		</li>
-      		
-		</ul>
-		
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/08/30/Linux高级指令/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-				
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-      
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Linux进阶指令" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-  
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/30/Linux进阶指令/">Linux进阶指令</a>
-    </h1>
-  
-
-        
-        <link href="https://cdn.staticfile.org/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet">
-
-        
-      </header>
-    
-			
-    <div class="article-entry" itemprop="articleBody">
-	
-	 <div class="headband">
-           <a href="https://github.com/janlee151/"><img style="position: absolute; top: 0; right: 0; border: 0;height: 30px; width: 30px;color: yellow" src="/img/github.png" alt="Fork me on GitHub"></a>
-     </div>
-      
-        <h3 id="进阶指令"><a class="header-anchor" href="#进阶指令"></a>进阶指令</h3>
-<h4 id="df指令"><a class="header-anchor" href="#df指令"></a>df指令</h4>
-<p>用于查看磁盘的占用情况</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df</span><br></pre></td></tr></table></figure>
-<p><img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1567128702383.png" alt="enter description here"></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df -h</span><br></pre></td></tr></table></figure>
-        
-      
-	  <!--增加版权-->
-     
-  
-  <div class="declare" hidden="hidden"></div>
-
-<!--文章末尾添加致谢-->
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">进阶指令</a>
-        		</li>
-      		
-		</ul>
-		
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/笔记//" class="article-tag-list-link color3">笔记</a>
-        		</li>
-      		
-		</ul>
-		
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/08/30/Linux进阶指令/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-				
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-      
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Linux基础命令" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-  
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/29/Linux基础命令/">Linux基础命令</a>
-    </h1>
-  
-
-        
-        <link href="https://cdn.staticfile.org/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet">
-
-        
-      </header>
-    
-			
-    <div class="article-entry" itemprop="articleBody">
-	
-	 <div class="headband">
-           <a href="https://github.com/janlee151/"><img style="position: absolute; top: 0; right: 0; border: 0;height: 30px; width: 30px;color: yellow" src="/img/github.png" alt="Fork me on GitHub"></a>
-     </div>
-      
-        <h3 id="基础指令"><a class="header-anchor" href="#基础指令"></a>基础指令</h3>
-<h4 id="指令格式"><a class="header-anchor" href="#指令格式"></a>指令格式</h4>
-<p>#  指令 [选项] [操作对象]<br>
-指令格式中[]表示这个内容是可选的内容，并且选项和操作对象都可以是多个。</p>
-<h4 id="基础指令-more"><a class="header-anchor" href="#基础指令-more"></a>基础指令
-        
-      
-	  <!--增加版权-->
-     
-  
-  <div class="declare" hidden="hidden"></div>
-
-<!--文章末尾添加致谢-->
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">基础指令</a>
-        		</li>
-      		
-		</ul>
-		
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/笔记//" class="article-tag-list-link color3">笔记</a>
-        		</li>
-      		
-		</ul>
-		
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/08/29/Linux基础命令/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-				
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-      
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 
@@ -1496,35 +1484,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">网络</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ssh</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">基础指令</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">进阶指令</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">高级指令</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">子查询</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">连接</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1536,19 +1496,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">exists</a>
+                <a href="javascript:void(0)" class="js-tag color3">网络</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+                <a href="javascript:void(0)" class="js-tag color4">ssh</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">文档说明</a>
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
+                <a href="javascript:void(0)" class="js-tag color3">连接</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1560,11 +1520,43 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">分治算法</a>
+                <a href="javascript:void(0)" class="js-tag color4">vim</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">编辑器</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">进阶指令</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">高级指令</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">文档说明</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">动态规划</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">递归</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">分治算法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1576,6 +1568,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">exists</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">ip</a>
               </li>
              
@@ -1584,30 +1580,30 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">动态规划</a>
+                <a href="javascript:void(0)" class="js-tag color4">子查询</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vim</a>
+                <a href="javascript:void(0)" class="js-tag color4">二叉树</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">编辑器</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">事务</a>
+                <a href="javascript:void(0)" class="js-tag color3">遍历</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">索引</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">事务</a>
               </li>
             
             <div class="clearfix"></div>
           </ul>
         </div>
 		  
-		   <span style="color:#0BF9D5;background:black">&nbsp;&nbsp;&nbsp;<i class="icon ion-document"></i>&nbsp;&nbsp;博客文章数 ：18</span>
+		   <span style="color:#0BF9D5;background:black">&nbsp;&nbsp;&nbsp;<i class="icon ion-document"></i>&nbsp;&nbsp;博客文章数 ：21</span>
         <ul class="search-ul">
           <p q-show="jsonFail" style="padding: 20px; font-size: 12px;">
             缺失模块。<br/>1、请确保node版本大于6.2<br/>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br/> npm i hexo-generator-json-content --save<br/><br/>
