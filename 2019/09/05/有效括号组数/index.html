@@ -6,35 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Linux网络配置 | 我的地盘我做主</title>
+  <title>有效括号组数 | 我的地盘我做主</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="网卡 1ifconfig 查看Linux网卡相关的信息：">
-<meta name="keywords" content="Linux,网络,ssh">
+  <meta name="description" content="题目描述： 给出 n 代表生成括号的对数，请你写出一个函数，使其能够生成所有可能的并且有效的括号组合。 例如，给出 n = 3，生成结果为： [ &amp;quot;((()))&amp;quot;, &amp;quot;(()())&amp;quot;, &amp;quot;(())()&amp;quot;, &amp;quot;()(())&amp;quot;, &amp;quot;()()()&amp;quot; ]">
+<meta name="keywords" content="递归">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linux网络配置">
-<meta property="og:url" content="http://yoursite.com/2019/09/01/Linux网络配置/index.html">
+<meta property="og:title" content="有效括号组数">
+<meta property="og:url" content="http://yoursite.com/2019/09/05/有效括号组数/index.html">
 <meta property="og:site_name" content="我的地盘我做主">
-<meta property="og:description" content="网卡 1ifconfig 查看Linux网卡相关的信息：">
+<meta property="og:description" content="题目描述： 给出 n 代表生成括号的对数，请你写出一个函数，使其能够生成所有可能的并且有效的括号组合。 例如，给出 n = 3，生成结果为： [ &amp;quot;((()))&amp;quot;, &amp;quot;(()())&amp;quot;, &amp;quot;(())()&amp;quot;, &amp;quot;()(())&amp;quot;, &amp;quot;()()()&amp;quot; ]">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1567327306191.png">
-<meta property="og:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1567327382170.png">
-<meta property="og:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1567327964881.png">
-<meta property="og:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1567327981481.png">
-<meta property="og:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1567331417996.png">
-<meta property="og:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1567332486577.png">
-<meta property="og:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1567332583735.png">
-<meta property="og:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1567332748563.png">
-<meta property="og:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1567333540811.png">
-<meta property="og:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1567333930365.png">
-<meta property="og:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1567337587677.png">
-<meta property="og:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1567337546182.png">
-<meta property="og:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1567337720240.png">
-<meta property="og:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1567338713601.png">
-<meta property="og:updated_time" content="2019-09-01T11:55:55.965Z">
+<meta property="og:updated_time" content="2019-09-05T17:52:13.161Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Linux网络配置">
-<meta name="twitter:description" content="网卡 1ifconfig 查看Linux网卡相关的信息：">
-<meta name="twitter:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1567327306191.png">
+<meta name="twitter:title" content="有效括号组数">
+<meta name="twitter:description" content="题目描述： 给出 n 代表生成括号的对数，请你写出一个函数，使其能够生成所有可能的并且有效的括号组合。 例如，给出 n = 3，生成结果为： [ &amp;quot;((()))&amp;quot;, &amp;quot;(()())&amp;quot;, &amp;quot;(())()&amp;quot;, &amp;quot;()(())&amp;quot;, &amp;quot;()()()&amp;quot; ]">
   
     <link rel="alternative" href="/atom.xml" title="我的地盘我做主" type="application/atom+xml">
   
@@ -299,7 +284,11 @@ color="45, 241, 10" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
           </div>
           <div id="js-content" class="content-ll">
             
-<article id="post-Linux网络配置" class="article article-type-post " itemscope itemprop="blogPost">
+  <i class="fa fa-thumb-tack"></i>
+  <font color=7D26CD>置顶</font>
+  <span class="post-meta-divider">|</span>
+
+<article id="post-有效括号组数" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
   
     
@@ -307,7 +296,7 @@ color="45, 241, 10" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
         
   
     <h1 class="article-title" itemprop="name">
-      Linux网络配置
+      有效括号组数
     </h1>
   
 
@@ -319,7 +308,7 @@ color="45, 241, 10" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> <B>文章字数:</B></span>
-      <span class="post-count"><B>609字</B></span>
+      <span class="post-count"><B>307字</B></span>
     </span>
   </span>
    <b><span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
@@ -329,120 +318,44 @@ color="45, 241, 10" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
       &nbsp; | &nbsp;
 	    <B><i class="icon ion-clock"></i></B>
         <span class="post-meta-item-text"> <B> 阅读时长:</B> </span>
-        <span class="post-count"><B>2分</B></span>
+        <span class="post-count"><B>1分</B></span>
       </span>
     </span>
    <!-- 不蒜子统计 -->
    <b>
-   <a href="/2019/09/01/Linux网络配置/" class="archive-article-date">
-	 <time datetime="2019-09-01T08:33:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-01</time>
+   <a href="/2019/09/05/有效括号组数/" class="archive-article-date">
+	 <time datetime="2019-09-05T15:31:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-05</time>
 	</a></b>
 </div>
 
         
       </header>
     
-	
-    <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none;color:red;">
-          <span class="btn-bg"></span>
-          <span class="btn-text"><i class="icon ion-eye"></i>文章目录</span>
-          </p>
-	<div id="toc-article" class="toc-article">
-	    <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
-		<strong class="toc-title">文章目录</strong>
-           <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#网卡"><span class="toc-number">1.</span> <span class="toc-text">网卡</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ssh协议"><span class="toc-number">2.</span> <span class="toc-text">ssh协议</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#远程终端实现文件传输"><span class="toc-number">3.</span> <span class="toc-text">远程终端实现文件传输</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#可视化工具实现"><span class="toc-number">3.1.</span> <span class="toc-text">可视化工具实现</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#远程终端实现服务器"><span class="toc-number">4.</span> <span class="toc-text">远程终端实现服务器</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#命令行工具实现"><span class="toc-number">4.1.</span> <span class="toc-text">命令行工具实现</span></a></li></ol></li></ol>
-         </div>
-   <script type="text/javascript">
-	function showToc(){
-		var toc_article = document.getElementById("toc-article");
-		var show_toc_btn = document.getElementById("show-toc-btn");
-		toc_article.setAttribute("style","display:block");
-		show_toc_btn.setAttribute("style","display:none");
-		};
-	function showBtn(){
-		var toc_article = document.getElementById("toc-article");
-		var show_toc_btn = document.getElementById("show-toc-btn");
-		toc_article.setAttribute("style","display:none");
-		show_toc_btn.setAttribute("style","display:block");
-		};
-   </script>
-      		
+			
     <div class="article-entry" itemprop="articleBody">
 	
 	 <div class="headband">
            <a href="https://github.com/janlee151/"><img style="position: absolute; top: 0; right: 0; border: 0;height: 30px; width: 30px;color: yellow" src="/img/github.png" alt="Fork me on GitHub"></a>
      </div>
       
-        <h3 id="网卡"><a class="header-anchor" href="#网卡"></a>网卡</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ifconfig</span><br></pre></td></tr></table></figure>
-<p>查看Linux网卡相关的信息：<a id="more"></a><br>
-<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1567327306191.png" alt="enter description here"><br>
-我们查看网卡的配置文件：<br>
-路径：/etc/sysconfig/network-scripts<br>
-<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1567327382170.png" alt="enter description here"><br>
-停用某个网卡格式：ifdown 网卡名<br>
-开启某个网卡格式：ifup 网卡名</p>
-<h3 id="ssh协议"><a class="header-anchor" href="#ssh协议"></a>ssh协议</h3>
-<p>这个协议的作用：1.远程连接  2.远程文件传输<br>
-协议使用的端口号默认是22，如果我们需要修改端口我们去配置文件：/etc/ssh/ssh_config 文件，查找port我们将端口进行修改<br>
-<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1567327964881.png" alt="enter description here"><br>
-<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1567327981481.png" alt="enter description here"><br>
-他默认的端口是：22，如果我们想修改，将前面的注释符去掉改成自己意愿的端口<br>
-端口号范围：0~65535（2^16-1）</p>
-<blockquote>
-<p>注意事项：端口号修改之后我们的远程客户端也不一定能连接上，因为Linux防火墙是允许端口22进行连接的，如果改了之后，需要对Linux防火墙进行关闭<br>
-服务启动方式：</p>
-<ol>
-<li>service sshd  start | stop | restart</li>
-<li>/etc/init.d/sshd  start | stop | restart<br>
-服务为什么写成：httpd  或者 sshd呢？<br>
-因为我们的服务是守护进程，所以服务名后边有一个d<br>
-<i style="color: red"><b>我们在远端客户端对服务器操作时，注意不要停止一个服务，否则是无法启动的</b></i></li>
-</ol>
+        <blockquote>
+<p>题目描述：<br>
+给出 n 代表生成括号的对数，请你写出一个函数，使其能够生成所有可能的并且有效的括号组合。<br>
+例如，给出 n = 3，生成结果为：<br>
+[<br>
+&quot;((()))&quot;,<br>
+&quot;(()())&quot;,<br>
+&quot;(())()&quot;,<br>
+&quot;()(())&quot;,<br>
+&quot;()()()&quot;<br>
+]</p>
 </blockquote>
-<h3 id="远程终端实现文件传输"><a class="header-anchor" href="#远程终端实现文件传输"></a>远程终端实现文件传输</h3>
-<h4 id="可视化工具实现"><a class="header-anchor" href="#可视化工具实现"></a>可视化工具实现</h4>
-<p>我们在自己电脑上安装文件传输软件：<a href="https://filezilla-project.org/download.php?type=client" target="_blank" rel="noopener">FileZilla</a><br>
-FileZilla使用<br>
-上传文件到远程服务器：<br>
-<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1567331417996.png" alt="enter description here"><br>
-选择文件，选择站点管理器：<br>
-<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1567332486577.png" alt="enter description here"><br>
-<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1567332583735.png" alt="enter description here"><br>
-我们可以选择本地磁盘和远程的目录：<br>
-<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1567332748563.png" alt="enter description here"><br>
-我们在这里选择要上传服务器的文件：<br>
-<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1567333540811.png" alt="enter description here"></p>
-<p>我们选择一个文件，右键点击，我们选择上传。</p>
-<h3 id="远程终端实现服务器"><a class="header-anchor" href="#远程终端实现服务器"></a>远程终端实现服务器</h3>
-<p><img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1567333930365.png" alt="enter description here"></p>
-<blockquote>
-<p>上传和下载快速方式就是拖拽</p>
-</blockquote>
-<h4 id="命令行工具实现"><a class="header-anchor" href="#命令行工具实现"></a>命令行工具实现</h4>
-<p>在Windows下下载：<br>
-PSCP.exe<br>
-我们配置PSCP环境变量：<br>
-<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1567337587677.png" alt="enter description here"><br>
-<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1567337546182.png" alt="enter description here"><br>
-在dos命令行<br>
-pscp命令格式图：<br>
-<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1567337720240.png" alt="enter description here"></p>
-<blockquote>
-<p>格式：<br>
-pscp 选项 用户名@Linux主机地址：资源路径（source）   Windows路径（target）   下载功能<br>
-pscp 选项 windows路径  用户名@Linux主机地址：资源路径   上传功能</p>
-</blockquote>
-<p>案例：<br>
-pscp -r <a href="mailto:root@192.168.145.130" target="_blank" rel="noopener">root@192.168.145.130</a>:/etc  E:\temp</p>
-<blockquote>
-<p>注意事项：上传服务器时，Windows文件路径中不要带有中文，会出现乱码的问题。<br>
--r 实现递归上传或者下载文件</p>
-</blockquote>
-<p>如何实现服务器向服务器传输文件呢？<br>
-我们直接使用服务器上面的命令scp:<br>
-<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1567338713601.png" alt="enter description here"></p>
-
+<a id="more"></a>
+<p>这个问题我们分析一下：如果一个字符串起始字符就是“）”不符合提交，提前排除。如果“）”个数大于“（”个数也不符合条件。<br>
+解决方案：<br>
+我们又两个计数器left,right分别记录“（”个数和“）”个数，我们首先考虑的是左括号，如果左括号数小于指定的n，我们将“（”个数加1，我们添加“）“的前提是”（“数大于”）“个数才能加1<br>
+我们使用递归的方案，递归出口就是“（”和“）”个数同时等于n就return就可以了。分析到这里我们上代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span>  List&lt;String&gt; <span class="title">generateParenthesis</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">  List&lt;String&gt; result = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">  gen(<span class="number">0</span>, <span class="number">0</span>, n, result,<span class="string">""</span>);</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">  &#125;</span><br><span class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">gen</span><span class="params">(<span class="keyword">int</span> left, <span class="keyword">int</span> right, <span class="keyword">int</span> n, List&lt;String&gt; list,String item)</span> </span>&#123;</span><br><span class="line">   <span class="keyword">if</span> (left == n &amp;&amp; right == n) &#123;</span><br><span class="line">      list.add(<span class="string">'"'</span>+item+<span class="string">'"'</span>);</span><br><span class="line">      <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  <span class="keyword">if</span> (left &lt; n) &#123;</span><br><span class="line">        gen(left + <span class="number">1</span>, right, n, list,item+<span class="string">"("</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  <span class="keyword">if</span> (right &lt; n &amp;&amp; left &gt; right) &#123;</span><br><span class="line">        gen(left, right + <span class="number">1</span>, n, list,item+<span class="string">")"</span>);</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
       
 	  <!--增加版权-->
      
@@ -454,7 +367,7 @@ pscp -r <a href="mailto:root@192.168.145.130" target="_blank" rel="noopener">roo
     
     <br>
     <strong>本文链接：</strong>
-    <a rel="license" href="http://yoursite.com/2019/09/01/Linux网络配置/">http://yoursite.com/2019/09/01/Linux网络配置/</a>
+    <a rel="license" href="http://yoursite.com/2019/09/05/有效括号组数/">http://yoursite.com/2019/09/05/有效括号组数/</a>
     <br>
     <strong>版权声明：</strong>
     本作品采用
@@ -512,21 +425,18 @@ pscp -r <a href="mailto:root@192.168.145.130" target="_blank" rel="noopener">roo
     </div>
     <div class="article-info article-info-index">
       
+        <div class="article-pop-out tagcloud">
+          <i class="icon-tuding"></i>
+          <a class="article-tag-list-link color3">置顶</a>
+        </div>
+      
       
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">网络</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ssh</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">递归</a>
         		</li>
       		
 		</ul>
@@ -539,7 +449,7 @@ pscp -r <a href="mailto:root@192.168.145.130" target="_blank" rel="noopener">roo
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/笔记//" class="article-tag-list-link color3">笔记</a>
+        			<a href="/categories/算法//" class="article-tag-list-link color3">算法</a>
         		</li>
       		
 		</ul>
@@ -595,7 +505,7 @@ pscp -r <a href="mailto:root@192.168.145.130" target="_blank" rel="noopener">roo
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://janlee151.github.io/2019/09/01/Linux网络配置/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://janlee151.github.io/2019/09/05/有效括号组数/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -609,18 +519,18 @@ pscp -r <a href="mailto:root@192.168.145.130" target="_blank" rel="noopener">roo
   
 <nav id="article-nav">
   
-    <a href="/2019/09/02/Nginx/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/09/06/二叉树的最大和最小深度/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          Nginx
+          二叉树的最大和最小深度
         
       </div>
     </a>
   
   
-    <a href="/2019/08/31/Linux用户和用户组/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Linux用户和用户组</div>
+    <a href="/2019/09/05/HeapSort/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">HeapSort</div>
       <i class="icon-circle-right"></i>
     </a>
   

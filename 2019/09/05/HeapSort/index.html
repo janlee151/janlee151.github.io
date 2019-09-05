@@ -6,35 +6,30 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Linux网络配置 | 我的地盘我做主</title>
+  <title>HeapSort | 我的地盘我做主</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="网卡 1ifconfig 查看Linux网卡相关的信息：">
-<meta name="keywords" content="Linux,网络,ssh">
+  <meta name="description" content="堆排序 堆的特性 1.完全二叉树  如果我们给节点标注下标：">
+<meta name="keywords" content="排序,堆">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linux网络配置">
-<meta property="og:url" content="http://yoursite.com/2019/09/01/Linux网络配置/index.html">
+<meta property="og:title" content="HeapSort">
+<meta property="og:url" content="http://yoursite.com/2019/09/05/HeapSort/index.html">
 <meta property="og:site_name" content="我的地盘我做主">
-<meta property="og:description" content="网卡 1ifconfig 查看Linux网卡相关的信息：">
+<meta property="og:description" content="堆排序 堆的特性 1.完全二叉树  如果我们给节点标注下标：">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1567327306191.png">
-<meta property="og:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1567327382170.png">
-<meta property="og:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1567327964881.png">
-<meta property="og:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1567327981481.png">
-<meta property="og:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1567331417996.png">
-<meta property="og:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1567332486577.png">
-<meta property="og:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1567332583735.png">
-<meta property="og:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1567332748563.png">
-<meta property="og:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1567333540811.png">
-<meta property="og:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1567333930365.png">
-<meta property="og:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1567337587677.png">
-<meta property="og:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1567337546182.png">
-<meta property="og:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1567337720240.png">
-<meta property="og:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1567338713601.png">
-<meta property="og:updated_time" content="2019-09-01T11:55:55.965Z">
+<meta property="og:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1567649834321.png">
+<meta property="og:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1567649914427.png">
+<meta property="og:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1567651135833.png">
+<meta property="og:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1567652864237.png">
+<meta property="og:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1567653121516.png">
+<meta property="og:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1567653370010.png">
+<meta property="og:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1567665822480.png">
+<meta property="og:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1567666419954.png">
+<meta property="og:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1567666497474.png">
+<meta property="og:updated_time" content="2019-09-05T17:52:08.930Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Linux网络配置">
-<meta name="twitter:description" content="网卡 1ifconfig 查看Linux网卡相关的信息：">
-<meta name="twitter:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1567327306191.png">
+<meta name="twitter:title" content="HeapSort">
+<meta name="twitter:description" content="堆排序 堆的特性 1.完全二叉树  如果我们给节点标注下标：">
+<meta name="twitter:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1567649834321.png">
   
     <link rel="alternative" href="/atom.xml" title="我的地盘我做主" type="application/atom+xml">
   
@@ -299,7 +294,11 @@ color="45, 241, 10" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
           </div>
           <div id="js-content" class="content-ll">
             
-<article id="post-Linux网络配置" class="article article-type-post " itemscope itemprop="blogPost">
+  <i class="fa fa-thumb-tack"></i>
+  <font color=7D26CD>置顶</font>
+  <span class="post-meta-divider">|</span>
+
+<article id="post-HeapSort" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
   
     
@@ -307,7 +306,7 @@ color="45, 241, 10" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
         
   
     <h1 class="article-title" itemprop="name">
-      Linux网络配置
+      HeapSort
     </h1>
   
 
@@ -319,7 +318,7 @@ color="45, 241, 10" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> <B>文章字数:</B></span>
-      <span class="post-count"><B>609字</B></span>
+      <span class="post-count"><B>623字</B></span>
     </span>
   </span>
    <b><span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
@@ -334,8 +333,8 @@ color="45, 241, 10" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
     </span>
    <!-- 不蒜子统计 -->
    <b>
-   <a href="/2019/09/01/Linux网络配置/" class="archive-article-date">
-	 <time datetime="2019-09-01T08:33:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-01</time>
+   <a href="/2019/09/05/HeapSort/" class="archive-article-date">
+	 <time datetime="2019-09-05T01:37:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-05</time>
 	</a></b>
 </div>
 
@@ -350,7 +349,7 @@ color="45, 241, 10" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
 	<div id="toc-article" class="toc-article">
 	    <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
 		<strong class="toc-title">文章目录</strong>
-           <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#网卡"><span class="toc-number">1.</span> <span class="toc-text">网卡</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ssh协议"><span class="toc-number">2.</span> <span class="toc-text">ssh协议</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#远程终端实现文件传输"><span class="toc-number">3.</span> <span class="toc-text">远程终端实现文件传输</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#可视化工具实现"><span class="toc-number">3.1.</span> <span class="toc-text">可视化工具实现</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#远程终端实现服务器"><span class="toc-number">4.</span> <span class="toc-text">远程终端实现服务器</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#命令行工具实现"><span class="toc-number">4.1.</span> <span class="toc-text">命令行工具实现</span></a></li></ol></li></ol>
+           <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#堆排序"><span class="toc-number">1.</span> <span class="toc-text">堆排序</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#堆的特性"><span class="toc-number">1.1.</span> <span class="toc-text">堆的特性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#排序"><span class="toc-number">1.2.</span> <span class="toc-text">排序</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#调整堆"><span class="toc-number">1.2.1.</span> <span class="toc-text">调整堆</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#创建堆"><span class="toc-number">1.2.2.</span> <span class="toc-text">创建堆</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#排序-v2"><span class="toc-number">1.2.3.</span> <span class="toc-text">排序</span></a></li></ol></li></ol></li></ol>
          </div>
    <script type="text/javascript">
 	function showToc(){
@@ -373,75 +372,42 @@ color="45, 241, 10" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
            <a href="https://github.com/janlee151/"><img style="position: absolute; top: 0; right: 0; border: 0;height: 30px; width: 30px;color: yellow" src="/img/github.png" alt="Fork me on GitHub"></a>
      </div>
       
-        <h3 id="网卡"><a class="header-anchor" href="#网卡"></a>网卡</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ifconfig</span><br></pre></td></tr></table></figure>
-<p>查看Linux网卡相关的信息：<a id="more"></a><br>
-<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1567327306191.png" alt="enter description here"><br>
-我们查看网卡的配置文件：<br>
-路径：/etc/sysconfig/network-scripts<br>
-<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1567327382170.png" alt="enter description here"><br>
-停用某个网卡格式：ifdown 网卡名<br>
-开启某个网卡格式：ifup 网卡名</p>
-<h3 id="ssh协议"><a class="header-anchor" href="#ssh协议"></a>ssh协议</h3>
-<p>这个协议的作用：1.远程连接  2.远程文件传输<br>
-协议使用的端口号默认是22，如果我们需要修改端口我们去配置文件：/etc/ssh/ssh_config 文件，查找port我们将端口进行修改<br>
-<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1567327964881.png" alt="enter description here"><br>
-<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1567327981481.png" alt="enter description here"><br>
-他默认的端口是：22，如果我们想修改，将前面的注释符去掉改成自己意愿的端口<br>
-端口号范围：0~65535（2^16-1）</p>
+        <h3 id="堆排序"><a class="header-anchor" href="#堆排序"></a>堆排序</h3>
+<h4 id="堆的特性"><a class="header-anchor" href="#堆的特性"></a>堆的特性</h4>
+<p>1.完全二叉树<br>
+<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1567649834321.png" alt="enter description here"><br>
+如果我们给节点标注下标：<a id="more"></a><br>
+<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1567649914427.png" alt="enter description here"><br>
+我们总结出如下的结论：<br>
+父节点的下标是i    左子节点下标： 2i+1   右子节点下标：2i+2<br>
+或者我们知道子节点下标：左子节点是m   右子节点是n  那么父节点下标：(m-1)/2   (n-2)/2<br>
+2.父节点的值大于子节点的值：<br>
+我们二叉树的所有子结构都满足父节点的值大于孩子节点的值：<br>
+<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1567651135833.png" alt="enter description here"></p>
+<h4 id="排序"><a class="header-anchor" href="#排序"></a>排序</h4>
+<h5 id="调整堆"><a class="header-anchor" href="#调整堆"></a>调整堆</h5>
+<p>我们举一个案例：<br>
+<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1567652864237.png" alt="enter description here"><br>
+我们如何调整堆：<br>
+<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1567653121516.png" alt="enter description here"><br>
+我们定义下标i作为根节点的下标，子节点的下标分别是2*i+1   2*i+2，我们选择三个中最大的值与根节点进行交换操作：<br>
+<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1567653370010.png" alt="enter description here"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">heapify</span><span class="params">(<span class="keyword">int</span> arr[], <span class="keyword">int</span> n, <span class="keyword">int</span> i)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> largest = i;  <span class="comment">//我们假设根节点的值最大</span></span><br><span class="line">        <span class="keyword">int</span> l = <span class="number">2</span>*i + <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> r = <span class="number">2</span>*i + <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line">         <span class="keyword">if</span> (l &lt; n &amp;&amp; arr[l] &gt; arr[largest]) &#123;   <span class="comment">//如果左子节点的值较大，我们将此下标记录下来</span></span><br><span class="line">            largest = l;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (r &lt; n &amp;&amp; arr[r] &gt; arr[largest]) &#123;</span><br><span class="line">            largest = r;             <span class="comment">//如果右子节点的值较大，我们将此下标进行返回</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (largest != i) <span class="comment">//父节点不是最大值，不是最大我们进行下面的操作</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">int</span> swap = arr[i];</span><br><span class="line">            arr[i] = arr[largest];</span><br><span class="line">            arr[largest] = swap;</span><br><span class="line">            heapify(arr, n, largest);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h5 id="创建堆"><a class="header-anchor" href="#创建堆"></a>创建堆</h5>
+<p>如果我们的堆数据完全是乱序的我们从：<br>
+<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1567665822480.png" alt="enter description here"><br>
+我们从末二层开始遍历各个子树的根节点，并且逆序遍历节点下标相差1，通过下面的代码我们就可以创建一个堆</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">buildHeap</span><span class="params">(<span class="keyword">int</span> arr[] ,<span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">  <span class="keyword">int</span> n = arr.length;</span><br><span class="line">     <span class="keyword">for</span> (<span class="keyword">int</span> i = n / <span class="number">2</span> - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">            heapify(arr, n, i);</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="排序-v2"><a class="header-anchor" href="#排序-v2"></a>排序</h5>
+<p>我们创建完堆之后我们知道完全二叉树的根节点的值最大，我们将其与二叉树最后一个节点进行交换，然后我们将最后一个元素剪掉，我们重新将二叉树调整为堆：<br>
+<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1567666419954.png" alt="enter description here"><br>
+交换剪掉之后我们得到下面的堆：<br>
+<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1567666497474.png" alt="enter description here"><br>
+我们对上面的二叉树进行堆调整：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sort</span><span class="params">(<span class="keyword">int</span> arr[] ,<span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line"> <span class="keyword">for</span> (<span class="keyword">int</span> i=n-<span class="number">1</span>; i&gt;=<span class="number">0</span>; i--)&#123;</span><br><span class="line">            <span class="keyword">int</span> temp = arr[<span class="number">0</span>];</span><br><span class="line">            arr[<span class="number">0</span>] = arr[i];</span><br><span class="line">            arr[i] = temp;</span><br><span class="line">            heapify(arr, i, <span class="number">0</span>);  <span class="comment">//这里堆调整从根节点调整即可</span></span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>注意事项：端口号修改之后我们的远程客户端也不一定能连接上，因为Linux防火墙是允许端口22进行连接的，如果改了之后，需要对Linux防火墙进行关闭<br>
-服务启动方式：</p>
-<ol>
-<li>service sshd  start | stop | restart</li>
-<li>/etc/init.d/sshd  start | stop | restart<br>
-服务为什么写成：httpd  或者 sshd呢？<br>
-因为我们的服务是守护进程，所以服务名后边有一个d<br>
-<i style="color: red"><b>我们在远端客户端对服务器操作时，注意不要停止一个服务，否则是无法启动的</b></i></li>
-</ol>
+<p>通过上面的操作，我们就可以实现堆排序。如果哪里不懂可以探讨一哈子。</p>
 </blockquote>
-<h3 id="远程终端实现文件传输"><a class="header-anchor" href="#远程终端实现文件传输"></a>远程终端实现文件传输</h3>
-<h4 id="可视化工具实现"><a class="header-anchor" href="#可视化工具实现"></a>可视化工具实现</h4>
-<p>我们在自己电脑上安装文件传输软件：<a href="https://filezilla-project.org/download.php?type=client" target="_blank" rel="noopener">FileZilla</a><br>
-FileZilla使用<br>
-上传文件到远程服务器：<br>
-<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1567331417996.png" alt="enter description here"><br>
-选择文件，选择站点管理器：<br>
-<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1567332486577.png" alt="enter description here"><br>
-<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1567332583735.png" alt="enter description here"><br>
-我们可以选择本地磁盘和远程的目录：<br>
-<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1567332748563.png" alt="enter description here"><br>
-我们在这里选择要上传服务器的文件：<br>
-<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1567333540811.png" alt="enter description here"></p>
-<p>我们选择一个文件，右键点击，我们选择上传。</p>
-<h3 id="远程终端实现服务器"><a class="header-anchor" href="#远程终端实现服务器"></a>远程终端实现服务器</h3>
-<p><img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1567333930365.png" alt="enter description here"></p>
-<blockquote>
-<p>上传和下载快速方式就是拖拽</p>
-</blockquote>
-<h4 id="命令行工具实现"><a class="header-anchor" href="#命令行工具实现"></a>命令行工具实现</h4>
-<p>在Windows下下载：<br>
-PSCP.exe<br>
-我们配置PSCP环境变量：<br>
-<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1567337587677.png" alt="enter description here"><br>
-<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1567337546182.png" alt="enter description here"><br>
-在dos命令行<br>
-pscp命令格式图：<br>
-<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1567337720240.png" alt="enter description here"></p>
-<blockquote>
-<p>格式：<br>
-pscp 选项 用户名@Linux主机地址：资源路径（source）   Windows路径（target）   下载功能<br>
-pscp 选项 windows路径  用户名@Linux主机地址：资源路径   上传功能</p>
-</blockquote>
-<p>案例：<br>
-pscp -r <a href="mailto:root@192.168.145.130" target="_blank" rel="noopener">root@192.168.145.130</a>:/etc  E:\temp</p>
-<blockquote>
-<p>注意事项：上传服务器时，Windows文件路径中不要带有中文，会出现乱码的问题。<br>
--r 实现递归上传或者下载文件</p>
-</blockquote>
-<p>如何实现服务器向服务器传输文件呢？<br>
-我们直接使用服务器上面的命令scp:<br>
-<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1567338713601.png" alt="enter description here"></p>
 
       
 	  <!--增加版权-->
@@ -454,7 +420,7 @@ pscp -r <a href="mailto:root@192.168.145.130" target="_blank" rel="noopener">roo
     
     <br>
     <strong>本文链接：</strong>
-    <a rel="license" href="http://yoursite.com/2019/09/01/Linux网络配置/">http://yoursite.com/2019/09/01/Linux网络配置/</a>
+    <a rel="license" href="http://yoursite.com/2019/09/05/HeapSort/">http://yoursite.com/2019/09/05/HeapSort/</a>
     <br>
     <strong>版权声明：</strong>
     本作品采用
@@ -512,21 +478,22 @@ pscp -r <a href="mailto:root@192.168.145.130" target="_blank" rel="noopener">roo
     </div>
     <div class="article-info article-info-index">
       
+        <div class="article-pop-out tagcloud">
+          <i class="icon-tuding"></i>
+          <a class="article-tag-list-link color3">置顶</a>
+        </div>
+      
       
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">排序</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">网络</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ssh</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">堆</a>
         		</li>
       		
 		</ul>
@@ -539,7 +506,7 @@ pscp -r <a href="mailto:root@192.168.145.130" target="_blank" rel="noopener">roo
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/笔记//" class="article-tag-list-link color3">笔记</a>
+        			<a href="/categories/算法//" class="article-tag-list-link color3">算法</a>
         		</li>
       		
 		</ul>
@@ -595,7 +562,7 @@ pscp -r <a href="mailto:root@192.168.145.130" target="_blank" rel="noopener">roo
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://janlee151.github.io/2019/09/01/Linux网络配置/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://janlee151.github.io/2019/09/05/HeapSort/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -609,18 +576,18 @@ pscp -r <a href="mailto:root@192.168.145.130" target="_blank" rel="noopener">roo
   
 <nav id="article-nav">
   
-    <a href="/2019/09/02/Nginx/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/09/05/有效括号组数/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          Nginx
+          有效括号组数
         
       </div>
     </a>
   
   
-    <a href="/2019/08/31/Linux用户和用户组/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Linux用户和用户组</div>
+    <a href="/2019/09/03/二叉树遍历/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">二叉树遍历</div>
       <i class="icon-circle-right"></i>
     </a>
   
