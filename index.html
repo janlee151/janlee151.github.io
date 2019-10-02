@@ -685,11 +685,11 @@ color="45, 241, 10" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">二叉树</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">递归</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">递归</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">二叉树</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -974,6 +974,122 @@ color="45, 241, 10" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
 
 
   
+    <article id="post-红黑树" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+  
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/09/25/红黑树/">红黑树</a>
+    </h1>
+  
+
+        
+        <link href="https://cdn.staticfile.org/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet">
+
+        
+      </header>
+    
+			
+    <div class="article-entry" itemprop="articleBody">
+	
+	 <div class="headband">
+           <a href="https://github.com/janlee151/"><img style="position: absolute; top: 0; right: 0; border: 0;height: 30px; width: 30px;color: yellow" src="/img/github.png" alt="Fork me on GitHub"></a>
+     </div>
+      
+        <h4 id="性质"><a class="header-anchor" href="#性质"></a>性质</h4>
+<p>我们搞懂一种树的数据结构我们需要知道它的性质：</p>
+<ol>
+<li>首相这是一棵二叉搜索树，也就是左子树节点的值小于根节点，右子树节点的值大于根节点的值</li>
+<li>节点带有颜色，红色或者黑色</li>
+<li>红黑树的根节点是黑色，叶子节点都是黑色
+        
+      
+	  <!--增加版权-->
+     
+  
+  <div class="declare" hidden="hidden"></div>
+
+<!--文章末尾添加致谢-->
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">树</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">平衡树</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">红黑树</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">搜索树</a>
+        		</li>
+      		
+		</ul>
+		
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/算法//" class="article-tag-list-link color3">算法</a>
+        		</li>
+      		
+		</ul>
+		
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/09/25/红黑树/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+				
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+      
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-MySQL事务" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
   
@@ -1111,89 +1227,8 @@ color="45, 241, 10" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
 <li>首先是一个二叉搜索树</li>
 <li>每个节点的左右子树的高度差的绝对值小于等于1</li>
 </ol>
-<h4 id="插入节点"><a class="header-anchor" href="#插入节点"></a>插入节点</h4>
-<p>插入节点的实现其实和二叉搜索树的插入实现其实是差不多的：</p>
-<p><img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1569293946128.png" alt="enter description here"><br>
-我们插入节点成功之后我对插入节点的父节点进行平衡调整，其实这里插入节点的高度变化导致插入节点的父节点的高度发生变化从而导致插入节点的父节点的父节点平衡度等于2或者-2</p>
-<h4 id="删除节点"><a class="header-anchor" href="#删除节点"></a>删除节点</h4>
-<p>1.通过值删除节点<br>
-我们同样通过迭代的方式寻找与给定值的节点：<br>
-<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1569298778696.png" alt="enter description here"><br>
-删除之后，删除节点的父节点平衡度发生改变：<br>
-<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1569299072139.png" alt="enter description here"><br>
-删除节点的过程：</p>
-<ul>
-<li>如果删除的节点父节点是null，表示删除的节点是根节点我们直接删除</li>
-<li>如果删除的节点是叶节点，我们判断删除的节点是左叶子节点还是右叶子节点，我们只需要通过删除节点的父节点：TreeNode parent = delNode.parent; 判断parent.left==delNode ||    parent.right==delNode</li>
-<li>如果删除的节点不是树的根节点也不是叶子节点，我们还是设删除的节点是delNode，我们删除节点并不是此节点，而是将叶节点与之交换然后将叶节点删除，看图片操作就懂了：<br>
-<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1569303181137.png" alt="enter description here"><br>
-我这里只是将待删除节点的左子树不为空，其实删除节点无论是左还是右子树只要有一个不为空就行，如果右子树不为空，我们将右子树最左边的叶子节点与待删除节点进行交换就行，这里就不画了。<br>
-2.按节点删除是一样的道理</li>
-</ul>
-<h4 id="如果子树是左-左型"><a class="header-anchor" href="#如果子树是左-左型"></a>如果子树是左-左型</h4>
-<ul>
-<li>旋转轴没有右孩子节点的情况<br>
-<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1569304867956.png" alt="enter description here"><br>
-我们需要进行右旋操作：<br>
-步骤一：<br>
-<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1569305237321.png" alt="enter description here"><br>
-步骤二：<br>
-<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1569305411955.png" alt="enter description here"></li>
-<li>旋转轴有右孩子节点的情况<br>
-<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1569305696729.png" alt="enter description here"></li>
-</ul>
-<p>我们将旋转轴的右孩子节点变为旋转轴父节点的左孩子节点：<br>
-<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1569314134769.png" alt="enter description here"></p>
-<h4 id="如果子树是右-右型"><a class="header-anchor" href="#如果子树是右-右型"></a>如果子树是右-右型</h4>
-<ul>
-<li>旋转轴没有左孩子节点<br>
-<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1569310155111.png" alt="enter description here"><br>
-我们需要进行左转操作：<br>
-步骤一：<br>
-<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1569310395592.png" alt="enter description here"><br>
-步骤二：<br>
-<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1569311095565.png" alt="enter description here"></li>
-<li>旋转轴有左孩子节点：<br>
-<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1569311258872.png" alt="enter description here"></li>
-</ul>
-<p>我们将旋转轴的左孩子节点作为旋转轴父节点的右孩子节点<br>
-<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1569311798865.png" alt="enter description here"></p>
-<h4 id="如果子树是左-右型"><a class="header-anchor" href="#如果子树是左-右型"></a>如果子树是左-右型</h4>
-<p><img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1569314868693.png" alt="enter description here"><br>
-我们旋转的顺序从下往上旋转：<br>
-第一步左旋一次：<br>
-<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1569315885211.png" alt="enter description here"><br>
-我们得到如下：<br>
-<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1569315288533.png" alt="enter description here"><br>
-第二步右旋一次：<br>
-<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1569316032838.png" alt="enter description here"><br>
-我们得到如下：<br>
-<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1569315719208.png" alt="enter description here"></p>
-<h4 id="如果子树是右-左型"><a class="header-anchor" href="#如果子树是右-左型"></a>如果子树是右-左型</h4>
-<p><img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1569316546175.png" alt="enter description here"><br>
-第一步右旋一次：<br>
-<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1569316749038.png" alt="enter description here"><br>
-我们得到如下：<br>
-<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1569317101145.png" alt="enter description here"><br>
-第二步左旋一次：<br>
-<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1569317594447.png" alt="enter description here"><br>
-我们得到如下：<br>
-<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1569317967307.png" alt="enter description here"></p>
-<blockquote>
-<p>我们无论进行左右旋还是右左旋的基础都是上面左旋、右旋。</p>
-</blockquote>
-<h4 id="右旋操作的过程"><a class="header-anchor" href="#右旋操作的过程"></a>右旋操作的过程</h4>
-<p><img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1569321362395.png" alt="enter description here"></p>
-<p><img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1569322944161.png" alt="enter description here"></p>
-<blockquote>
-<p>我的逻辑思路：首相我先处理nodeChild的right子节点，旋转之后它是node节点的左孩子节点（成对的），然后设置right子节点的父节点为node，我么这样成对设置。然后我们处理节点nodeChild节点，然后再处理node节点。</p>
-</blockquote>
-<p>代码实现：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">insert</span><span class="params">(<span class="keyword">int</span> value)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (root == <span class="keyword">null</span>) &#123;</span><br><span class="line">    root = <span class="keyword">new</span> TreeNode(value, <span class="keyword">null</span>);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    TreeNode temp = root;</span><br><span class="line">    TreeNode insertParent = <span class="keyword">null</span>;</span><br><span class="line">    <span class="keyword">while</span> (temp != <span class="keyword">null</span>) &#123;</span><br><span class="line">      insertParent = temp;</span><br><span class="line">      <span class="keyword">if</span> (value &lt; temp.value) &#123;</span><br><span class="line">        temp = temp.left;</span><br><span class="line">      &#125; <span class="keyword">else</span> <span class="keyword">if</span> (value &gt; temp.value) &#123;</span><br><span class="line">        temp = temp.right;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (value &lt; insertParent.value) &#123;</span><br><span class="line">      insertParent.left = <span class="keyword">new</span> TreeNode(value, insertParent);</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (value &gt; insertParent.value) &#123;</span><br><span class="line">      insertParent.right = <span class="keyword">new</span> TreeNode(value, insertParent);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (insertParent.left != <span class="keyword">null</span> || insertParent.right != <span class="keyword">null</span>) &#123;</span><br><span class="line">      rebalance(insertParent);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">deleteByNode</span><span class="params">(TreeNode node)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (node.left == <span class="keyword">null</span> &amp;&amp; node.right == <span class="keyword">null</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (node.parent == <span class="keyword">null</span>) &#123;</span><br><span class="line">      root = <span class="keyword">null</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      TreeNode parent = node.parent;</span><br><span class="line">      <span class="keyword">if</span> (node == parent.left) &#123;</span><br><span class="line">        parent.left = <span class="keyword">null</span>;</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        parent.right = <span class="keyword">null</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      rebalance(parent);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (node.left != <span class="keyword">null</span>) &#123;</span><br><span class="line">    TreeNode child = node.left;</span><br><span class="line">    <span class="keyword">while</span> (child.right != <span class="keyword">null</span>) &#123;</span><br><span class="line">      child = child.right;</span><br><span class="line">    &#125;</span><br><span class="line">    node.value = child.value;</span><br><span class="line">    deleteByNode(child);</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (node.right != <span class="keyword">null</span>) &#123;</span><br><span class="line">    TreeNode child = node.right;</span><br><span class="line">    <span class="keyword">while</span> (child.left != <span class="keyword">null</span>) &#123;</span><br><span class="line">      child = child.left;</span><br><span class="line">    &#125;</span><br><span class="line">    node.value = child.value;</span><br><span class="line">    deleteByNode(child);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">deleteByValue</span><span class="params">(<span class="keyword">int</span> value)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (root == <span class="keyword">null</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  TreeNode temp = root;</span><br><span class="line">  <span class="keyword">while</span> (temp != <span class="keyword">null</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (value == temp.value) &#123;</span><br><span class="line">      deleteByNode(temp);</span><br><span class="line">      <span class="keyword">return</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (value &lt; temp.value) &#123;</span><br><span class="line">      temp = temp.left;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      temp = temp.right;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">throw</span> <span class="keyword">new</span> NoSuchElementException(<span class="string">"没有此节点,删除失败"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">rebalance</span><span class="params">(TreeNode node)</span> </span>&#123;</span><br><span class="line">  setBalance(node);</span><br><span class="line">  <span class="keyword">if</span> (node.balance == -<span class="number">2</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (height(node.left.left) &gt;= height(node.left.right)) &#123;</span><br><span class="line">      node = rotateRight(node);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      node = rotateLeftRight(node);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (node.balance == <span class="number">2</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (height(node.right.right) &gt;= height(node.right.left)) &#123;</span><br><span class="line">      node = rotateLeft(node);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      node = rotateRightLeft(node);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setBalance</span><span class="params">(TreeNode... nodes)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">for</span> (TreeNode node : nodes) &#123;</span><br><span class="line">    reheight(node);</span><br><span class="line">    node.balance = height(node.right) - height(node.left);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">reheight</span><span class="params">(TreeNode node)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (node != <span class="keyword">null</span>) &#123;</span><br><span class="line">    node.height = <span class="number">1</span> + Math.max(height(node.left), height(node.right));</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">height</span><span class="params">(TreeNode node)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (node == <span class="keyword">null</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> node.height;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> TreeNode <span class="title">rotateRight</span><span class="params">(TreeNode node)</span> </span>&#123;</span><br><span class="line"> TreeNode nodeChild = node.left;</span><br><span class="line">  <span class="keyword">if</span>(nodeChild.right!=<span class="keyword">null</span>)&#123;</span><br><span class="line">    node.left = nodeChild.right;</span><br><span class="line">    nodeChild.right.parent = node;</span><br><span class="line">  &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">    node.left = <span class="keyword">null</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span>(node.parent!=<span class="keyword">null</span>)&#123;</span><br><span class="line">    nodeChild.parent = node.parent;</span><br><span class="line">    <span class="keyword">if</span>(node.parent.left==node)&#123;</span><br><span class="line">      node.parent.left = nodeChild;</span><br><span class="line">    &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">      node.parent.right = nodeChild;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">    nodeChild.parent = <span class="keyword">null</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  nodeChild.right = node;</span><br><span class="line">  node.parent = nodeChild;</span><br><span class="line">  setBalance(node, nodeChild);</span><br><span class="line">  <span class="keyword">return</span> nodeChild;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> TreeNode <span class="title">rotateLeft</span><span class="params">(TreeNode node)</span> </span>&#123;</span><br><span class="line">   TreeNode nodeChild = node.right;</span><br><span class="line">  <span class="keyword">if</span>(nodeChild.left!=<span class="keyword">null</span>)&#123;</span><br><span class="line">    node.right = nodeChild.left;</span><br><span class="line">    nodeChild.left.parent = node;</span><br><span class="line">  &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">    node.right = <span class="keyword">null</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span>(node.parent!=<span class="keyword">null</span>)&#123;</span><br><span class="line">    nodeChild.parent = node.parent;</span><br><span class="line">    <span class="keyword">if</span>(node.parent.left==node)&#123;</span><br><span class="line">      node.parent.left = nodeChild;</span><br><span class="line">    &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">      node.parent.right = nodeChild;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">    nodeChild.parent = <span class="keyword">null</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  nodeChild.left = node;</span><br><span class="line">  node.parent = nodeChild;</span><br><span class="line">  setBalance(node, nodeChild);</span><br><span class="line">  <span class="keyword">return</span> nodeChild;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> TreeNode <span class="title">rotateLeftRight</span><span class="params">(TreeNode node)</span> </span>&#123;</span><br><span class="line">  node.left = rotateLeft(node.left);</span><br><span class="line">  <span class="keyword">return</span> rotateRight(node);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> TreeNode <span class="title">rotateRightLeft</span><span class="params">(TreeNode node)</span> </span>&#123;</span><br><span class="line">  node.right = rotateRight(node.right);</span><br><span class="line">  <span class="keyword">return</span> rotateLeft(node);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">printTreeNodeBalance</span><span class="params">(TreeNode node)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (node != <span class="keyword">null</span>) &#123;</span><br><span class="line">    printTreeNodeBalance(node.left);</span><br><span class="line">    System.out.println(node.balance);</span><br><span class="line">    printTreeNodeBalance(node.right);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>对于二叉树旋转操作只要逻辑顺序其实难度不大，尤其要注意如果某一个节点的父节点发生改变，我们需要保存此节点改变之前的父节点或者调整处理顺序。不要丢失地址就行。</p>
-</blockquote>
-
+<h4 id="插入节点-more"><a class="header-anchor" href="#插入节点-more"></a>插入节点
+        
       
 	  <!--增加版权-->
      
@@ -1314,114 +1349,6 @@ color="45, 241, 10" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2019/09/19/MyBatis-1/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-				
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-      
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-二叉搜索树" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-  
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/09/17/二叉搜索树/">二叉搜索树</a>
-    </h1>
-  
-
-        
-        <link href="https://cdn.staticfile.org/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet">
-
-        
-      </header>
-    
-			
-    <div class="article-entry" itemprop="articleBody">
-	
-	 <div class="headband">
-           <a href="https://github.com/janlee151/"><img style="position: absolute; top: 0; right: 0; border: 0;height: 30px; width: 30px;color: yellow" src="/img/github.png" alt="Fork me on GitHub"></a>
-     </div>
-      
-        <h3 id="二叉搜索树"><a class="header-anchor" href="#二叉搜索树"></a>二叉搜索树</h3>
-<h4 id="性质"><a class="header-anchor" href="#性质"></a>性质</h4>
-<ul>
-<li>若任意节点的左子树不为空，则左子树上的节点的值都小于它的根节点的值</li>
-<li>若任意节点的右子树不为空，则右子树上的节点的值都大于它的根节点的值</li>
-<li>左右子树同样也是二叉搜索树
-        
-      
-	  <!--增加版权-->
-     
-  
-  <div class="declare" hidden="hidden"></div>
-
-<!--文章末尾添加致谢-->
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">二叉搜索树</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">树</a>
-        		</li>
-      		
-		</ul>
-		
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/算法//" class="article-tag-list-link color3">算法</a>
-        		</li>
-      		
-		</ul>
-		
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/09/17/二叉搜索树/">展开全文 >></a>
         </p>
       
 
@@ -1585,19 +1512,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">排序</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">堆</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">基础指令</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">排序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">堆</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1609,11 +1536,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">高级指令</a>
+                <a href="javascript:void(0)" class="js-tag color5">进阶指令</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">进阶指令</a>
+                <a href="javascript:void(0)" class="js-tag color5">高级指令</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1622,14 +1549,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">html</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">子查询</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1649,19 +1568,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">子查询</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">连接</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">exists</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">二叉搜索树</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">树</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1677,6 +1596,30 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">二叉搜索树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">递归</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">二叉树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">二叉树深度</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">遍历</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">徐志摩</a>
               </li>
              
@@ -1685,39 +1628,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">二叉树</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">遍历</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">markdown</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">文档说明</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">递归</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">二叉树深度</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">分治算法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">动态规划</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1737,6 +1652,26 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">分治算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">ip</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">网络配置</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">动态规划</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">平衡树</a>
               </li>
              
@@ -1749,11 +1684,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">ip</a>
+                <a href="javascript:void(0)" class="js-tag color4">红黑树</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">网络配置</a>
+                <a href="javascript:void(0)" class="js-tag color4">搜索树</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1772,7 +1707,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           </ul>
         </div>
 		  
-		   <span style="color:#0BF9D5;background:black">&nbsp;&nbsp;&nbsp;<i class="icon ion-document"></i>&nbsp;&nbsp;博客文章数 ：32</span>
+		   <span style="color:#0BF9D5;background:black">&nbsp;&nbsp;&nbsp;<i class="icon ion-document"></i>&nbsp;&nbsp;博客文章数 ：33</span>
         <ul class="search-ul">
           <p q-show="jsonFail" style="padding: 20px; font-size: 12px;">
             缺失模块。<br/>1、请确保node版本大于6.2<br/>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br/> npm i hexo-generator-json-content --save<br/><br/>
