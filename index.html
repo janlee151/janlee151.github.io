@@ -1003,20 +1003,8 @@ color="45, 241, 10" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
 <li>25匹马赛跑，一共有五个跑道，问最少通过多少次比赛可以获取到25匹马中的前三名？
 <ul>
 <li>首先我们先将25匹马分成5组，每组五匹马，然后每组依次跑完：<br>
-<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1571152206885.png" alt="enter description here"><br>
-这里我们用掉了五场比赛。</li>
-<li>然后我们将每一组的第一名进行比赛，此时我们得到了冠军。这里我们用掉了一场比赛。</li>
-<li>此时我们需要获取第二名，第二名会出现在什么位置呢？这里我们加入五组比赛完之后，每组的排名顺序不变，我这里只是懒得画图了，假如冠军是A1，那么25匹马的第二名的<br>
-<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1571153442939.png" alt="enter description here"><br>
-第二名出现的位置就是B1、A2当中的一个；</li>
-<li>此时我们获取第三名，第三名会出现在什么位置呢？<br>
-假如第二名是B1，那么第三名B1&gt;A2，B1&gt;C1,第三名出现在A2、C1当中的一个<br>
-假如第二名是A2，A2&gt;B1，A2&gt;B2，A2&gt;A3，第三名可能出现在B1，B2，A3三者中的一个，哈哈豁然开朗，我们第二名出现在B1、A2中，为了获取第二或者第三名我们让B1、A2、B2、<br>
-C1、A3我们让这五匹马再跑一次，我们获得第一第二名，这里的第一和第二名分别对应25匹马的第二和第三名，问题解决了，只需要比赛七次就可以了。</li>
-</ul>
-</li>
-</ol>
-
+<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1571152206885.png" alt="enter description here">
+        
       
 	  <!--增加版权-->
      
@@ -1118,9 +1106,8 @@ C1、A3我们让这五匹马再跑一次，我们获得第一第二名，这里�
 <p>问题描述，小明有85个空饮料瓶，已知8个空瓶可以兑换一瓶饮料，问小明最多可以喝多少瓶饮料？</p>
 </blockquote>
 <p>其实我们思考一下，首先我们思考如何得到最多的饮料，最开始我们肯定是先兑换一瓶饮料，然后将饮料喝掉，然后空瓶加1，这样重复操作就可以得到最大结果。</p>
-<p>这样代码实现也就很简单了：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">drinkMaxMilk</span><span class="params">(<span class="keyword">int</span> emptyBottle)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> fullBottle = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> drinked = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(<span class="keyword">true</span>)&#123;</span><br><span class="line">      <span class="keyword">if</span>((emptyBottle+fullBottle)&lt;<span class="number">8</span>)&#123;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">if</span>(fullBottle&gt;<span class="number">0</span>)&#123;</span><br><span class="line">        fullBottle--;</span><br><span class="line">        drinked++;</span><br><span class="line">        emptyBottle++;</span><br><span class="line">      &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">        emptyBottle -= <span class="number">8</span>;</span><br><span class="line">        fullBottle++;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> drinked;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-
+<p>这样代码实现也就很简单了：
+        
       
 	  <!--增加版权-->
      
@@ -1225,396 +1212,8 @@ C1、A3我们让这五匹马再跑一次，我们获得第一第二名，这里�
         <h3 id="valueof-string-str-或者valueof-string-str-int-radix"><a class="header-anchor" href="#valueof-string-str-或者valueof-string-str-int-radix"></a>valueOf(String str) 或者valueOf(String str , int radix)</h3>
 <p>这个静态函数的作用就是将字符串转换成相应的Number对象，其中第二个函数的作用就是将将字符串转换成radix进制的Number对象，我们转换之后我们如何对Number对象进行比较呢？<br>
 比如：<br>
-Integer.valueOf(“12345”)<br>
-Long.valueOf(“12345”)<br>
-将字符创转换成int和long的包装类对象，我们知道包装类有自动拆箱和装箱的作用：<br>
-如果转换成Number对象之后的数值范围[-128,127],就会将Number对象自动拆箱成int或者long等基本类型，所以我们比较相等时就用”==“号<br>
-如果装换成Number对象之后的数值范围不在上面的范围，那么转换成的就是Number对象，我们比较时应用equals()</p>
-<h3 id="随机数生成器random"><a class="header-anchor" href="#随机数生成器random"></a>随机数生成器Random()</h3>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Random ran = <span class="keyword">new</span> Random();</span><br><span class="line">ran.nextInt(num);</span><br></pre></td></tr></table></figure>
-<p>上边代码的作用就是取随机数，随机数的范围就是[0,num)，这里是左闭右开</p>
-<h3 id="java中的向上或者向下转型"><a class="header-anchor" href="#java中的向上或者向下转型"></a>java中的向上或者向下转型</h3>
-<p>java语言是多态性</p>
-<h4 id="向上转型："><a class="header-anchor" href="#向上转型："></a>向上转型：</h4>
-<p>Animal animal = new Cat();<br>
-格式：父类名称  变量 = new 子类名称();<br>
-含义：等号左侧变量类型是父类类型，右侧实例化对象时是通过子类来实现的，所以向上转型是安全的，为什么是安全的？猫是动物当然是正确的。<br>
-我们知道子类继承父类可以继承父类的所有属性和方法，但是子类同样可以有自己特有的方法：<br>
-父类Animal：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Animal</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">eat</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>子类Cat：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Cat</span> <span class="keyword">extends</span> <span class="title">Animal</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">eat</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    System.out.println(<span class="string">"猫吃老鼠"</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>测试类Test：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    Animal animal = <span class="keyword">new</span> Cat();</span><br><span class="line">    animal.eat();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>运行结果：<br>
-<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1570951758842.png" alt="enter description here"><br>
-我们如果修改子类，添加自己特有的方法：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Cat</span> <span class="keyword">extends</span> <span class="title">Animal</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">catchMouse</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    System.out.println(<span class="string">"猫捉老鼠"</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">eat</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    System.out.println(<span class="string">"猫吃老鼠"</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>测试类Test：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    Animal animal = <span class="keyword">new</span> Cat();</span><br><span class="line">    animal.eat();</span><br><span class="line">    animal.catchMouse(); <span class="comment">//代码红色出现异常</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>出现上面的情况我们只能通过向下转型就可以了</p>
-<h4 id="向下转型："><a class="header-anchor" href="#向下转型："></a>向下转型：</h4>
-<p>格式：子类名称  变量  = (子类名称) 父类对象引用     //注意这个父类对象引用是上边向上转型的对象引用变量animal<br>
-含义：将父类对象还原成子类对象，但是向下转型是不安全的。<br>
-案例：</p>
-<p><img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1570956345194.png" alt="enter description here"><br>
-代码实现：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    Animal animal = <span class="keyword">new</span> Cat();</span><br><span class="line">    animal.eat();</span><br><span class="line">    ((Cat) animal).catchMouse();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>向下转型是不安全的，为什么呢？<br>
-我们的为Animal添加一个新的子类Dog：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Dog</span> <span class="keyword">extends</span> <span class="title">Animal</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">catchBird</span><span class="params">()</span></span>&#123;</span><br><span class="line">    System.out.println(<span class="string">"狗捉鸟"</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">eat</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    System.out.println(<span class="string">"狗吃鸟"</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>我们在测试类Test：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    Animal animal = <span class="keyword">new</span> Cat();</span><br><span class="line">    ((Cat) animal).catchMouse();</span><br><span class="line">    animal.eat();</span><br><span class="line">    ((Dog)animal).catchBird();</span><br><span class="line">    animal.eat();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>运行结果：<br>
-<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1570957276197.png" alt="enter description here"></p>
-<blockquote>
-<p>为什么报错呢？<br>
-我们虽然向上转型将猫定义为了动物，但是我们将animal再向下转型时一定要明确animal指向的子类对象时猫还是狗，所以这里出现运行时异常。也就是向下转型是不安全的。</p>
-</blockquote>
-<h3 id="instanceof"><a class="header-anchor" href="#instanceof"></a>instanceof</h3>
-<p>格式：对象的引用  instanceof  类名<br>
-返回值是bool类型，我们对上边测试类的向下转型进行修改：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    Animal animal = <span class="keyword">new</span> Cat();</span><br><span class="line">    <span class="keyword">if</span> (animal <span class="keyword">instanceof</span> Cat) &#123;</span><br><span class="line">      ((Cat) animal).catchMouse();</span><br><span class="line">      animal.eat();</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      ((Dog) animal).catchBird();</span><br><span class="line">      animal.eat();</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>运行结果：<br>
-<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1570957955961.png" alt="enter description here"><br>
-我们看到控制台不报运行时异常了</p>
-<blockquote>
-<p>instanceof的作用就是判断某个对象引用是不是某一个类实例化的对象。</p>
-</blockquote>
-<h3 id="dateformat"><a class="header-anchor" href="#dateformat"></a>DateFormat</h3>
-<p>这个类是一个抽象类，我们知道抽象类不能被实例化，所以我们需要通过子类来实例化，我们一般使用SimpleDateFormat(String pattern)，其中pattern就是指定的模式：</p>
-<table>
-<thead>
-<tr>
-<th>表示字母</th>
-<th>含义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>y</td>
-<td>年</td>
-</tr>
-<tr>
-<td>M</td>
-<td>月</td>
-</tr>
-<tr>
-<td>d</td>
-<td>日</td>
-</tr>
-<tr>
-<td>H</td>
-<td>时</td>
-</tr>
-<tr>
-<td>m</td>
-<td>分</td>
-</tr>
-<tr>
-<td>s</td>
-<td>秒</td>
-</tr>
-<tr>
-<td>S</td>
-<td>毫秒</td>
-</tr>
-</tbody>
-</table>
-<blockquote>
-<p>模式中的字母不能修改，但是连接字母的符号可以修改成自己喜欢的样式</p>
-</blockquote>
-<h4 id="date格式化"><a class="header-anchor" href="#date格式化"></a>Date格式化</h4>
-<p>然后我们使用String format( Date date)方法：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DateFormatDemo</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    System.out.println(<span class="keyword">new</span> Date());</span><br><span class="line">    DateFormat dateFormat = <span class="keyword">new</span> SimpleDateFormat(<span class="string">"yyyy-MM-dd HH:mm:ss"</span>);</span><br><span class="line">    String formatDate = dateFormat.format(<span class="keyword">new</span> Date());</span><br><span class="line">    System.out.println(formatDate);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>运行截图：<br>
-<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1570974855327.png" alt="enter description here"></p>
-<h4 id="将格式化的时间转换成date"><a class="header-anchor" href="#将格式化的时间转换成date"></a>将格式化的时间转换成Date</h4>
-<p>我们使用Date parse(String dateText)</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DateFormatDemo</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> ParseException </span>&#123;</span><br><span class="line">    System.out.println(<span class="keyword">new</span> Date());</span><br><span class="line">    DateFormat dateFormat = <span class="keyword">new</span> SimpleDateFormat(<span class="string">"yyyy-MM-dd HH:mm:ss"</span>);</span><br><span class="line">    String formatDate = dateFormat.format(<span class="keyword">new</span> Date());</span><br><span class="line">    System.out.println(formatDate);</span><br><span class="line">    Date date = dateFormat.parse(<span class="string">"2019-10-13 21:53:13"</span>);</span><br><span class="line">    System.out.println(date);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>运行结果：<br>
-<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1570976060196.png" alt="enter description here"></p>
-<blockquote>
-<p>注意事项：<br>
-parse(String timeText)中timeText一定要和Date实例格式化输出结果（控制台输出）一致，不然抛出异常。</p>
-</blockquote>
-<h3 id="包装类"><a class="header-anchor" href="#包装类"></a>包装类</h3>
-<table>
-<thead>
-<tr>
-<th>基本数据类型</th>
-<th>包装类（java.lang)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>byte</td>
-<td>Byte</td>
-</tr>
-<tr>
-<td>short</td>
-<td>Short</td>
-</tr>
-<tr>
-<td>int</td>
-<td>Integer</td>
-</tr>
-<tr>
-<td>long</td>
-<td>Long</td>
-</tr>
-<tr>
-<td>float</td>
-<td>Float</td>
-</tr>
-<tr>
-<td>double</td>
-<td>Double</td>
-</tr>
-<tr>
-<td>char</td>
-<td>Character</td>
-</tr>
-<tr>
-<td>boolean</td>
-<td>Boolean</td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li>装箱<br>
-基本数据类型包装成相应的包装类类型
-<ul>
-<li>手动装箱的方式</li>
-</ul>
-<ol>
-<li>方式一<br>
-new Integer(int i)<br>
-new Integer(String s)   //必须是数值类型的字符串，如果不是抛出异常<br>
-案例：<br>
-Integer  i = new Integer(4);</li>
-<li>方式二<br>
-包装类的静态方法<br>
-Integer.valurOf(int i)<br>
-Integer.valueOf(String s)  //必须是数值类型的字符串，如果不是抛出异常<br>
-案例：<br>
-Integer  i = Integer.valueOf(4);</li>
-</ol>
-<ul>
-<li>自动装箱<br>
-Integer num = 2;</li>
-</ul>
-</li>
-<li>拆箱<br>
-包装类型转换成相应的基本数据类型
-<ul>
-<li>手动拆箱的方式<br>
-int i = num.intValue();</li>
-<li>自动拆箱的方式<br>
-Integer  num = 2; //自动装箱<br>
-num = num + 2;  //自动拆箱成基本数据类型进行加2操作，然后再自动装箱</li>
-</ul>
-</li>
-</ul>
-<h3 id="类加载器"><a class="header-anchor" href="#类加载器"></a>类加载器</h3>
-<p>类加载器<br>
-作用：负责将.class文件加载到内存中，并为之生成对应的java.lang.Class对象。<br>
-类加载机制：<br>
-- 全盘负责：当一个类加载器负责加载某一个Class时，该Class所依赖的和引用的其他Class也将由该类加载器进行加载，除非显示的指明其他的类加载器进行加载；<br>
-- 父类委托：当一个类加载器负责加载某个Class时，先让父类加载器试图加载该Class，如果父类加载器不能加载该Class，才尝试从自己的类路径进行加载；<br>
-- 缓存机制：保证所有加载过的Class都会被缓存，当程序需要使用某个Class对象时，类加载器先从缓存中搜索该Class对象，只有当缓存中没有该Class对象时，系统就会读取该类的二进            制数据将其装换成Class对象，并将其存入缓存中；<br>
-ClassLoader：java运行时具有以下内置类加载器：<br>
-- BootStrap类加载器，它是内置类加载器，通常表示成null<br>
-- Ext class Loader 扩展类加载器<br>
-- System class Loader系统类记载器<br>
-	   <img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1571031550539.png" alt="enter description here"></p>
-<h3 id="反射"><a class="header-anchor" href="#反射"></a>反射</h3>
-<p>Student类：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Student</span> </span>&#123;</span><br><span class="line">  <span class="keyword">private</span> String name;</span><br><span class="line">  String sex;</span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">int</span> age;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">Student</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  Student(String name)&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">private</span> <span class="title">Student</span><span class="params">(String name, <span class="keyword">int</span> age)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">    <span class="keyword">this</span>.age = age;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">Student</span><span class="params">(String name, String sex, <span class="keyword">int</span> age)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">    <span class="keyword">this</span>.sex = sex;</span><br><span class="line">    <span class="keyword">this</span>.age = age;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">method1</span><span class="params">()</span></span>&#123;</span><br><span class="line">    System.out.println(<span class="string">"hello world"</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">method2</span><span class="params">(String name)</span></span>&#123;</span><br><span class="line">    System.out.println(name);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">"Student&#123;"</span> +</span><br><span class="line">        <span class="string">"name='"</span> + name + <span class="string">'\''</span> +</span><br><span class="line">        <span class="string">", sex='"</span> + sex + <span class="string">'\''</span> +</span><br><span class="line">        <span class="string">", age="</span> + age +</span><br><span class="line">        <span class="string">'&#125;'</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>
-<p>类加载器作用<br>
-<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1571032169992.png" alt="enter description here"></p>
-</li>
-<li>
-<p>反射作用<br>
-反射就是在运行期获取类的相关信息，然后通过类信息获取类的对象<br>
-<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1571032533745.png" alt="enter description here"><br>
-我们通过反射创建对象过程：</p>
-<ol>
-<li>首先获取类字节码文件对象，也就是Class对象<br>
-方式一：</li>
-</ol>
-  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Class&lt;Student&gt; s3 = Student.class;</span><br></pre></td></tr></table></figure>
-<p>方式二：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Student student = <span class="keyword">new</span> Student();</span><br><span class="line">   Class&lt;? extends Student&gt; s2 = student.getClass();</span><br></pre></td></tr></table></figure>
-<p>方式三：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Class&lt;?&gt; s1 = Class.forName(<span class="string">"com.form.designmodel.Student"</span>);</span><br></pre></td></tr></table></figure>
-<ol start="2">
-<li>通过Class对象获取类构造函数
-<ul>
-<li>获取public的构造函数<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Class&lt;?&gt; s1 = Class.forName(<span class="string">"com.liyang.designmodel.Student"</span>);</span><br><span class="line">      Constructor&lt;?&gt;[] constructors = s1.getConstructors();</span><br><span class="line">      <span class="keyword">for</span> (Constructor con : constructors) &#123;</span><br><span class="line">          System.out.println(con);</span><br><span class="line">     &#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-</ol>
-</li>
-</ul>
-<pre><code> - 获取类所有的构造函数
-   <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Class&lt;?&gt; s1 = Class.forName(<span class="string">"com.liyang.designmodel.Student"</span>);</span><br><span class="line">   Constructor&lt;?&gt;[] constructors = s1.getDeclaredConstructors();</span><br><span class="line">   <span class="keyword">for</span> (Constructor con : constructors) &#123;</span><br><span class="line">       System.out.println(con);</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
-
-  
-  输出结果：
-  ![enter description here](https://www.github.com/janlee151/imags.github.io/raw/imags/小书匠/1571038189241.png)
-- 获取类中单个的public构造函数
- Constructor&lt;T&gt;getConstructor(Class&lt;?&gt;...parameterTypes)
- 
- <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Class&lt;?&gt; s1 = Class.forName(<span class="string">"com.liyang.designmodel.Student"</span>);</span><br><span class="line"> Constructor&lt;?&gt; pubConstructor = s1.getConstructor();</span><br><span class="line"> System.out.println(pubConstructor);</span><br></pre></td></tr></table></figure>
-
-- 获取类中单个的任意定义的构造函数
-  Constructor&lt;T&gt;getDeclaredConstructor(Class&lt;?&gt;...parameterTypes)
-  
-  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Class&lt;?&gt; s1 = Class.forName(<span class="string">"com.liyang.designmodel.Student"</span>);</span><br><span class="line">   Constructor&lt;?&gt; anyConstructor = s1.getDeclaredConstructor();</span><br><span class="line">   System.out.println(anyConstructor);</span><br></pre></td></tr></table></figure>
-</code></pre>
-<ol start="3">
-<li>
-<p>创建对象<br>
-根据指定的构造函数创建对象<br>
-T newInstance(Object… initargs)</p>
- <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Class&lt;?&gt; s1 = Class.forName(<span class="string">"com.liyang.designmodel.Student"</span>);</span><br><span class="line">   Constructor&lt;?&gt; anyConstructor = s1.getDeclaredConstructor();</span><br><span class="line">   Object instance = anyConstructor.newInstance();</span><br><span class="line">   System.out.println(instance);</span><br></pre></td></tr></table></figure>
-<p>运行结果：<br>
-<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1571039624040.png" alt="enter description here"></p>
-<p>案例一：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Class&lt;?&gt; s1 = Class.forName(<span class="string">"com.liyang.designmodel.Student"</span>);</span><br><span class="line">   Constructor&lt;?&gt; anyConstructor = s1.getDeclaredConstructor(String.class,String.class,<span class="keyword">int</span>.class);</span><br><span class="line">   Object instance = anyConstructor.newInstance(<span class="string">"爱因斯坦"</span>,<span class="string">"男"</span>,<span class="number">30</span>); <span class="comment">//传实参</span></span><br><span class="line">   System.out.println(instance);</span><br></pre></td></tr></table></figure>
-<p>运行截图：<br>
-<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1571040685826.png" alt="enter description here"></p>
-</li>
-<li>
-<p>获取成员变量</p>
- <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Class&lt;?&gt; s1 = Class.forName(<span class="string">"com.liyang.designmodel.Student"</span>);</span><br><span class="line">   Field[] fields = s1.getFields(); <span class="comment">//获取所有public的成员变量</span></span><br><span class="line">   Field[] fields1 = s1.getDeclaredFields();<span class="comment">//获取所有成员变量</span></span><br></pre></td></tr></table></figure>
-<p>修改对象的字段值</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Class&lt;?&gt; s1 = Class.forName(<span class="string">"com.liyang.designmodel.Student"</span>);</span><br><span class="line">   Field nameField = s1.getDeclaredField(<span class="string">"name"</span>);</span><br><span class="line">   Field sexField = s1.getDeclaredField(<span class="string">"sex"</span>);</span><br><span class="line">   Constructor&lt;?&gt; constructor = s1.getDeclaredConstructor(String.class,String.class,<span class="keyword">int</span>.class);</span><br><span class="line">   Object instance = constructor.newInstance(<span class="string">"爱因斯坦"</span>,<span class="string">"男"</span>,<span class="number">30</span>);</span><br><span class="line">   System.out.println(instance);</span><br><span class="line">   nameField.setAccessible(<span class="keyword">true</span>);</span><br><span class="line">   sexField.setAccessible(<span class="keyword">true</span>);</span><br><span class="line">   nameField.set(instance,<span class="string">"李清照"</span>);</span><br><span class="line">   sexField.set(instance,<span class="string">"女"</span>);</span><br><span class="line">   System.out.println(instance);</span><br></pre></td></tr></table></figure>
-<p>运行结果：<br>
-<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1571044452845.png" alt="enter description here"></p>
-</li>
-</ol>
-<blockquote>
-<p>注意：虽然我们通过getDeclaredField(String fileName)可以获取Class对象的任意字段，但是我们只不能直接设置private修饰的字段，所以我们对字段的可达性设置为true，然后再修改就可以了。<br>
-设置的格式：字段对象.set(类对象实例 ,设置字段的值）<br>
-我们获取字段对象就是通过Class对象通过getFielf(&quot;类成员变量名“)或者getDeclaredField(&quot;类成员变量名”)</p>
-</blockquote>
-<ol start="5">
-<li>获取成员方法<br>
-方式一：获取类中public修饰的成员方法<br>
-Class对象.getMethod(“方法名”,);<br>
-Class对象.getMethods();
-<blockquote>
-<p>上面包含本类和父类中所有的public修饰的成员方法</p>
-</blockquote>
-</li>
-</ol>
-<pre><code>方式二：获取类中所有的成员方法
-Class对象.getDeclaredMethod();
-Class对象.getDeclaredMethods();
-&gt; 上面获取的函数都是本类的成员方法
-</code></pre>
-<p>代码案例：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Class&lt;?&gt; s1 = Class.forName(<span class="string">"com.liyang.designmodel.Student"</span>);</span><br><span class="line">   Method method1 = s1.getDeclaredMethod(<span class="string">"method1"</span>);</span><br><span class="line">   Method method2 = s1.getDeclaredMethod(<span class="string">"method2"</span>,String.class);</span><br><span class="line">   Constructor&lt;?&gt; constructor = s1</span><br><span class="line">       .getDeclaredConstructor(String.class, String.class, <span class="keyword">int</span>.class);</span><br><span class="line">   Object instance = constructor.newInstance(<span class="string">"李白"</span>, <span class="string">"男"</span>, <span class="number">100</span>);</span><br><span class="line">   method1.invoke(instance);</span><br><span class="line">   method2.invoke(instance,<span class="string">"java"</span>);</span><br></pre></td></tr></table></figure>
-<p>运行截图：<br>
-<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1571061492190.png" alt="enter description here"></p>
-<blockquote>
-<p>Method[]  getMethods()：返回类所有public修饰的成员方法对象数组，包括继承的父类的成员方法<br>
-Method[]  getDeclaredMethods()：返回类所有成员方法对象数组，不包含继承父类的成员方法<br>
-Method[]  getMethod(String functionName，Class&lt;?&gt; …parameterTypes)：返回指定public修饰的成员方法<br>
-Method[]  getDeclaredMethod(String functionName ， Class&lt;?&gt; …parameterType)：返回指定的成员方法<br>
-Method对象.invoke(object ,Object…args) //方法调用，当然传实参了。</p>
-</blockquote>
-<h3 id="异常"><a class="header-anchor" href="#异常"></a>异常</h3>
-<h4 id="异常基础"><a class="header-anchor" href="#异常基础"></a>异常基础</h4>
-<p>Throwable类是java异常或错误的超类</p>
-<ol>
-<li>异常
-<ul>
-<li>编译器异常exception，进行编译时（编写代码）时出现的异常</li>
-<li>运行期异常RuntimeException，java程序的运行过程中出现的问题</li>
-</ul>
-</li>
-<li>错误<br>
-错误就不程序不对，必须通过修改源代码才能改正</li>
-</ol>
-<blockquote>
-<p>异常和错误的区别：<br>
-异常我们可以通过捕获异常或者声明异常，程序仍旧能正常执行完<br>
-错误我们无法通过捕获来解决，只能修改错误的代码来解决问题</p>
-</blockquote>
-<h4 id="异常处理"><a class="header-anchor" href="#异常处理"></a>异常处理</h4>
-<ul>
-<li>throw<br>
-格式：throw new ***Exception(&quot;异常产生的原因描述“)<br>
-throw后边new的对象必须是Exception或者Exception的子类</li>
-</ul>
-<blockquote>
-<p>throw关键字抛出指定的异常对象，我们必须处理这个异常对象<br>
-1.如果throw后边创建的是RuntimeException或者RuntimeException的子类的对象，我们可以不处理，直接交给虚拟机，让虚拟机打印异常对象中断程序。<br>
-2.如果throw后边是编译时异常(代码错误)，我们必须处理异常要么throws将异常抛给调用者，要么通过try…catch…捕获异常。</p>
-</blockquote>
-<p>运行时异常：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">printArr</span><span class="params">(<span class="keyword">int</span>[] arr)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (arr == <span class="keyword">null</span>) &#123;</span><br><span class="line">      <span class="keyword">throw</span> <span class="keyword">new</span> NullPointerException(<span class="string">"数组为空"</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      System.out.println(arr);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span>[] arr = <span class="keyword">null</span>;</span><br><span class="line">    printArr(arr);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>运行结果：<br>
-<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1571104095409.png" alt="enter description here"></p>
-<ul>
-<li>声明异常throws关键字<br>
-格式：访问修饰符  返回值  方法名  （参数列表）throws 异常对象1，异常对象2…{<br>
-}<br>
-作用：将异常抛给调用者处理，最终将异常抛给虚拟机处理</li>
-<li>try…catch…捕获异常<br>
-通过throws声明异常，将异常抛给调用者处理，最终抛给虚拟机处理中断程序，但是如何做到异常后边无异常的代码正常运行呢？<br>
-我们就应用到了try…catch自己处理异常，后边无异常的代码仍旧能正常运行，try块主要是写存在可能存在异常的代码，catch是捕获try块抛出的异常，并对异常对象进行处理（输出提示语        句），最后运行异常处理块后边的代码。<br>
-catch块处理异常的方式：
-<ol>
-<li>异常类对象.toString();</li>
-<li>异常类对象.getMessage();</li>
-<li>异常类对象.printStackTrace()打印异常跟踪栈信息<br>
-这些方法是异常类的超类Throwable类中定义的成员方法。</li>
-</ol>
-</li>
-</ul>
-<h4 id="try-catch-finally"><a class="header-anchor" href="#try-catch-finally"></a>try…catch…finally</h4>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">printArrItem</span><span class="params">(<span class="keyword">int</span>[] arr, <span class="keyword">int</span> index)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a = <span class="number">10</span>;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">      System.out.println(arr[index]);</span><br><span class="line">      a = <span class="number">5</span>;</span><br><span class="line">      <span class="keyword">return</span> a;</span><br><span class="line">    &#125;<span class="keyword">catch</span> (ArrayIndexOutOfBoundsException e)&#123;</span><br><span class="line">      e.printStackTrace();</span><br><span class="line">    &#125;<span class="keyword">finally</span> &#123;</span><br><span class="line">      a = <span class="number">6</span>;</span><br><span class="line">      <span class="keyword">return</span> a;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>程序中尽量不要出现上面返回值在finally代码块的情况，不然无论try块代码有没有异常，方法的返回值都是finally代码块返回的值。</p>
-</blockquote>
-<h4 id="子类父类异常抛出"><a class="header-anchor" href="#子类父类异常抛出"></a>子类父类异常抛出</h4>
-<ul>
-<li>如果父类抛出多个异常，子类重写父类方法时抛出和父类相同的异常或者是父类异常的子类或者不抛出异常</li>
-<li>父类方法没有抛出异常，子类重写父类该方法是也不能抛出异常，此时子类出现异常只能捕获处理，不能声明抛出</li>
-</ul>
-<h4 id="自定义异常类"><a class="header-anchor" href="#自定义异常类"></a>自定义异常类</h4>
-<p>格式：public class ***Exception extends Exception | RuntimeException{<br>
-添加一个空参的构造方法<br>
-添加一个带有信息参数的构造方法<br>
-}<br>
-案例：</p>
-<ul>
-<li>运行时异常</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyException</span> <span class="keyword">extends</span> <span class="title">RuntimeException</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span>  <span class="title">MyException</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">super</span>();</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">MyException</span><span class="params">(String s)</span></span>&#123;</span><br><span class="line">    <span class="keyword">super</span>(s);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">checkRegister</span><span class="params">(String[]names,String registerName)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (String name : names) &#123;</span><br><span class="line">      <span class="keyword">if</span>(registerName.equals(name))&#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> MyException(<span class="string">"此名字已经占用，请修改名字"</span>);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    System.out.println(<span class="string">"恭喜你，注册成功！"</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">   String[]names = &#123;<span class="string">"刘备"</span>,<span class="string">"关羽"</span>,<span class="string">"张飞"</span>&#125;;</span><br><span class="line">   String registerName = <span class="string">"刘备"</span>;</span><br><span class="line">   checkRegister(names,registerName);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>输出结果：<br>
-<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1571116156264.png" alt="enter description here"></p>
-<ul>
-<li>编译时异常</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyException</span> <span class="keyword">extends</span> <span class="title">Exception</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span>  <span class="title">MyException</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">super</span>();</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">MyException</span><span class="params">(String s)</span></span>&#123;</span><br><span class="line">    <span class="keyword">super</span>(s);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">checkRegister</span><span class="params">(String[]names,String registerName)</span> <span class="keyword">throws</span> MyException </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (String name : names) &#123;</span><br><span class="line">      <span class="keyword">if</span>(registerName.equals(name))&#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> MyException(<span class="string">"此名字已经占用，请修改名字"</span>);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    System.out.println(<span class="string">"恭喜你，注册成功！"</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> MyException </span>&#123;</span><br><span class="line">   String[]names = &#123;<span class="string">"刘备"</span>,<span class="string">"关羽"</span>,<span class="string">"张飞"</span>&#125;;</span><br><span class="line">   String registerName = <span class="string">"刘备"</span>;</span><br><span class="line">   checkRegister(names,registerName);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">运行结果：</span><br><span class="line">![enter description here](https:<span class="comment">//www.github.com/janlee151/imags.github.io/raw/imags/小书匠/1571142652217.png)</span></span><br><span class="line">### 类继承知识存在盲点</span><br><span class="line">通过程序我们深入理解继承：</span><br><span class="line">```java</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Base</span> </span>&#123;</span><br><span class="line">  <span class="keyword">int</span> i;</span><br><span class="line">  Base()&#123;</span><br><span class="line">    add(<span class="number">1</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> v)</span></span>&#123;</span><br><span class="line">    i+=v;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">print</span><span class="params">()</span></span>&#123;</span><br><span class="line">    System.out.println(i);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Extention</span> <span class="keyword">extends</span> <span class="title">Base</span> </span>&#123;</span><br><span class="line">  Extention()&#123;</span><br><span class="line">    add(<span class="number">2</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> v)</span></span>&#123;</span><br><span class="line">    i+=v*<span class="number">2</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">bogo</span><span class="params">(Base b)</span></span>&#123;</span><br><span class="line">    b.add(<span class="number">8</span>);</span><br><span class="line">    b.print();</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">    bogo(<span class="keyword">new</span> Extention());</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>输出结果：22</p>
-<blockquote>
-<p>程序执行的入口main函数，执行bogo(new Extention()),首先通过执行new Extention()，先执行父类构造函数，父类构造函数调用add方法，但是这个add方法执行的是父类还是子类方法呢？这里调用的方法是运行时类的方法，也就是Extention类中的add方法。i+=1<em>2，此时i等于2。然后执行子类构造函数，子类构造函数调用add方法i+=2</em>2，注意里式替换原则父类出现的地方，子类可以替换，此时子类将父类中的i继承过来，所以在子类中i的初始值是2，i+=2<em>2 = 6，此时i=6。此时构造函数执行完之后我们开始执行bogo函数，还是调用Extention类的add函数：i+=8</em>2，i = 22。这就得到了结果。<strong>注意：父类中定义了i变量，子类不能再定义i变量了，不然就重写了变量i</strong>。通过下面的程序来解决疑惑</p>
-</blockquote>
-<p>我们再看一个小程序：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">  <span class="keyword">int</span> i = <span class="number">2</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Male</span> <span class="keyword">extends</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">  <span class="keyword">int</span> i;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    Male male = <span class="keyword">new</span> Male();</span><br><span class="line">    System.out.println(male.i);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>输出结果：0</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">  <span class="keyword">int</span> i = <span class="number">2</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Male</span> <span class="keyword">extends</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    Male male = <span class="keyword">new</span> Male();</span><br><span class="line">    System.out.println(male.i);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>输出结果：2</p>
-
+Integer.valueOf(“12345”)
+        
       
 	  <!--增加版权-->
      
@@ -1914,14 +1513,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">进阶指令</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">高级指令</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">网络</a>
               </li>
              
@@ -1930,19 +1521,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">进阶指令</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">高级指令</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">html</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">子查询</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1958,11 +1549,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">接口</a>
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">子查询</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">连接</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">接口</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1978,15 +1577,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">二叉搜索树</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1999,6 +1598,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">二叉树深度</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">文档说明</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2018,15 +1625,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">遍历</a>
+                <a href="javascript:void(0)" class="js-tag color5">分治算法</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">文档说明</a>
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2034,19 +1637,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">ip</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">网络配置</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">分治算法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
+                <a href="javascript:void(0)" class="js-tag color3">遍历</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2059,6 +1650,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">动态规划</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">ip</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">网络配置</a>
               </li>
              
               <li class="article-tag-list-item">

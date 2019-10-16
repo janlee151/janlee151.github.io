@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>趣味算法之饮品兑换 | 我的地盘我做主</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="问题描述，小明有85个空饮料瓶，已知8个空瓶可以兑换一瓶饮料，问小明最多可以喝多少瓶饮料？  其实我们思考一下，首先我们思考如何得到最多的饮料，最开始我们肯定是先兑换一瓶饮料，然后将饮料喝掉，然后空瓶加1，这样重复操作就可以得到最大结果。 这样代码实现也就很简单了： 123456789101112131415161718public int drinkMaxMilk(int emptyBottl">
+  <meta name="description" content="问题描述，小明有85个空饮料瓶，已知8个空瓶可以兑换一瓶饮料，问小明最多可以喝多少瓶饮料？  其实我们思考一下，首先我们思考如何得到最多的饮料，最开始我们肯定是先兑换一瓶饮料，然后将饮料喝掉，然后空瓶加1，这样重复操作就可以得到最大结果。 这样代码实现也就很简单了：">
 <meta name="keywords" content="趣味算法,练手">
 <meta property="og:type" content="article">
 <meta property="og:title" content="趣味算法之饮品兑换">
 <meta property="og:url" content="http://yoursite.com/2019/10/15/趣味算法之饮品兑换/index.html">
 <meta property="og:site_name" content="我的地盘我做主">
-<meta property="og:description" content="问题描述，小明有85个空饮料瓶，已知8个空瓶可以兑换一瓶饮料，问小明最多可以喝多少瓶饮料？  其实我们思考一下，首先我们思考如何得到最多的饮料，最开始我们肯定是先兑换一瓶饮料，然后将饮料喝掉，然后空瓶加1，这样重复操作就可以得到最大结果。 这样代码实现也就很简单了： 123456789101112131415161718public int drinkMaxMilk(int emptyBottl">
+<meta property="og:description" content="问题描述，小明有85个空饮料瓶，已知8个空瓶可以兑换一瓶饮料，问小明最多可以喝多少瓶饮料？  其实我们思考一下，首先我们思考如何得到最多的饮料，最开始我们肯定是先兑换一瓶饮料，然后将饮料喝掉，然后空瓶加1，这样重复操作就可以得到最大结果。 这样代码实现也就很简单了：">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-10-16T12:40:47.415Z">
+<meta property="og:updated_time" content="2019-10-16T12:50:05.427Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="趣味算法之饮品兑换">
-<meta name="twitter:description" content="问题描述，小明有85个空饮料瓶，已知8个空瓶可以兑换一瓶饮料，问小明最多可以喝多少瓶饮料？  其实我们思考一下，首先我们思考如何得到最多的饮料，最开始我们肯定是先兑换一瓶饮料，然后将饮料喝掉，然后空瓶加1，这样重复操作就可以得到最大结果。 这样代码实现也就很简单了： 123456789101112131415161718public int drinkMaxMilk(int emptyBottl">
+<meta name="twitter:description" content="问题描述，小明有85个空饮料瓶，已知8个空瓶可以兑换一瓶饮料，问小明最多可以喝多少瓶饮料？  其实我们思考一下，首先我们思考如何得到最多的饮料，最开始我们肯定是先兑换一瓶饮料，然后将饮料喝掉，然后空瓶加1，这样重复操作就可以得到最大结果。 这样代码实现也就很简单了：">
   
     <link rel="alternative" href="/atom.xml" title="我的地盘我做主" type="application/atom+xml">
   
@@ -338,7 +338,7 @@ color="45, 241, 10" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
 <p>问题描述，小明有85个空饮料瓶，已知8个空瓶可以兑换一瓶饮料，问小明最多可以喝多少瓶饮料？</p>
 </blockquote>
 <p>其实我们思考一下，首先我们思考如何得到最多的饮料，最开始我们肯定是先兑换一瓶饮料，然后将饮料喝掉，然后空瓶加1，这样重复操作就可以得到最大结果。</p>
-<p>这样代码实现也就很简单了：</p>
+<p>这样代码实现也就很简单了：<a id="more"></a></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">drinkMaxMilk</span><span class="params">(<span class="keyword">int</span> emptyBottle)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> fullBottle = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> drinked = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(<span class="keyword">true</span>)&#123;</span><br><span class="line">      <span class="keyword">if</span>((emptyBottle+fullBottle)&lt;<span class="number">8</span>)&#123;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">if</span>(fullBottle&gt;<span class="number">0</span>)&#123;</span><br><span class="line">        fullBottle--;</span><br><span class="line">        drinked++;</span><br><span class="line">        emptyBottle++;</span><br><span class="line">      &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">        emptyBottle -= <span class="number">8</span>;</span><br><span class="line">        fullBottle++;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> drinked;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
 
       
@@ -741,14 +741,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">进阶指令</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">高级指令</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">网络</a>
               </li>
              
@@ -757,19 +749,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">进阶指令</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">高级指令</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">html</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">子查询</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -785,11 +777,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">接口</a>
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">子查询</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">连接</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">接口</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -805,15 +805,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">二叉搜索树</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -826,6 +826,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">二叉树深度</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">文档说明</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -845,15 +853,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">遍历</a>
+                <a href="javascript:void(0)" class="js-tag color5">分治算法</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">文档说明</a>
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -861,19 +865,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">ip</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">网络配置</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">分治算法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
+                <a href="javascript:void(0)" class="js-tag color3">遍历</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -886,6 +878,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">动态规划</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">ip</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">网络配置</a>
               </li>
              
               <li class="article-tag-list-item">

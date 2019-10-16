@@ -8,13 +8,13 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>Java基础面试 | 我的地盘我做主</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="valueOf(String str) 或者valueOf(String str , int radix) 这个静态函数的作用就是将字符串转换成相应的Number对象，其中第二个函数的作用就是将将字符串转换成radix进制的Number对象，我们转换之后我们如何对Number对象进行比较呢？ 比如： Integer.valueOf(“12345”) Long.valueOf(“12345”) 将字">
+  <meta name="description" content="valueOf(String str) 或者valueOf(String str , int radix) 这个静态函数的作用就是将字符串转换成相应的Number对象，其中第二个函数的作用就是将将字符串转换成radix进制的Number对象，我们转换之后我们如何对Number对象进行比较呢？ 比如： Integer.valueOf(“12345”)">
 <meta name="keywords" content="java基础,面试总结">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java基础面试">
 <meta property="og:url" content="http://yoursite.com/2019/10/13/Java基础面试/index.html">
 <meta property="og:site_name" content="我的地盘我做主">
-<meta property="og:description" content="valueOf(String str) 或者valueOf(String str , int radix) 这个静态函数的作用就是将字符串转换成相应的Number对象，其中第二个函数的作用就是将将字符串转换成radix进制的Number对象，我们转换之后我们如何对Number对象进行比较呢？ 比如： Integer.valueOf(“12345”) Long.valueOf(“12345”) 将字">
+<meta property="og:description" content="valueOf(String str) 或者valueOf(String str , int radix) 这个静态函数的作用就是将字符串转换成相应的Number对象，其中第二个函数的作用就是将将字符串转换成radix进制的Number对象，我们转换之后我们如何对Number对象进行比较呢？ 比如： Integer.valueOf(“12345”)">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1570951758842.png">
 <meta property="og:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1570956345194.png">
@@ -31,10 +31,10 @@
 <meta property="og:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1571061492190.png">
 <meta property="og:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1571104095409.png">
 <meta property="og:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1571116156264.png">
-<meta property="og:updated_time" content="2019-10-16T12:40:00.520Z">
+<meta property="og:updated_time" content="2019-10-16T12:50:20.129Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java基础面试">
-<meta name="twitter:description" content="valueOf(String str) 或者valueOf(String str , int radix) 这个静态函数的作用就是将字符串转换成相应的Number对象，其中第二个函数的作用就是将将字符串转换成radix进制的Number对象，我们转换之后我们如何对Number对象进行比较呢？ 比如： Integer.valueOf(“12345”) Long.valueOf(“12345”) 将字">
+<meta name="twitter:description" content="valueOf(String str) 或者valueOf(String str , int radix) 这个静态函数的作用就是将字符串转换成相应的Number对象，其中第二个函数的作用就是将将字符串转换成radix进制的Number对象，我们转换之后我们如何对Number对象进行比较呢？ 比如： Integer.valueOf(“12345”)">
 <meta name="twitter:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1570951758842.png">
   
     <link rel="alternative" href="/atom.xml" title="我的地盘我做主" type="application/atom+xml">
@@ -377,7 +377,7 @@ color="45, 241, 10" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
         <h3 id="valueof-string-str-或者valueof-string-str-int-radix"><a class="header-anchor" href="#valueof-string-str-或者valueof-string-str-int-radix"></a>valueOf(String str) 或者valueOf(String str , int radix)</h3>
 <p>这个静态函数的作用就是将字符串转换成相应的Number对象，其中第二个函数的作用就是将将字符串转换成radix进制的Number对象，我们转换之后我们如何对Number对象进行比较呢？<br>
 比如：<br>
-Integer.valueOf(“12345”)<br>
+Integer.valueOf(“12345”)<a id="more"></a><br>
 Long.valueOf(“12345”)<br>
 将字符创转换成int和long的包装类对象，我们知道包装类有自动拆箱和装箱的作用：<br>
 如果转换成Number对象之后的数值范围[-128,127],就会将Number对象自动拆箱成int或者long等基本类型，所以我们比较相等时就用”==“号<br>
@@ -1167,14 +1167,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">进阶指令</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">高级指令</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">网络</a>
               </li>
              
@@ -1183,19 +1175,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">进阶指令</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">高级指令</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">html</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">子查询</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1211,11 +1203,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">接口</a>
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">子查询</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">连接</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">接口</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1231,15 +1231,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">二叉搜索树</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1252,6 +1252,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">二叉树深度</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">文档说明</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1271,15 +1279,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">遍历</a>
+                <a href="javascript:void(0)" class="js-tag color5">分治算法</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">文档说明</a>
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1287,19 +1291,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">ip</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">网络配置</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">分治算法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
+                <a href="javascript:void(0)" class="js-tag color3">遍历</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1312,6 +1304,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">动态规划</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">ip</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">网络配置</a>
               </li>
              
               <li class="article-tag-list-item">
