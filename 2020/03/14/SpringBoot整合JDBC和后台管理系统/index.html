@@ -8,15 +8,24 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>SpringBoot整合JDBC和后台管理系统 | 我的地盘我做主</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="keywords" content="哈哈，开心就好啦">
+  <meta name="description" content="通过读取源码我们知道SpringBoot可以自动为我们生成表：  我们在类路径下添加SQL文件：  我们首先来看看源码： 通用的数据源配置： 12345678910  @Configuration(proxyBeanMethods = false)@ConditionalOnMissingBean(DataSource.class)@ConditionalOnProperty(name = &quot;sp">
+<meta name="keywords" content="SpringBoot,JDBC">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SpringBoot整合JDBC和后台管理系统">
 <meta property="og:url" content="http://yoursite.com/2020/03/14/SpringBoot整合JDBC和后台管理系统/index.html">
 <meta property="og:site_name" content="我的地盘我做主">
+<meta property="og:description" content="通过读取源码我们知道SpringBoot可以自动为我们生成表：  我们在类路径下添加SQL文件：  我们首先来看看源码： 通用的数据源配置： 12345678910  @Configuration(proxyBeanMethods = false)@ConditionalOnMissingBean(DataSource.class)@ConditionalOnProperty(name = &quot;sp">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-03-14T05:56:23.256Z">
+<meta property="og:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1584091704626.png">
+<meta property="og:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1584091764992.png">
+<meta property="og:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1584094376492.png">
+<meta property="og:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1584151321498.png">
+<meta property="og:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1584165192591.png">
+<meta property="og:updated_time" content="2020-03-25T13:00:50.619Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SpringBoot整合JDBC和后台管理系统">
+<meta name="twitter:description" content="通过读取源码我们知道SpringBoot可以自动为我们生成表：  我们在类路径下添加SQL文件：  我们首先来看看源码： 通用的数据源配置： 12345678910  @Configuration(proxyBeanMethods = false)@ConditionalOnMissingBean(DataSource.class)@ConditionalOnProperty(name = &quot;sp">
+<meta name="twitter:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1584091704626.png">
   
     <link rel="alternative" href="/atom.xml" title="我的地盘我做主" type="application/atom+xml">
   
@@ -301,7 +310,7 @@ color="45, 241, 10" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> <B>文章字数:</B></span>
-      <span class="post-count"><B>0字</B></span>
+      <span class="post-count"><B>697字</B></span>
     </span>
   </span>
    <b><span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
@@ -311,7 +320,7 @@ color="45, 241, 10" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
       &nbsp; | &nbsp;
 	    <B><i class="icon ion-clock"></i></B>
         <span class="post-meta-item-text"> <B> 阅读时长:</B> </span>
-        <span class="post-count"><B>1分</B></span>
+        <span class="post-count"><B>3分</B></span>
       </span>
     </span>
    <!-- 不蒜子统计 -->
@@ -324,19 +333,93 @@ color="45, 241, 10" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
         
       </header>
     
-			
+	
+    <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none;color:red;">
+          <span class="btn-bg"></span>
+          <span class="btn-text"><i class="icon ion-eye"></i>文章目录</span>
+          </p>
+	<div id="toc-article" class="toc-article">
+	    <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+		<strong class="toc-title">文章目录</strong>
+           <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#配置druid后台管理系统"><span class="toc-number">1.</span> <span class="toc-text">配置Druid后台管理系统</span></a></li></ol>
+         </div>
+   <script type="text/javascript">
+	function showToc(){
+		var toc_article = document.getElementById("toc-article");
+		var show_toc_btn = document.getElementById("show-toc-btn");
+		toc_article.setAttribute("style","display:block");
+		show_toc_btn.setAttribute("style","display:none");
+		};
+	function showBtn(){
+		var toc_article = document.getElementById("toc-article");
+		var show_toc_btn = document.getElementById("show-toc-btn");
+		toc_article.setAttribute("style","display:none");
+		show_toc_btn.setAttribute("style","display:block");
+		};
+   </script>
+      		
     <div class="article-entry" itemprop="articleBody">
 	
 	 <div class="headband">
            <a href="https://github.com/janlee151/"><img style="position: absolute; top: 0; right: 0; border: 0;height: 30px; width: 30px;color: yellow" src="/img/github.png" alt="Fork me on GitHub"></a>
      </div>
       
-        
+        <p>通过读取源码我们知道SpringBoot可以自动为我们生成表：<br>
+<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1584091704626.png" alt="enter description here"><br>
+我们在类路径下添加SQL文件：<br>
+<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1584091764992.png" alt="enter description here"><br>
+我们首先来看看源码：<br>
+通用的数据源配置：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">  <span class="meta">@Configuration</span>(proxyBeanMethods = <span class="keyword">false</span>)</span><br><span class="line"><span class="meta">@ConditionalOnMissingBean</span>(DataSource.class)</span><br><span class="line"><span class="meta">@ConditionalOnProperty</span>(name = <span class="string">"spring.datasource.type"</span>)</span><br><span class="line"><span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Generic</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Bean</span></span><br><span class="line">	<span class="function">DataSource <span class="title">dataSource</span><span class="params">(DataSourceProperties properties)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> properties.initializeDataSourceBuilder().build();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在DataSourceInitializerInvoker.java我们看看监听器：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onApplicationEvent</span><span class="params">(DataSourceSchemaCreatedEvent event)</span> </span>&#123;</span><br><span class="line">	<span class="comment">// NOTE the event can happen more than once and</span></span><br><span class="line">	<span class="comment">// the event datasource is not used here</span></span><br><span class="line">	DataSourceInitializer initializer = getDataSourceInitializer();</span><br><span class="line">	<span class="keyword">if</span> (!<span class="keyword">this</span>.initialized &amp;&amp; initializer != <span class="keyword">null</span>) &#123;</span><br><span class="line">		initializer.initSchema();</span><br><span class="line">		<span class="keyword">this</span>.initialized = <span class="keyword">true</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>我们在DataSourceInitializer.java我们看到：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">createSchema</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		List&lt;Resource&gt; scripts = getScripts(<span class="string">"spring.datasource.schema"</span>, <span class="keyword">this</span>.properties.getSchema(), <span class="string">"schema"</span>);</span><br><span class="line">		<span class="keyword">if</span> (!scripts.isEmpty()) &#123;</span><br><span class="line">			<span class="keyword">if</span> (!isEnabled()) &#123;</span><br><span class="line">				logger.debug(<span class="string">"Initialization disabled (not running DDL scripts)"</span>);</span><br><span class="line">				<span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			String username = <span class="keyword">this</span>.properties.getSchemaUsername();</span><br><span class="line">			String password = <span class="keyword">this</span>.properties.getSchemaPassword();</span><br><span class="line">			runScripts(scripts, username, password);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> !scripts.isEmpty();</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">initSchema</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		List&lt;Resource&gt; scripts = getScripts(<span class="string">"spring.datasource.data"</span>, <span class="keyword">this</span>.properties.getData(), <span class="string">"data"</span>);</span><br><span class="line">		<span class="keyword">if</span> (!scripts.isEmpty()) &#123;</span><br><span class="line">			<span class="keyword">if</span> (!isEnabled()) &#123;</span><br><span class="line">				logger.debug(<span class="string">"Initialization disabled (not running data scripts)"</span>);</span><br><span class="line">				<span class="keyword">return</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			String username = <span class="keyword">this</span>.properties.getDataUsername();</span><br><span class="line">			String password = <span class="keyword">this</span>.properties.getDataPassword();</span><br><span class="line">			runScripts(scripts, username, password);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<p>我们再来看看getScripts方法：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> List&lt;Resource&gt; <span class="title">getScripts</span><span class="params">(String propertyName, List&lt;String&gt; resources, String fallback)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">if</span> (resources != <span class="keyword">null</span>) &#123;</span><br><span class="line">			<span class="keyword">return</span> getResources(propertyName, resources, <span class="keyword">true</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		String platform = <span class="keyword">this</span>.properties.getPlatform();</span><br><span class="line">		List&lt;String&gt; fallbackResources = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">		fallbackResources.add(<span class="string">"classpath*:"</span> + fallback + <span class="string">"-"</span> + platform + <span class="string">".sql"</span>);</span><br><span class="line">		fallbackResources.add(<span class="string">"classpath*:"</span> + fallback + <span class="string">".sql"</span>);</span><br><span class="line">		<span class="keyword">return</span> getResources(propertyName, fallbackResources, <span class="keyword">false</span>);</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<p>if (resources != null) {<br>
+			return getResources(propertyName, resources, true);<br>
+}<br>
+上面的resources是一个list集合就是我们在配置文件中定义的：<br>
+<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1584094376492.png" alt="enter description here"></p>
+<ul>
+<li>createSchema() 的getScripts(“spring.datasource.schema”, this.properties.getSchema(), “schema”);<br>
+我们看到参数：this.properties.getSchema()，这个函数来自于配置文件DataSourceProperties：</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@ConfigurationProperties</span>(prefix = <span class="string">"spring.datasource"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DataSourceProperties</span> <span class="keyword">implements</span> <span class="title">BeanClassLoaderAware</span>, <span class="title">InitializingBean</span> </span>&#123;</span><br><span class="line">   <span class="keyword">private</span> String platform = <span class="string">"all"</span>;</span><br><span class="line">   <span class="keyword">private</span> List&lt;String&gt; schema;</span><br><span class="line">   <span class="keyword">private</span> List&lt;String&gt; data;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">      fallbackResources.add(<span class="string">"classpath*:"</span> + fallback + <span class="string">"-"</span> + platform + <span class="string">".sql"</span>);</span><br><span class="line">fallbackResources.add(<span class="string">"classpath*:"</span> + fallback + <span class="string">".sql"</span>);</span><br></pre></td></tr></table></figure>
+<p>到这里我们就明白怎么用了！！<br>
+我们再看看jdbc的依赖包内还给我们引入了jdbcTemplate：<br>
+<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1584151321498.png" alt="enter description here"></p>
+<hr>
+<h3 id="配置druid后台管理系统"><a class="header-anchor" href="#配置druid后台管理系统"></a>配置Druid后台管理系统</h3>
+<p>我们修改数据库的数据源：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">spring:</span></span><br><span class="line"><span class="attr">  datasource:</span></span><br><span class="line"><span class="attr">    username:</span> <span class="string">root</span></span><br><span class="line"><span class="attr">    password:</span> <span class="string">janlee</span></span><br><span class="line"><span class="attr">    url:</span> <span class="attr">jdbc:mysql://192.168.145.130:3306/jdbc</span></span><br><span class="line"><span class="attr">    driver-class-name:</span> <span class="string">com.mysql.cj.jdbc.Driver</span></span><br><span class="line"><span class="attr">    type:</span> <span class="string">com.alibaba.druid.pool.DruidDataSource</span></span><br><span class="line"></span><br><span class="line"><span class="attr">    initialSize:</span> <span class="number">5</span></span><br><span class="line"><span class="attr">    minIdle:</span> <span class="number">5</span></span><br><span class="line"><span class="attr">    maxActive:</span> <span class="number">20</span></span><br><span class="line"><span class="attr">    maxWait:</span> <span class="number">60000</span></span><br><span class="line"><span class="attr">    timeBetweenEvictionRunsMillis:</span> <span class="number">60000</span></span><br><span class="line"><span class="attr">    minEvictableIdleTimeMillis:</span> <span class="number">300000</span></span><br><span class="line"><span class="attr">    validationQuery:</span> <span class="string">SELECT</span> <span class="number">1</span> <span class="string">FROM</span> <span class="string">DUAL</span></span><br><span class="line"><span class="attr">    testWhileIdle:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">    testOnBorrow:</span> <span class="literal">false</span></span><br><span class="line"><span class="attr">    testOnReturn:</span> <span class="literal">false</span></span><br><span class="line"><span class="attr">    poolPreparedStatements:</span> <span class="literal">true</span></span><br><span class="line"><span class="comment">#   配置监控统计拦截的filters，去掉后监控界面sql无法统计，'wall'用于防火墙</span></span><br><span class="line"><span class="attr">    filters:</span> <span class="string">stat,wall</span></span><br><span class="line"><span class="attr">    maxPoolPreparedStatementPerConnectionSize:</span> <span class="number">20</span></span><br><span class="line"><span class="attr">    useGlobalDataSourceStat:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">    connectionProperties:</span> <span class="string">druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500</span></span><br></pre></td></tr></table></figure>
+<p>我们创建一个配置类：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DruidConfig</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Bean</span></span><br><span class="line">  <span class="meta">@ConfigurationProperties</span>(prefix = <span class="string">"spring.datasource"</span>)</span><br><span class="line">  <span class="function"><span class="keyword">public</span> DruidDataSource <span class="title">druidDataSource</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> DruidDataSource();</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">//配置一个控制后台的一个Servlet</span></span><br><span class="line">  <span class="meta">@Bean</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> ServletRegistrationBean <span class="title">statViewServlet</span><span class="params">()</span></span>&#123;</span><br><span class="line">    ServletRegistrationBean bean = <span class="keyword">new</span> ServletRegistrationBean(</span><br><span class="line">        <span class="keyword">new</span> StatViewServlet(), <span class="string">"/druid/*"</span>);</span><br><span class="line">    Map&lt;String,String&gt; initParams = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">    initParams.put(<span class="string">"loginUsername"</span>,<span class="string">"janlee"</span>);</span><br><span class="line">    initParams.put(<span class="string">"loginPassword"</span>,<span class="string">"123456"</span>);</span><br><span class="line">    initParams.put(<span class="string">"allow"</span>,<span class="string">""</span>);</span><br><span class="line">    initParams.put(<span class="string">"deny"</span>,<span class="string">"192.168.199.122"</span>);</span><br><span class="line">    bean.setInitParameters(initParams);</span><br><span class="line">    <span class="keyword">return</span> bean;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="meta">@Bean</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> FilterRegistrationBean <span class="title">webStatFilter</span><span class="params">()</span></span>&#123;</span><br><span class="line">    FilterRegistrationBean bean = <span class="keyword">new</span> FilterRegistrationBean();</span><br><span class="line">    bean.setFilter(<span class="keyword">new</span> WebStatFilter());</span><br><span class="line">    Map&lt;String,String&gt; initParams = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">    <span class="comment">//不拦截</span></span><br><span class="line">    initParams.put(<span class="string">"exclusions"</span>,<span class="string">"*.js,*.css,/druid/*"</span>);</span><br><span class="line">    bean.setInitParameters(initParams);</span><br><span class="line">    <span class="comment">//拦截哪些请求</span></span><br><span class="line">    bean.setUrlPatterns(Arrays.asList(<span class="string">"/*"</span>));</span><br><span class="line">    <span class="keyword">return</span> bean;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p><a href="http://localhost:8080/druid/login.html" target="_blank" rel="noopener">访问</a><br>
+后台管理系统：<br>
+<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1584165192591.png" alt="enter description here"></p>
+
       
 	  <!--增加版权-->
      
   
-  <div class="declare" hidden="hidden"></div>
+   <div class="declare">
+    <strong>本文作者：</strong>
+    
+      JanLee
+    
+    <br>
+    <strong>本文链接：</strong>
+    <a rel="license" href="http://yoursite.com/2020/03/14/SpringBoot整合JDBC和后台管理系统/">http://yoursite.com/2020/03/14/SpringBoot整合JDBC和后台管理系统/</a>
+    <br>
+    <strong>版权声明：</strong>
+    本作品采用
+    <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>
+    进行许可。转载请注明出处！
+    
+  </div>
 
 <!--文章末尾添加致谢-->
 
@@ -388,7 +471,35 @@ color="45, 241, 10" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">SpringBoot</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">JDBC</a>
+        		</li>
+      		
+		</ul>
+		
+	</div>
+
       
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/学习笔记//" class="article-tag-list-link color5">学习笔记</a>
+        		</li>
+      		
+		</ul>
+		
+	</div>
+
 
       
 
@@ -674,11 +785,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">排序</a>
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">堆</a>
+                <a href="javascript:void(0)" class="js-tag color3">初探</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -698,6 +809,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">排序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">堆</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">进阶指令</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">网络</a>
               </li>
              
@@ -706,7 +829,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">进阶指令</a>
+                <a href="javascript:void(0)" class="js-tag color1">redis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">初识redis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">MyBatis</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -714,11 +849,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">redis</a>
+                <a href="javascript:void(0)" class="js-tag color5">JDBC</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">初识redis</a>
+                <a href="javascript:void(0)" class="js-tag color1">Redis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">缓存技术</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Spring Boot</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">配置文件</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -746,6 +893,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">子查询</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">接口</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">连接</a>
               </li>
              
@@ -754,19 +909,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">子查询</a>
+                <a href="javascript:void(0)" class="js-tag color4">vim</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">递归</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">二叉树</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">二叉树深度</a>
+                <a href="javascript:void(0)" class="js-tag color4">编辑器</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -782,15 +929,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">接口</a>
+                <a href="javascript:void(0)" class="js-tag color3">递归</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vim</a>
+                <a href="javascript:void(0)" class="js-tag color4">二叉树</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">编辑器</a>
+                <a href="javascript:void(0)" class="js-tag color1">二叉树深度</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">遍历</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -799,18 +950,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">文档说明</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">遍历</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">分治算法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -830,7 +969,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">益智问题</a>
+                <a href="javascript:void(0)" class="js-tag color5">消息队列</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">中间件</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">RabbitMQ</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">分治算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -842,7 +997,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">动态规划</a>
+                <a href="javascript:void(0)" class="js-tag color5">益智问题</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -854,11 +1009,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">动态规划</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">平衡树</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">事务</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Spring Boot源码</a>
               </li>
              
               <li class="article-tag-list-item">

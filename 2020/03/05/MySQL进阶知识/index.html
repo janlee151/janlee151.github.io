@@ -8,15 +8,43 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>MySQL进阶知识 | 我的地盘我做主</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="keywords" content="哈哈，开心就好啦">
+  <meta name="description" content="事务 定义 一个或者一组SQL语句组成一个执行单元，这个执行单元要么全部执行，要么全部不执行。 案例：转账 小红账号   1000元 小明账号    1000元 小红向小明转账500元 update 表 set 小红账号 = 500 where name = &apos;小红’ update 表 set 小明账号 = 1500 where name = &apos;小明’ 假如小红转账成功之后，更新了数据，但是中间突">
+<meta name="keywords" content="MySQL,数据库">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MySQL进阶知识">
 <meta property="og:url" content="http://yoursite.com/2020/03/05/MySQL进阶知识/index.html">
 <meta property="og:site_name" content="我的地盘我做主">
+<meta property="og:description" content="事务 定义 一个或者一组SQL语句组成一个执行单元，这个执行单元要么全部执行，要么全部不执行。 案例：转账 小红账号   1000元 小明账号    1000元 小红向小明转账500元 update 表 set 小红账号 = 500 where name = &apos;小红’ update 表 set 小明账号 = 1500 where name = &apos;小明’ 假如小红转账成功之后，更新了数据，但是中间突">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-03-05T03:25:20.914Z">
+<meta property="og:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1583384134579.png">
+<meta property="og:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1583388571588.png">
+<meta property="og:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1583389298824.png">
+<meta property="og:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1583393247159.png">
+<meta property="og:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1583393369733.png">
+<meta property="og:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1583460426439.png">
+<meta property="og:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1583464546610.png">
+<meta property="og:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1583465604162.png">
+<meta property="og:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1583465876014.png">
+<meta property="og:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1583466251223.png">
+<meta property="og:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1583468155210.png">
+<meta property="og:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1583469851184.png">
+<meta property="og:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1583470297236.png">
+<meta property="og:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1583470438341.png">
+<meta property="og:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1583470572719.png">
+<meta property="og:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1583470783463.png">
+<meta property="og:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1583471679588.png">
+<meta property="og:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1583496308543.png">
+<meta property="og:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1583497389010.png">
+<meta property="og:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1583497632251.png">
+<meta property="og:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1583499329593.png">
+<meta property="og:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1583499475517.png">
+<meta property="og:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1583501600035.png">
+<meta property="og:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1583501771183.png">
+<meta property="og:updated_time" content="2020-03-25T13:01:04.934Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MySQL进阶知识">
+<meta name="twitter:description" content="事务 定义 一个或者一组SQL语句组成一个执行单元，这个执行单元要么全部执行，要么全部不执行。 案例：转账 小红账号   1000元 小明账号    1000元 小红向小明转账500元 update 表 set 小红账号 = 500 where name = &apos;小红’ update 表 set 小明账号 = 1500 where name = &apos;小明’ 假如小红转账成功之后，更新了数据，但是中间突">
+<meta name="twitter:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1583384134579.png">
   
     <link rel="alternative" href="/atom.xml" title="我的地盘我做主" type="application/atom+xml">
   
@@ -301,7 +329,7 @@ color="45, 241, 10" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> <B>文章字数:</B></span>
-      <span class="post-count"><B>0字</B></span>
+      <span class="post-count"><B>2.2k字</B></span>
     </span>
   </span>
    <b><span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
@@ -311,7 +339,7 @@ color="45, 241, 10" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
       &nbsp; | &nbsp;
 	    <B><i class="icon ion-clock"></i></B>
         <span class="post-meta-item-text"> <B> 阅读时长:</B> </span>
-        <span class="post-count"><B>1分</B></span>
+        <span class="post-count"><B>8分</B></span>
       </span>
     </span>
    <!-- 不蒜子统计 -->
@@ -324,19 +352,288 @@ color="45, 241, 10" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
         
       </header>
     
-			
+	
+    <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none;color:red;">
+          <span class="btn-bg"></span>
+          <span class="btn-text"><i class="icon ion-eye"></i>文章目录</span>
+          </p>
+	<div id="toc-article" class="toc-article">
+	    <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+		<strong class="toc-title">文章目录</strong>
+           <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#事务"><span class="toc-number">1.</span> <span class="toc-text">事务</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#定义"><span class="toc-number">1.1.</span> <span class="toc-text">定义</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#事务的创建"><span class="toc-number">1.2.</span> <span class="toc-text">事务的创建</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#事务的隔离级别"><span class="toc-number">1.3.</span> <span class="toc-text">事务的隔离级别</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#savepoint"><span class="toc-number">1.4.</span> <span class="toc-text">SAVEPOINT</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#视图"><span class="toc-number">2.</span> <span class="toc-text">视图</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#创建视图"><span class="toc-number">2.1.</span> <span class="toc-text">创建视图</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#视图更新"><span class="toc-number">2.2.</span> <span class="toc-text">视图更新</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#删除视图"><span class="toc-number">2.3.</span> <span class="toc-text">删除视图</span></a></li></ol></li></ol>
+         </div>
+   <script type="text/javascript">
+	function showToc(){
+		var toc_article = document.getElementById("toc-article");
+		var show_toc_btn = document.getElementById("show-toc-btn");
+		toc_article.setAttribute("style","display:block");
+		show_toc_btn.setAttribute("style","display:none");
+		};
+	function showBtn(){
+		var toc_article = document.getElementById("toc-article");
+		var show_toc_btn = document.getElementById("show-toc-btn");
+		toc_article.setAttribute("style","display:none");
+		show_toc_btn.setAttribute("style","display:block");
+		};
+   </script>
+      		
     <div class="article-entry" itemprop="articleBody">
 	
 	 <div class="headband">
            <a href="https://github.com/janlee151/"><img style="position: absolute; top: 0; right: 0; border: 0;height: 30px; width: 30px;color: yellow" src="/img/github.png" alt="Fork me on GitHub"></a>
      </div>
       
-        
+        <h3 id="事务"><a class="header-anchor" href="#事务"></a>事务</h3>
+<h4 id="定义"><a class="header-anchor" href="#定义"></a>定义</h4>
+<p>一个或者一组SQL语句组成一个执行单元，这个执行单元要么全部执行，要么全部不执行。<br>
+案例：转账<br>
+小红账号   1000元<br>
+小明账号    1000元<br>
+小红向小明转账500元<br>
+update 表 set 小红账号 = 500 where name = '小红’<br>
+update 表 set 小明账号 = 1500 where name = '小明’<br>
+假如小红转账成功之后，更新了数据，但是中间突然出现错误，第二条语句未执行这样造成错误；<br>
+回滚：如果单元中有一条语句执行失败或者产生错误，那么所受影响的数据将返回到事务开始以前的状态；<br>
+我们查看自己安装的数据库的存储引擎：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SHOW</span> <span class="keyword">ENGINES</span>;</span><br></pre></td></tr></table></figure>
+<p>运行结果：<br>
+<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1583384134579.png" alt="enter description here"></p>
+<ul>
+<li>事务的ACID属性
+<ol>
+<li>原子性<br>
+事务是一个不可再分割工作单位，事务中的操作要么都发生，要么都不发生。</li>
+<li>一致性<br>
+事务必须使数据库从一个一致性状态变换到另一个一致性状态。<br>
+例如上面的案例：小红向小明转账500之前，小红和小明的总金额树是2000元，转账之后两个人的总金额数还是2000元</li>
+<li>隔离性<br>
+一个事务的执行不受其他事务的干扰，一个事务内部的操作及使用的数据对并发的其他事务是隔离的，并发执行的各个事务之间不能互相干扰。</li>
+<li>持久性<br>
+一个事务一旦被提交，它对数据库数据的改变就是持久性的。</li>
+</ol>
+</li>
+<li>开启事务</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SHOW</span> <span class="keyword">VARIABLES</span> <span class="keyword">LIKE</span> <span class="string">'autocommit'</span></span><br></pre></td></tr></table></figure>
+<p>运行结果：<br>
+<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1583388571588.png" alt="enter description here"><br>
+我们可以看到事务是提交是默认开启的</p>
+<h4 id="事务的创建"><a class="header-anchor" href="#事务的创建"></a>事务的创建</h4>
+<p><strong>隐式事务</strong>：事务没有明显的开始和结束的标记<br>
+比如：insert、update、delete语句这些语句是默认开启事务的，并且是隐式事务。<br>
+但是我们怎样才能让多条语句当做一个事务来处理呢？这时我们开启显示事务：<br>
+<strong>显示事务</strong>：事务有明显的开启和结束的标记<br>
+我们首先关闭自动提交功能：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span> autocommit = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">SHOW</span> <span class="keyword">VARIABLES</span> <span class="keyword">LIKE</span> <span class="string">'autocommit'</span></span><br></pre></td></tr></table></figure>
+<p>运行结果：<br>
+<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1583389298824.png" alt="enter description here"><br>
+显示事务开启步骤：<br>
+步骤一：set autocommit = 0；<br>
+步骤二：start transaction;(可选）<br>
+步骤三：编写事务中SQL语句（select  insert  update  delete)；<br>
+语句一；<br>
+语句二；<br>
+语句三；<br>
+步骤四：结束事务<br>
+commit：提交事务<br>
+或者rollback回滚事务<br>
+案例：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span> autocommit = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">UPDATE</span> <span class="keyword">account</span> <span class="keyword">SET</span> money = <span class="number">500</span> <span class="keyword">WHERE</span> <span class="keyword">name</span> = <span class="string">'小红'</span>;</span><br><span class="line"><span class="keyword">update</span> <span class="keyword">account</span> <span class="keyword">set</span> money = <span class="number">1500</span> <span class="keyword">WHERE</span> <span class="keyword">name</span> = <span class="string">'小明'</span>;</span><br><span class="line"><span class="keyword">commit</span>;</span><br></pre></td></tr></table></figure>
+<p>运行结果：<br>
+<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1583393247159.png" alt="enter description here"><br>
+接下来我们演示回滚：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span> autocommit = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">UPDATE</span> <span class="keyword">account</span> <span class="keyword">SET</span> money = <span class="number">1000</span> <span class="keyword">WHERE</span> <span class="keyword">name</span> = <span class="string">'小红'</span>;</span><br><span class="line"><span class="keyword">update</span> <span class="keyword">account</span> <span class="keyword">set</span> money = <span class="number">1000</span> <span class="keyword">WHERE</span> <span class="keyword">name</span> = <span class="string">'小明'</span>;</span><br><span class="line"><span class="keyword">ROLLBACK</span>;</span><br></pre></td></tr></table></figure>
+<p>运行结果：<br>
+<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1583393369733.png" alt="enter description here"></p>
+<h4 id="事务的隔离级别"><a class="header-anchor" href="#事务的隔离级别"></a>事务的隔离级别</h4>
+<p>对于同时运行多个事务，当这些事务访问数据库中相同的数据，如果没有采取必要的隔离机制，就会导致各种并发问题。<br>
+<strong>脏读</strong><br>
+对于两个事务T1、T2，T1读取了T2更新但是没有提交的数据，如果T2回滚，那么T1读到的数据时临时无效的。<br>
+<strong>不可重复度</strong>（针对更新操作）<br>
+对于两个事务T1、T2，T1读取了一个字段，然后T2更新了该字段，之后T1再读这个字段，值就不同了。<br>
+<strong>幻读</strong>（插入操作）<br>
+对于两个事务T1、T2，T1从一个表中读取了一个字段，然后T2在该表中插入了一些新的行记录，之后T1再次读同一个表，就会觉得多了几行。（像是出现了幻觉）</p>
+<blockquote>
+<p>什么是事务的隔离性？<br>
+数据库系统必须具备隔离并发运行各个事务的能力，使它们不会互相影响，避免各种并发问题。<br>
+什么是隔离级别？<br>
+一个事务与其他事务的隔离程度成为隔离级别</p>
+</blockquote>
+<p><strong>数据库的隔离级别越高，数据的一致性越好，但是并发性越弱</strong><br>
+事务的隔离级别</p>
+<table>
+<thead>
+<tr>
+<th>隔离级别</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>READ UNCOMMITED</td>
+<td>允许事务读取其他事务未提交的数据  脏读、不可重读读和幻读的问题都会出现</td>
+</tr>
+<tr>
+<td>READ COMMITED</td>
+<td>只允许读取其他事务已经提交的变更，可以避免脏读 但是不可重复度和幻读不能避免</td>
+</tr>
+<tr>
+<td>REPEATABLE READ</td>
+<td>确保一个事务可以多次从一个字段中读取相同的值，在这个事务持续期间，禁止其他事务对这个字段进行更新操作，可以避免脏读和可重复读</td>
+</tr>
+<tr>
+<td>SERIALIZABLE</td>
+<td>一个事务可以从一个表中读取相同的行，在这个事务持续期间，禁止其他事务对该表执行插入、删除、更新操作，所有并发问题都能避免，但是性能极其低下</td>
+</tr>
+</tbody>
+</table>
+<p><strong>脏读案例</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> @@tx_isolation;</span><br></pre></td></tr></table></figure>
+<p>运行结果：<br>
+<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1583460426439.png" alt="enter description here"></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span> <span class="keyword">session</span> <span class="keyword">transaction</span> <span class="keyword">isolation</span> <span class="keyword">level</span> <span class="keyword">read</span> uncommitted;</span><br><span class="line"> <span class="keyword">select</span> @@tx_isolation;</span><br></pre></td></tr></table></figure>
+<p>运行结果：<br>
+<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1583464546610.png" alt="enter description here"><br>
+我们再次开启一个窗口（新的session）</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span> <span class="keyword">session</span> <span class="keyword">transaction</span> <span class="keyword">isolation</span> <span class="keyword">level</span> <span class="keyword">read</span> uncommitted;</span><br></pre></td></tr></table></figure>
+<p>然后我们同时为两个session开启事务：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span> autocommit = <span class="number">0</span>;</span><br></pre></td></tr></table></figure>
+<p>我们在黄颜色的窗口执行：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> <span class="keyword">account</span>;</span><br></pre></td></tr></table></figure>
+<p>运行结果：<br>
+<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1583465604162.png" alt="enter description here"><br>
+黄色窗口执行：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">update</span> <span class="keyword">account</span> <span class="keyword">set</span> <span class="keyword">name</span> = <span class="string">'小兰'</span> <span class="keyword">where</span> <span class="keyword">id</span> = <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
+<p>此时黄色窗口开启的事务还未提交，绿色窗口执行：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> <span class="keyword">account</span>;</span><br></pre></td></tr></table></figure>
+<p>运行结果：<br>
+<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1583465876014.png" alt="enter description here"><br>
+我们看到黄色窗口开启的事务更新了表数据，绿色窗口开启的事务却能读到，那么如果这时黄色窗口回滚了，那么绿色窗口再次查询所有数据就会发现刚才小兰的数据又变成了小红：<br>
+黄色窗口执行回滚：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">rollback</span>;</span><br></pre></td></tr></table></figure>
+<p>绿色窗口再次执行查询操作：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> <span class="keyword">account</span>;</span><br></pre></td></tr></table></figure>
+<p>运行结果：<br>
+<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1583466251223.png" alt="enter description here"><br>
+<strong>不可重复读</strong><br>
+黄色框：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span> <span class="keyword">session</span> <span class="keyword">transaction</span> <span class="keyword">isolation</span> <span class="keyword">level</span> <span class="keyword">READ</span> COMMITTED</span><br><span class="line"><span class="keyword">set</span> autocommit = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">update</span> <span class="keyword">account</span> <span class="keyword">set</span> <span class="keyword">name</span> = <span class="string">'小黄'</span> <span class="keyword">where</span> <span class="keyword">id</span> = <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
+<p>绿色框：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">commit</span>;</span><br><span class="line"><span class="keyword">set</span> <span class="keyword">session</span> <span class="keyword">transaction</span> <span class="keyword">isolation</span> <span class="keyword">level</span> <span class="keyword">READ</span> COMMITTED;</span><br><span class="line"><span class="keyword">set</span> autocommit = <span class="number">0</span>;</span><br><span class="line"> <span class="keyword">select</span> * <span class="keyword">from</span> <span class="keyword">account</span>;</span><br></pre></td></tr></table></figure>
+<p>运行结果：<br>
+<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1583468155210.png" alt="enter description here"></p>
+<blockquote>
+<p>通过查看我们知道read committed避免了脏读</p>
+</blockquote>
+<p>但是不可重复读呢？<br>
+黄色框我们提交事务之后，绿色框我们执行：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> <span class="keyword">account</span>;</span><br></pre></td></tr></table></figure>
+<p>我们发现绿色框在同一个事务中我们查询的结果却是不同的：<br>
+<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1583469851184.png" alt="enter description here"><br>
+<strong>可重复读</strong><br>
+在黄色框我们：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span> <span class="keyword">session</span> <span class="keyword">transaction</span> <span class="keyword">isolation</span> <span class="keyword">level</span> REPEATABLE <span class="keyword">READ</span>;</span><br><span class="line"> <span class="keyword">select</span> * <span class="keyword">from</span> <span class="keyword">account</span>;</span><br></pre></td></tr></table></figure>
+<p>运行结果：<br>
+<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1583470297236.png" alt="enter description here"><br>
+我们接着执行：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span> autocommit = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">update</span> <span class="keyword">account</span> <span class="keyword">set</span> <span class="keyword">name</span> = <span class="string">'小红'</span> <span class="keyword">where</span> <span class="keyword">id</span> = <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
+<p>绿色框我们执行：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span> <span class="keyword">session</span> <span class="keyword">transaction</span> <span class="keyword">isolation</span> <span class="keyword">level</span> REPEATABLE <span class="keyword">READ</span>;</span><br><span class="line"><span class="keyword">set</span> autocommit = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> <span class="keyword">account</span>;</span><br></pre></td></tr></table></figure>
+<p>运行结果：<br>
+<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1583470438341.png" alt="enter description here"><br>
+此时证明避免了脏读<br>
+接下来黄色框执行：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">commit</span>;</span><br></pre></td></tr></table></figure>
+<p>绿色框再次执行：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> <span class="keyword">account</span>;</span><br></pre></td></tr></table></figure>
+<p>运行结果：<br>
+<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1583470572719.png" alt="enter description here"><br>
+我们发现绿色框的事务没有提交，读到的数据都已一样的！<br>
+接下来我们在绿色框运行：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">commit</span>;</span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> <span class="keyword">account</span>;</span><br></pre></td></tr></table></figure>
+<p>运行结果：<br>
+<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1583470783463.png" alt="enter description here"><br>
+<strong>幻读</strong><br>
+黄色框（注意：数据库默认的隔离级别就是可重复读）:</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span> autocommit = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> <span class="keyword">account</span>(<span class="keyword">name</span>,money) <span class="keyword">values</span>(<span class="string">'小李'</span>,<span class="number">100</span>);</span><br><span class="line"> <span class="keyword">commit</span>;</span><br></pre></td></tr></table></figure>
+<p>绿色框：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span> autocommit = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> <span class="keyword">account</span>;</span><br></pre></td></tr></table></figure>
+<p>运行结果：<br>
+<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1583471679588.png" alt="enter description here"><br>
+绿色框：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">update</span> <span class="keyword">account</span> <span class="keyword">set</span> <span class="keyword">name</span> = <span class="string">'mmm'</span>;</span><br></pre></td></tr></table></figure>
+<p>运行结果：<br>
+<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1583496308543.png" alt="enter description here"><br>
+<strong>避免所有并发问题</strong><br>
+黄色窗口：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span> <span class="keyword">session</span> <span class="keyword">transaction</span> <span class="keyword">isolation</span> <span class="keyword">level</span> <span class="keyword">SERIALIZABLE</span>;</span><br><span class="line"><span class="keyword">set</span> autocommit = <span class="number">0</span>;</span><br><span class="line"> <span class="keyword">select</span> * <span class="keyword">from</span> <span class="keyword">account</span>;</span><br></pre></td></tr></table></figure>
+<p>运行结果：<br>
+<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1583497389010.png" alt="enter description here"><br>
+绿色框执行：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span> <span class="keyword">session</span> <span class="keyword">transaction</span> <span class="keyword">isolation</span> <span class="keyword">level</span> <span class="keyword">SERIALIZABLE</span>;</span><br><span class="line"><span class="keyword">set</span> autocommit = <span class="number">0</span>;</span><br><span class="line"> <span class="keyword">select</span> * <span class="keyword">from</span> <span class="keyword">account</span>;</span><br></pre></td></tr></table></figure>
+<p>这时我们在黄色框执行：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> <span class="keyword">account</span>(<span class="keyword">name</span>,money) <span class="keyword">values</span>(<span class="string">'小芳'</span>,<span class="number">1000</span>);</span><br></pre></td></tr></table></figure>
+<p><img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1583497632251.png" alt="enter description here"></p>
+<blockquote>
+<p>我们看到黄色框的事务插入数据出现阻塞状态，这就是避免了并发的带来问题。</p>
+</blockquote>
+<h4 id="savepoint"><a class="header-anchor" href="#savepoint"></a>SAVEPOINT</h4>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span> autocommit = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> <span class="keyword">account</span>;</span><br></pre></td></tr></table></figure>
+<p>运行结果：<br>
+<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1583499329593.png" alt="enter description here"></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">delete</span> <span class="keyword">from</span> <span class="keyword">account</span> <span class="keyword">where</span> <span class="keyword">id</span> = <span class="number">3</span>;</span><br><span class="line"><span class="keyword">savepoint</span> a;</span><br><span class="line">detele from account where id = 4;</span><br><span class="line"><span class="keyword">rollback</span> <span class="keyword">to</span> a;</span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> <span class="keyword">account</span>;</span><br></pre></td></tr></table></figure>
+<p>运行结果：<br>
+<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1583499475517.png" alt="enter description here"></p>
+<blockquote>
+<p>通过上面的运行结果我们看到savepoint就是定义回滚点，也就是上面id = 4的数据回滚了没删除，id = 3的数据没回滚，所以删除了。</p>
+</blockquote>
+<h3 id="视图"><a class="header-anchor" href="#视图"></a>视图</h3>
+<p>含义：虚拟表，和普通表一样。<br>
+一种虚拟存在的表，行和列的数据来自定义制图的查询中使用的表，并且是在使用视图时动态生成的，只是保存了SQL逻辑，不是保存查询结果。</p>
+<h4 id="创建视图"><a class="header-anchor" href="#创建视图"></a>创建视图</h4>
+<p>格式 ：CREATE  VIEW   视图名  AS  待封装的SQL语句。</p>
+<ul>
+<li>不使用视图</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> last_name,salary,department_name <span class="keyword">FROM</span> employees <span class="keyword">INNER</span> <span class="keyword">JOIN</span> departments <span class="keyword">on</span> employees.department_id = departments.department_id <span class="keyword">WHERE</span> last_name <span class="keyword">like</span> <span class="string">'%a%'</span>;</span><br></pre></td></tr></table></figure>
+<p>运行结果：<br>
+<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1583501600035.png" alt="enter description here"></p>
+<ul>
+<li>应用视图</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">VIEW</span> my_view <span class="keyword">AS</span> <span class="keyword">SELECT</span> last_name,salary,department_name <span class="keyword">FROM</span> employees <span class="keyword">INNER</span> <span class="keyword">JOIN</span> departments <span class="keyword">on</span> employees.department_id = departments.department_id;</span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">from</span> my_view <span class="keyword">WHERE</span> last_name <span class="keyword">like</span> <span class="string">'%a%'</span>;</span><br></pre></td></tr></table></figure>
+<p>运行结果：<br>
+<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1583501771183.png" alt="enter description here"></p>
+<h4 id="视图更新"><a class="header-anchor" href="#视图更新"></a>视图更新</h4>
+<ol>
+<li>方式一：<br>
+格式：CREATE OR REPLACE VIEW 视图名  AS  SQL语句；</li>
+<li>方式二：<br>
+格式：ALTER  VIEW 视图名 AS SQL语句；</li>
+</ol>
+<h4 id="删除视图"><a class="header-anchor" href="#删除视图"></a>删除视图</h4>
+<p>格式：drop view 视图名1，视图名2，视图名3，。。。</p>
+<p><strong>注意对视图的插入，更新一般是不支持的</strong></p>
+
       
 	  <!--增加版权-->
      
   
-  <div class="declare" hidden="hidden"></div>
+   <div class="declare">
+    <strong>本文作者：</strong>
+    
+      JanLee
+    
+    <br>
+    <strong>本文链接：</strong>
+    <a rel="license" href="http://yoursite.com/2020/03/05/MySQL进阶知识/">http://yoursite.com/2020/03/05/MySQL进阶知识/</a>
+    <br>
+    <strong>版权声明：</strong>
+    本作品采用
+    <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>
+    进行许可。转载请注明出处！
+    
+  </div>
 
 <!--文章末尾添加致谢-->
 
@@ -388,7 +685,35 @@ color="45, 241, 10" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">MySQL</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">数据库</a>
+        		</li>
+      		
+		</ul>
+		
+	</div>
+
       
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/学习笔记//" class="article-tag-list-link color5">学习笔记</a>
+        		</li>
+      		
+		</ul>
+		
+	</div>
+
 
       
 
@@ -674,11 +999,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">排序</a>
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">堆</a>
+                <a href="javascript:void(0)" class="js-tag color3">初探</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -698,6 +1023,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">排序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">堆</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">进阶指令</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">网络</a>
               </li>
              
@@ -706,7 +1043,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">进阶指令</a>
+                <a href="javascript:void(0)" class="js-tag color1">redis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">初识redis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">MyBatis</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -714,11 +1063,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">redis</a>
+                <a href="javascript:void(0)" class="js-tag color5">JDBC</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">初识redis</a>
+                <a href="javascript:void(0)" class="js-tag color1">Redis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">缓存技术</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Spring Boot</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">配置文件</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -746,6 +1107,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">子查询</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">接口</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">连接</a>
               </li>
              
@@ -754,19 +1123,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">子查询</a>
+                <a href="javascript:void(0)" class="js-tag color4">vim</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">递归</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">二叉树</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">二叉树深度</a>
+                <a href="javascript:void(0)" class="js-tag color4">编辑器</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -782,15 +1143,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">接口</a>
+                <a href="javascript:void(0)" class="js-tag color3">递归</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vim</a>
+                <a href="javascript:void(0)" class="js-tag color4">二叉树</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">编辑器</a>
+                <a href="javascript:void(0)" class="js-tag color1">二叉树深度</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">遍历</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -799,18 +1164,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">文档说明</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">遍历</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">分治算法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -830,7 +1183,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">益智问题</a>
+                <a href="javascript:void(0)" class="js-tag color5">消息队列</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">中间件</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">RabbitMQ</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">分治算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -842,7 +1211,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">动态规划</a>
+                <a href="javascript:void(0)" class="js-tag color5">益智问题</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -854,11 +1223,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">动态规划</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">平衡树</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">事务</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Spring Boot源码</a>
               </li>
              
               <li class="article-tag-list-item">

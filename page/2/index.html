@@ -309,7 +309,139 @@ color="45, 241, 10" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
            <a href="https://github.com/janlee151/"><img style="position: absolute; top: 0; right: 0; border: 0;height: 30px; width: 30px;color: yellow" src="/img/github.png" alt="Fork me on GitHub"></a>
      </div>
       
-        
+        <h3 id="docker的基本命令"><a class="header-anchor" href="#docker的基本命令"></a>docker的基本命令</h3>
+<ul>
+<li>启动命令：</li>
+</ul>
+<figure class="highlight docker"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl start docker</span><br></pre></td></tr></table></figure>
+<ul>
+<li>搜索命令：</li>
+</ul>
+<figure class="highlight docker"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker search mysql</span><br></pre></td></tr></table></figure>
+<p>这个主要是查询mysql的相关镜像，它的<a href="https://hub.docker.com/" target="_blank" rel="noopener">仓库</a><br>
+搜索结果：<br>
+<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1583999742421.png" alt="enter description here"></p>
+<ul>
+<li>拉取镜像资源：<br>
+<strong>格式</strong>：<br>
+docker pull 镜像名称(：tag)    如果不添加tag，默认拉取的是最新的镜像</li>
+</ul>
+<figure class="highlight docker"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull mysql</span><br></pre></td></tr></table></figure>
+<p>我们看看tag到底是什么：<br>
+<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1584000651084.png" alt="enter description here"><br>
+我们拉取mysql5.5版本</p>
+<figure class="highlight docker"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull mysql:<span class="number">5.5</span></span><br></pre></td></tr></table></figure>
+<p>运行结果：<br>
+<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1584000927275.png" alt="enter description here"></p>
+<ul>
+<li>查看本地所有镜像</li>
+</ul>
+<figure class="highlight docker"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker images</span><br></pre></td></tr></table></figure>
+<p>运行结果：<br>
+<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1584001097368.png" alt="enter description here"></p>
+<ul>
+<li>删除本地的某一个镜像</li>
+</ul>
+<figure class="highlight docker"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker rmi image-id</span><br></pre></td></tr></table></figure>
+<p><img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1584001326105.png" alt="enter description here"></p>
+<ul>
+<li>运行镜像</li>
+</ul>
+<figure class="highlight docker"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="keyword">run</span> --name mytomcat -d tomcat:latest</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>mytomcat是自定义的容器的名字  -d表示后台运行</p>
+</blockquote>
+<ul>
+<li>查看运行中的容器</li>
+</ul>
+<figure class="highlight docker"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker ps</span><br></pre></td></tr></table></figure>
+<p>运行结果：<br>
+<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1584002974875.png" alt="enter description here"><br>
+案例：启动Tomcat服务<br>
+首先我们先看看虚拟机防火墙是否关闭：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">service firewalld status</span><br><span class="line">service firewalld stop</span><br></pre></td></tr></table></figure>
+<p>我们启动Tomcat镜像：<br>
+格式：<br>
+docker run[Options] 镜像名称或镜像ID[Command][Arg…]<br>
+Options说明（常用）：注意，有些命令是一个减号，有些是两个减号</p>
+<p>–name=“容器实例名称”：为容器实例指定一个名称</p>
+<p>-d：后台运行容器并返回容器ID，即启动守护式容器</p>
+<p>-i：以交互模式运行容器，通常与-t同时使用</p>
+<p>-t：为容器重新分配一个伪输入终端，通常与-i同时使用</p>
+<p>-P：随机端口映射</p>
+<p>-p：指定端口映射，有以下四种格式</p>
+<p>1.ip:hostPort:containerPort</p>
+<p>2.ip::containerPort</p>
+<p>3.hostPort:containerPort　　=&gt;　　主机端口:Docker容器端口</p>
+<p>4.containerPort</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -d -p8888:8080 tomcat</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>8888是主机访问服务的端口<br>
+8080是Docker容器的端口<br>
+我们都知道Tomcat的默认启动端口是8080，也就是对应的Docker容器的端口</p>
+</blockquote>
+<p>docker ps [Options]</p>
+<p>用途：列出当前所有正在运行的容器</p>
+<p>Options说明（常用）：</p>
+<p>-a：列出当前所有正在运行的容器 + 历史上运行过的容器 （全部都要）</p>
+<p>-l：显示最近创建的容器</p>
+<p>-n：显示最新n个创建的容器</p>
+<p>-q：静默模式，只显示容器编号</p>
+<p>–no-trunc：不截断输出</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker ps -a</span><br></pre></td></tr></table></figure>
+<p>用于查看docker中所有容器进程，运行结果：<br>
+<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1584017949313.png" alt="enter description here"><br>
+关闭Tomcat容器进程：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker stop 8a0edef09ad3</span><br></pre></td></tr></table></figure>
+<p>启动容器进程</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker start 8a0edef09ad3</span><br></pre></td></tr></table></figure>
+<p>此时我们通过主机浏览器<a href="http://192.168.145.130:8888/" target="_blank" rel="noopener">访问</a>Tomcat服务器会报404错误：<br>
+<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1584019116179.png" alt="enter description here"><br>
+解决方案：<br>
+进入Tomcat容器<br>
+方案一：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker attach 8a0edef09ad3</span><br></pre></td></tr></table></figure>
+<p>方案二：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker exec -it 8a0edef09ad3 /bin/bash</span><br></pre></td></tr></table></figure>
+<p>运行结果：<br>
+<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1584020463105.png" alt="enter description here"><br>
+运行命令:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls -l</span><br></pre></td></tr></table></figure>
+<p>结果：<br>
+<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1584020505345.png" alt="enter description here"><br>
+我们看到webapps文件夹下面为空，但是webapps.dist文件夹下面就是我们想要文件，我们将webapps.dist文件夹下面的文件移到webapps文件。<br>
+操作如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">root@8a0edef09ad3:/usr/local/tomcat# pwd</span><br><span class="line">/usr/local/tomcat</span><br><span class="line">root@8a0edef09ad3:/usr/local/tomcat# cd webapps.dist/</span><br><span class="line">root@8a0edef09ad3:/usr/local/tomcat/webapps.dist# mv * /usr/local/tomcat/webapps/</span><br><span class="line">root@8a0edef09ad3:/usr/local/tomcat/webapps.dist# exit     //退出容器命令</span><br></pre></td></tr></table></figure>
+<p>我们执行：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker stop 8a0edef09ad3</span><br><span class="line">docker start 8a0edef09ad3</span><br></pre></td></tr></table></figure>
+<p><a href="http://192.168.145.130:8888/" target="_blank" rel="noopener">访问</a><br>
+我们看到：<br>
+<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1584022262526.png" alt="enter description here"><br>
+查看容器日志：<br>
+格式：docker logs container-name/container-id</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker logs 8a0edef09ad3</span><br></pre></td></tr></table></figure>
+<p><img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1584022614322.png" alt="enter description here"><br>
+如果我们要从容器中删除Tomcat：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker rm 1447d8754b15</span><br></pre></td></tr></table></figure>
+<p><a href="https://www.cnblogs.com/fanqisoft/p/10441908.html" target="_blank" rel="noopener">docker命令学习参考</a></p>
+<p>安装mysql：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker pull mysql:5.5</span><br><span class="line">docker run --name mysql01 -d mysql:5.5</span><br><span class="line">docker ps</span><br></pre></td></tr></table></figure>
+<p>运行结果：<br>
+<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1584025497873.png" alt="enter description here"><br>
+我们执行：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker ps -a</span><br></pre></td></tr></table></figure>
+<p>运行结果：<br>
+<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1584025663478.png" alt="enter description here"><br>
+我们发现mysql启动失败了<br>
+我们<a href="https://hub.docker.com/_/mysql?tab=description" target="_blank" rel="noopener">参照官方文档</a>：<br>
+<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1584067540091.png" alt="enter description here"><br>
+我们使用下面的命令：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -p3306:3306 --name mysql02 -e MYSQL_ROOT_PASSWORD=janlee -d mysql:5.5</span><br></pre></td></tr></table></figure>
+<p>我们通过MySQL客户端工具Navicat连接一下：<br>
+<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1584068710669.png" alt="enter description here"><br>
+这样我们就成功连接上了：<br>
+<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1584068745148.png" alt="enter description here"></p>
+
       
 	  <!--增加版权-->
      
@@ -323,7 +455,35 @@ color="45, 241, 10" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">docker</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">初探</a>
+        		</li>
+      		
+		</ul>
+		
+	</div>
+
       
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/技术总结//" class="article-tag-list-link color5">技术总结</a>
+        		</li>
+      		
+		</ul>
+		
+	</div>
+
 
       
         <p class="article-more-link">
@@ -383,7 +543,151 @@ color="45, 241, 10" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
            <a href="https://github.com/janlee151/"><img style="position: absolute; top: 0; right: 0; border: 0;height: 30px; width: 30px;color: yellow" src="/img/github.png" alt="Fork me on GitHub"></a>
      </div>
       
-        
+        <h3 id="配置文件"><a class="header-anchor" href="#配置文件"></a>配置文件</h3>
+<ol>
+<li>Spring Boot默认的配置文件
+<ul>
+<li>
+<p>application.properties</p>
+</li>
+<li>
+<p>application.yml<br>
+语法案例：</p>
+</li>
+</ul>
+</li>
+</ol>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">server:</span></span><br><span class="line"><span class="attr">    port:</span> <span class="number">8081</span></span><br></pre></td></tr></table></figure>
+<p><strong>YAML语法</strong>：</p>
+<ul>
+<li>
+<p>基本语法<br>
+k: v    表示一堆键值对（注意冒号后边的空格必须要有）<br>
+只要是左对齐一列数据都是同一层级的：<br>
+<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1583851636414.png" alt="enter description here"><br>
+属性和值是大小写敏感的</p>
+</li>
+<li>
+<p>注意要点<br>
+&quot;&quot;: 双引号引的字符串如果包含特殊字符（换行符、制表符等等特殊的符号），那么双引号不会将其转义，转义字符还表示原来特殊字符的作用，而不是普通字符串赋值；<br>
+’’: 单引号引的字符串如果包含特殊字符，就会将特殊字符转义成普通字符串进行赋值；</p>
+<p>对象、Map（属性和值）（键值对）</p>
+<ul>
+<li>对象</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">friends:</span> </span><br><span class="line"><span class="attr">           lastName:</span> <span class="string">zhangsan</span></span><br><span class="line"><span class="attr">  age:</span> <span class="number">20</span></span><br></pre></td></tr></table></figure>
+<p>行内写法</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">friends:</span> <span class="string">&#123;lastName:</span> <span class="string">zhangsan,age:</span> <span class="number">18</span><span class="string">&#125;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>数组（List、Set）</li>
+</ul>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">pets:</span> </span><br><span class="line"><span class="bullet">   -</span> <span class="string">cat</span></span><br><span class="line"><span class="bullet">   -</span> <span class="string">dog</span></span><br><span class="line"><span class="bullet">   -</span> <span class="string">pig</span></span><br></pre></td></tr></table></figure>
+<p>行内写法：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">pets:</span> <span class="string">[cat,dog,pig]</span></span><br></pre></td></tr></table></figure>
+<p>案例Dog类：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Dog</span> </span>&#123;</span><br><span class="line">  <span class="keyword">private</span> String name;</span><br><span class="line">  <span class="keyword">private</span> String type;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p>People类：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="meta">@ConfigurationProperties</span>(prefix = <span class="string">"people"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">People</span> </span>&#123;</span><br><span class="line">  <span class="keyword">private</span> String name;</span><br><span class="line">  <span class="keyword">private</span> Integer age;</span><br><span class="line">  <span class="keyword">private</span> Date birth;</span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">boolean</span> boss;</span><br><span class="line">  <span class="keyword">private</span> Map&lt;String,Object&gt; map;</span><br><span class="line">  <span class="keyword">private</span> List&lt;String&gt; list;</span><br><span class="line">  <span class="keyword">private</span> Dog dog;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p><strong>注意为上面的类提供get/set方法，提供toString()方法</strong><br>
+application.yml文件：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">people:</span></span><br><span class="line"><span class="attr">      name:</span> <span class="string">lisi</span></span><br><span class="line"><span class="attr">      age:</span> <span class="number">20</span></span><br><span class="line"><span class="attr">      birth:</span> <span class="number">2020</span><span class="string">/12/23</span></span><br><span class="line"><span class="attr">      boss:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">      map:</span> <span class="string">&#123;k1:</span> <span class="string">v1,k2:</span> <span class="string">v2&#125;</span></span><br><span class="line"><span class="attr">      list:</span></span><br><span class="line"><span class="bullet">         -</span> <span class="string">zhangsan</span></span><br><span class="line"><span class="bullet">         -</span> <span class="string">zhaowu</span></span><br><span class="line"><span class="bullet">         -</span> <span class="string">wangliu</span></span><br><span class="line"><span class="attr">      dog:</span></span><br><span class="line"><span class="attr">         name:</span> <span class="string">tony</span></span><br><span class="line"><span class="attr">         type:</span> <span class="string">hash</span></span><br></pre></td></tr></table></figure>
+<p>测试类：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringBootTest</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloworldApplicationTests</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Autowired</span></span><br><span class="line">  People people;</span><br><span class="line">  <span class="meta">@Test</span></span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">contextLoads</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    System.out.println(people);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>运行结果：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">People&#123;name=&apos;lisi&apos;, age=20, birth=Wed Dec 23 00:00:00 CST 2020, boss=true, map=&#123;k1=v1, k2=v2&#125;, list=[zhangsan, zhaowu, wangliu], dog=Dog&#123;name=&apos;tony&apos;, type=&apos;hash&apos;&#125;&#125;</span><br></pre></td></tr></table></figure>
+<p>下面就是通过application.properties:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">people.name = 张三</span><br><span class="line">people.age = 20</span><br><span class="line">people.birth = 2020/12/12</span><br></pre></td></tr></table></figure>
+<p>我们上面是通过@ConfigurationProperties注解实现的，下面我们通过@Value注解给类属性赋值（properties）：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">people.name = 张三</span><br><span class="line">people.age = 20</span><br><span class="line">people.birth = 2020/12/12</span><br></pre></td></tr></table></figure>
+<p>类中：</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>@ConfigurationProperties</th>
+<th>@Value</th>
+<th>案例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>功能</td>
+<td>批量注入配置文件中的属性</td>
+<td>一个个指定</td>
+<td></td>
+</tr>
+<tr>
+<td>松散绑定</td>
+<td>支持</td>
+<td>不支持</td>
+<td>@ConfigurationProperties ：如果类中属性是驼峰命名法，在配置文件中写1. people.lastName = 张三 2. people.last_name = 张三 3. people.last-name = 张三 都可以赋值；@Value注解如果这样给属性赋值：@Value(&quot;${people.lastName}&quot;)，配置文件中：people.last-name是不行的</td>
+</tr>
+<tr>
+<td>SPEL表达式</td>
+<td>不支持</td>
+<td>支持</td>
+<td>@Value支持#{11*2}表达式，但是 @ConfigurationProperties不支持</td>
+</tr>
+<tr>
+<td>JSR303数据校验</td>
+<td>支持</td>
+<td>不支持</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>我们看看数据校验类上@Validated，属性字段上@Email：</p>
+<h4 id="configurationproperties注解："><a class="header-anchor" href="#configurationproperties注解："></a>@ConfigurationProperties注解：</h4>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="meta">@ConfigurationProperties</span>(prefix = <span class="string">"people"</span>)</span><br><span class="line"><span class="meta">@Validated</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">People</span> </span>&#123;</span><br><span class="line">  </span><br><span class="line">  <span class="meta">@Email</span></span><br><span class="line">  <span class="keyword">private</span> String lastName;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">private</span> Integer age;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">private</span> Date birth;</span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">boolean</span> boss;</span><br><span class="line">  <span class="keyword">private</span> Map&lt;String,Object&gt; map;</span><br><span class="line">  <span class="keyword">private</span> List&lt;String&gt; list;</span><br><span class="line">  <span class="keyword">private</span> Dog dog;</span><br></pre></td></tr></table></figure>
+<p>运行结果：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- Field error in object &apos;people&apos; on field &apos;lastName&apos;: rejected value [张三]; codes [Email.people.lastName,Email.lastName,Email.java.lang.String,Email]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [people.lastName,lastName]; arguments []; default message [lastName],[Ljavax.validation.constraints.Pattern$Flag;@7ed9ae94,.*]; default message [不是一个合法的电子邮件地址]; origin class path resource [application.properties]:1:19</span><br></pre></td></tr></table></figure>
+<h4 id="value注解："><a class="header-anchor" href="#value注解："></a>@Value注解：</h4>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="meta">@Validated</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">People</span> </span>&#123;</span><br><span class="line">  <span class="meta">@Value</span>(<span class="string">"$&#123;people.lastName&#125;"</span>)</span><br><span class="line">  <span class="meta">@Email</span></span><br><span class="line">  <span class="keyword">private</span> String lastName;</span><br><span class="line">  <span class="meta">@Value</span>(<span class="string">"$&#123;people.age&#125;"</span>)</span><br><span class="line">  <span class="keyword">private</span> Integer age;</span><br><span class="line">  <span class="meta">@Value</span>(<span class="string">"$&#123;people.birth&#125;"</span>)</span><br><span class="line">  <span class="keyword">private</span> Date birth;</span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">boolean</span> boss;</span><br><span class="line">  <span class="keyword">private</span> Map&lt;String,Object&gt; map;</span><br><span class="line">  <span class="keyword">private</span> List&lt;String&gt; list;</span><br><span class="line">  <span class="keyword">private</span> Dog dog;</span><br></pre></td></tr></table></figure>
+<p>运行结果：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">People&#123;lastName=&apos;张三&apos;, age=20, birth=Sat Dec 12 00:00:00 CST 2020, boss=false, map=null, list=null, dog=null&#125;</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>配置文件的作用<br>
+修改Spring Boot自动配置的默认值；</li>
+</ol>
+<h4 id="propertysource和-importresource读取外部配置文件"><a class="header-anchor" href="#propertysource和-importresource读取外部配置文件"></a>@PropertySource和@ImportResource读取外部配置文件</h4>
+<ul>
+<li>@PropertySource
+<ol>
+<li>加载指定的配置文件</li>
+</ol>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@PropertySource</span>(value = &#123;<span class="string">"classpath:people.properties"</span>&#125;)</span><br><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="meta">@ConfigurationProperties</span>(prefix = <span class="string">"people"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">People</span> </span>&#123;</span><br><span class="line">  <span class="keyword">private</span> String lastName;</span><br><span class="line">  <span class="keyword">private</span> Integer age;</span><br><span class="line">  <span class="keyword">private</span> Date birth;</span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">boolean</span> boss;</span><br><span class="line">  <span class="keyword">private</span> Map&lt;String,Object&gt; map;</span><br><span class="line">  <span class="keyword">private</span> List&lt;String&gt; list;</span><br><span class="line">  <span class="keyword">private</span> Dog dog;</span><br></pre></td></tr></table></figure>
+<p>运行结果：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">People&#123;lastName=&apos;张三&apos;, age=20, birth=Sat Dec 12 00:00:00 CST 2020, boss=false, map=null, list=null, dog=null&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>@ImportResource<br>
+我们创建一个HelloService类，创建xml配置文件填上HelloService的相关bean：</li>
+</ul>
+ <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"helloService"</span> <span class="attr">class</span>=<span class="string">"com.example.helloworld.service.HelloService"</span>\&gt;</span><span class="tag">&lt;/<span class="name">bean\</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>我们创建类：</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"> </span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloService</span> </span>&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>我们在测试类中：</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloworldApplicationTests</span> </span>&#123;</span><br><span class="line">  <span class="meta">@Autowired</span></span><br><span class="line">  ApplicationContext ioc;</span><br><span class="line">  <span class="meta">@Test</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">hasHelloService</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">boolean</span> helloService = ioc.containsBean(<span class="string">"helloService"</span>);</span><br><span class="line">    System.out.println(helloService);</span><br><span class="line">  &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>运行结果：false</p>
+<p>说明我们虽然添加了HelloService的Bean但是SpringBoot不能识别它，为了让SpringBoot能够识别我们的xml文件，我们在启动类上添加注解：@ImportResource：</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"> <span class="meta">@ImportResource</span>(<span class="string">"classpath:hello.xml"</span>)</span><br><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloworldApplication</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    SpringApplication.run(HelloworldApplication.class, args);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>运行结果：true</p>
+<p>SpringBoot提倡使用注解的方式配置bean组件：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloConfig</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Bean</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> HelloService <span class="title">helloService</span><span class="params">()</span></span>&#123;</span><br><span class="line">    System.out.println(<span class="string">"helloService的组件Bean"</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> HelloService();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1583910452013.png" alt="enter description here"></p>
+<h3 id="多配制文件"><a class="header-anchor" href="#多配制文件"></a>多配制文件</h3>
+<h4 id="application-profile-properties"><a class="header-anchor" href="#application-profile-properties"></a>application-{profile}.properties</h4>
+<p>默认情况下，SpringBoot优先加载application.properties<br>
+我们在application.properties文件中添加：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">spring.profiles.active=pro</span><br></pre></td></tr></table></figure>
+<p>这样application.pro.properties就会被激活使用，配置的端口就是application-pro.properties</p>
+<h4 id="application-profile-yml"><a class="header-anchor" href="#application-profile-yml"></a>application-{profile}.yml</h4>
+<p>文档块：<br>
+<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1583912961422.png" alt="enter description here"></p>
+
       
 	  <!--增加版权-->
      
@@ -397,7 +701,35 @@ color="45, 241, 10" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Spring Boot</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">配置文件</a>
+        		</li>
+      		
+		</ul>
+		
+	</div>
+
       
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/学习笔记//" class="article-tag-list-link color5">学习笔记</a>
+        		</li>
+      		
+		</ul>
+		
+	</div>
+
 
       
         <p class="article-more-link">
@@ -457,7 +789,125 @@ color="45, 241, 10" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
            <a href="https://github.com/janlee151/"><img style="position: absolute; top: 0; right: 0; border: 0;height: 30px; width: 30px;color: yellow" src="/img/github.png" alt="Fork me on GitHub"></a>
      </div>
       
-        
+        <h3 id="自动配置原理"><a class="header-anchor" href="#自动配置原理"></a>自动配置原理</h3>
+<p>SpringBoot的配置文件application.properties或者application.yml能够配置的属性：<br>
+<a href="https://docs.spring.io/spring-boot/docs/2.2.5.RELEASE/reference/html/appendix-application-properties.html#common-application-properties" target="_blank" rel="noopener">SpringBoot配置文件能够配置的属性参照</a><br>
+<strong>自动配置原理</strong><br>
+Spring启动的时候加载主配置类：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloworldApplication</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    SpringApplication.run(HelloworldApplication.class, args);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>我们点击注解@SpringBootApplication<br>
+我们看到：<br>
+<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1583820459855.png" alt="enter description here"><br>
+加载主配置类是开启了自动配置功能：@EnableAutoConfiguration注解<br>
+<strong>@EnableAutoConfiguration注解的作用</strong><br>
+首先我们点进去看看注解EnableAutoConfiguration：<br>
+<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1583820716539.png" alt="enter description here"><br>
+我们找到：<br>
+AutoConfigurationImportSelector 自动配置导入选择器类：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> String[] selectImports(AnnotationMetadata annotationMetadata) &#123;</span><br><span class="line">		<span class="keyword">if</span> (!isEnabled(annotationMetadata)) &#123;</span><br><span class="line">			<span class="keyword">return</span> NO_IMPORTS;</span><br><span class="line">		&#125;</span><br><span class="line">		AutoConfigurationMetadata autoConfigurationMetadata = AutoConfigurationMetadataLoader</span><br><span class="line">				.loadMetadata(<span class="keyword">this</span>.beanClassLoader);</span><br><span class="line">		AutoConfigurationEntry autoConfigurationEntry = getAutoConfigurationEntry(autoConfigurationMetadata,</span><br><span class="line">				annotationMetadata);</span><br><span class="line">		<span class="keyword">return</span> StringUtils.toStringArray(autoConfigurationEntry.getConfigurations());</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<p>我们点击函数：<br>
+AutoConfigurationEntry autoConfigurationEntry = getAutoConfigurationEntry(autoConfigurationMetadata,annotationMetadata);<br>
+我们发现这个是自动配置的实体，然后我们找打这个函数：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">protected</span> AutoConfigurationEntry <span class="title">getAutoConfigurationEntry</span><span class="params">(AutoConfigurationMetadata autoConfigurationMetadata,</span></span></span><br><span class="line"><span class="function"><span class="params">			AnnotationMetadata annotationMetadata)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">if</span> (!isEnabled(annotationMetadata)) &#123;</span><br><span class="line">			<span class="keyword">return</span> EMPTY_ENTRY;</span><br><span class="line">		&#125;</span><br><span class="line">		AnnotationAttributes attributes = getAttributes(annotationMetadata);</span><br><span class="line">		List&lt;String&gt; configurations = getCandidateConfigurations(annotationMetadata, attributes);</span><br><span class="line">		configurations = removeDuplicates(configurations);</span><br><span class="line">		Set&lt;String&gt; exclusions = getExclusions(annotationMetadata, attributes);</span><br><span class="line">		checkExcludedClasses(configurations, exclusions);</span><br><span class="line">		configurations.removeAll(exclusions);</span><br><span class="line">		configurations = filter(configurations, autoConfigurationMetadata);</span><br><span class="line">		fireAutoConfigurationImportEvents(configurations, exclusions);</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">new</span> AutoConfigurationEntry(configurations, exclusions);</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<p>我们找到：<br>
+List&lt;String&gt; configurations = getCandidateConfigurations(annotationMetadata, attributes);<br>
+我们点击进入函数：getCandidateConfigurations(annotationMetadata, attributes)</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">protected</span> List&lt;String&gt; <span class="title">getCandidateConfigurations</span><span class="params">(AnnotationMetadata metadata, AnnotationAttributes attributes)</span> </span>&#123;</span><br><span class="line">		List&lt;String&gt; configurations = SpringFactoriesLoader.loadFactoryNames(getSpringFactoriesLoaderFactoryClass(),</span><br><span class="line">				getBeanClassLoader());</span><br><span class="line">		Assert.notEmpty(configurations, <span class="string">"No auto configuration classes found in META-INF/spring.factories. If you "</span></span><br><span class="line">				+ <span class="string">"are using a custom packaging, make sure that file is correct."</span>);</span><br><span class="line">		<span class="keyword">return</span> configurations;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<p>通过下面的代码：<br>
+protected List&lt;String&gt; getCandidateConfigurations(AnnotationMetadata metadata, AnnotationAttributes attributes) {<br>
+		List&lt;String&gt; configurations = SpringFactoriesLoader.loadFactoryNames(getSpringFactoriesLoaderFactoryClass(),<br>
+				getBeanClassLoader());<br>
+		Assert.notEmpty(configurations, &quot;No auto configuration classes found in META-INF/spring.factories. If you &quot;<br>
+				+ “are using a custom packaging, make sure that file is correct.”);<br>
+		return configurations;<br>
+	}<br>
+我们找到：<br>
+List&lt;String&gt; configurations = SpringFactoriesLoader.loadFactoryNames(getSpringFactoriesLoaderFactoryClass(),getBeanClassLoader());<br>
+我们看到下边的代码：<br>
+<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1583828942055.png" alt="enter description here"><br>
+我们点击查看SpringFactoriesLoader.loadFactoryNames函数的第一个参数：<br>
+getSpringFactoriesLoaderFactoryClass()<br>
+<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1583830131849.png" alt="enter description here"><br>
+我们看到是EnableAutoConfiguration类的Class对象，然后把它们添加在容器中，我们找到SpringBoot的autoConfigure:<br>
+<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1583830973566.png" alt="enter description here"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> Map&lt;String, List&lt;String&gt;&gt; loadSpringFactories(<span class="meta">@Nullable</span> ClassLoader classLoader) &#123;</span><br><span class="line">    MultiValueMap&lt;String, String&gt; result = (MultiValueMap)cache.get(classLoader);</span><br><span class="line">    <span class="keyword">if</span> (result != <span class="keyword">null</span>) &#123;</span><br><span class="line">      <span class="keyword">return</span> result;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">try</span> &#123;</span><br><span class="line">        Enumeration&lt;URL&gt; urls = classLoader != <span class="keyword">null</span> ? classLoader.getResources(<span class="string">"META-INF/spring.factories"</span>) : ClassLoader.getSystemResources(<span class="string">"META-INF/spring.factories"</span>);</span><br><span class="line">        LinkedMultiValueMap result = <span class="keyword">new</span> LinkedMultiValueMap();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span>(urls.hasMoreElements()) &#123;</span><br><span class="line">          URL url = (URL)urls.nextElement();</span><br><span class="line">          UrlResource resource = <span class="keyword">new</span> UrlResource(url);</span><br><span class="line">          Properties properties = PropertiesLoaderUtils.loadProperties(resource);</span><br><span class="line">          Iterator var6 = properties.entrySet().iterator();</span><br><span class="line">		  <span class="keyword">while</span>(var6.hasNext()) &#123;</span><br><span class="line">            Entry&lt;?, ?&gt; entry = (Entry)var6.next();</span><br><span class="line">            String factoryTypeName = ((String)entry.getKey()).trim();</span><br><span class="line">            String[] var9 = StringUtils.commaDelimitedListToStringArray((String)entry.getValue());</span><br><span class="line">            <span class="keyword">int</span> var10 = var9.length;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> var11 = <span class="number">0</span>; var11 &lt; var10; ++var11) &#123;</span><br><span class="line">              String factoryImplementationName = var9[var11];</span><br><span class="line">              result.add(factoryTypeName, factoryImplementationName.trim());</span><br><span class="line">            &#125;</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        cache.put(classLoader, result);</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">      &#125; <span class="keyword">catch</span> (IOException var13) &#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> IllegalArgumentException(<span class="string">"Unable to load factories from location [META-INF/spring.factories]"</span>, var13);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<p>我们看到：<br>
+Enumeration&lt;URL&gt; urls = classLoader != null ? classLoader.getResources(“META-INF/spring.factories”) : ClassLoader.getSystemResources(“META-INF/spring.factories”);<br>
+扫描所有jar包下的：spring.factories文件。我们再看上面的代码，会将spring.factories文件内容包装秤Properties对象，然后将Properties对象的集合通过迭代器进行遍历。</p>
+<p><strong>案例HttpEncodingAutoConfiguration</strong></p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"> <span class="meta">@Configuration</span>(proxyBeanMethods = <span class="keyword">false</span>)           <span class="comment">//这时一个配置类，也可以在容器中添加组件</span></span><br><span class="line"><span class="meta">@EnableConfigurationProperties</span>(HttpProperties.class)   <span class="comment">//启用指定类的ConfigurationProperties功能，将配置文件的中对应的值和HttpProperties进行绑定</span></span><br><span class="line"><span class="meta">@ConditionalOnWebApplication</span>(type = ConditionalOnWebApplication.Type.SERVLET)   <span class="comment">//判断是不是web应用，如果是当前配置类生效，如果不是就不生效</span></span><br><span class="line"><span class="meta">@ConditionalOnClass</span>(CharacterEncodingFilter.class)  <span class="comment">//判断当前项目中有没有CharacterEncodingFilter这个类（SpringMVC中乱码解决的过滤器）</span></span><br><span class="line"><span class="meta">@ConditionalOnProperty</span>(prefix = <span class="string">"spring.http.encoding"</span>, value = <span class="string">"enabled"</span>, matchIfMissing = <span class="keyword">true</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HttpEncodingAutoConfiguration</span> </span>&#123;</span><br></pre></td></tr></table></figure>
+<p>我们点击@EnableConfigurationProperties(HttpProperties.class) 中HttpProperties：</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"> <span class="meta">@ConfigurationProperties</span>(prefix = <span class="string">"spring.http"</span>)<span class="comment">//从配置文件中获取指定的值和bean的属性进行绑定</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HttpProperties</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * Whether logging of (potentially sensitive) request details at DEBUG and TRACE level</span></span><br><span class="line"><span class="comment">	 * is allowed.</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">boolean</span> logRequestDetails;</span><br></pre></td></tr></table></figure>
+<p><img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1583831734845.png" alt="enter description here"><br>
+配置文件的数据时这样与拦截器CharacterEncodingFilter类怎么绑定在一起的呢？</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"> spring.http.encoding.enabled=<span class="keyword">true</span></span><br><span class="line">spring.http.encoding.charset=utf-<span class="number">8</span></span><br><span class="line">spring.http.encoding.force=<span class="keyword">true</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@ConfigurationProperties</span>(prefix = <span class="string">"spring.http"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HttpProperties</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * Whether logging of (potentially sensitive) request details at DEBUG and TRACE level</span></span><br><span class="line"><span class="comment">	 * is allowed.</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">boolean</span> logRequestDetails;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * HTTP encoding properties.</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">final</span> Encoding encoding = <span class="keyword">new</span> Encoding();</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isLogRequestDetails</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">this</span>.logRequestDetails;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setLogRequestDetails</span><span class="params">(<span class="keyword">boolean</span> logRequestDetails)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.logRequestDetails = logRequestDetails;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> Encoding <span class="title">getEncoding</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">this</span>.encoding;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * Configuration properties for http encoding.</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Encoding</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> Charset DEFAULT_CHARSET = StandardCharsets.UTF_8;</span><br><span class="line"></span><br><span class="line">		<span class="comment">/**</span></span><br><span class="line"><span class="comment">		 * Charset of HTTP requests and responses. Added to the "Content-Type" header if</span></span><br><span class="line"><span class="comment">		 * not set explicitly.</span></span><br><span class="line"><span class="comment">		 */</span></span><br><span class="line">		<span class="keyword">private</span> Charset charset = DEFAULT_CHARSET;</span><br><span class="line"></span><br><span class="line">		<span class="comment">/**</span></span><br><span class="line"><span class="comment">		 * Whether to force the encoding to the configured charset on HTTP requests and</span></span><br><span class="line"><span class="comment">		 * responses.</span></span><br><span class="line"><span class="comment">		 */</span></span><br><span class="line">		<span class="keyword">private</span> Boolean force;</span><br><span class="line"></span><br><span class="line">		<span class="comment">/**</span></span><br><span class="line"><span class="comment">		 * Whether to force the encoding to the configured charset on HTTP requests.</span></span><br><span class="line"><span class="comment">		 * Defaults to true when "force" has not been specified.</span></span><br><span class="line"><span class="comment">		 */</span></span><br><span class="line">		<span class="keyword">private</span> Boolean forceRequest;</span><br><span class="line"></span><br><span class="line">		<span class="comment">/**</span></span><br><span class="line"><span class="comment">		 * Whether to force the encoding to the configured charset on HTTP responses.</span></span><br><span class="line"><span class="comment">		 */</span></span><br><span class="line">		<span class="keyword">private</span> Boolean forceResponse;</span><br></pre></td></tr></table></figure>
+<p>HttpProperties是靠配置文件初始化值，相关组件：</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"> <span class="meta">@Configuration</span>(proxyBeanMethods = <span class="keyword">false</span>)</span><br><span class="line"><span class="meta">@EnableConfigurationProperties</span>(HttpProperties.class)</span><br><span class="line"><span class="meta">@ConditionalOnWebApplication</span>(type = ConditionalOnWebApplication.Type.SERVLET)</span><br><span class="line"><span class="meta">@ConditionalOnClass</span>(CharacterEncodingFilter.class)</span><br><span class="line"><span class="meta">@ConditionalOnProperty</span>(prefix = <span class="string">"spring.http.encoding"</span>, value = <span class="string">"enabled"</span>, matchIfMissing = <span class="keyword">true</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HttpEncodingAutoConfiguration</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">final</span> HttpProperties.Encoding properties;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">HttpEncodingAutoConfiguration</span><span class="params">(HttpProperties properties)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.properties = properties.getEncoding();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Bean</span></span><br><span class="line">	<span class="meta">@ConditionalOnMissingBean</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> CharacterEncodingFilter <span class="title">characterEncodingFilter</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		CharacterEncodingFilter filter = <span class="keyword">new</span> OrderedCharacterEncodingFilter();</span><br><span class="line">		filter.setEncoding(<span class="keyword">this</span>.properties.getCharset().name());</span><br><span class="line">		filter.setForceRequestEncoding(<span class="keyword">this</span>.properties.shouldForce(Type.REQUEST));</span><br><span class="line">		filter.setForceResponseEncoding(<span class="keyword">this</span>.properties.shouldForce(Type.RESPONSE));</span><br><span class="line">		<span class="keyword">return</span> filter;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Bean</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> LocaleCharsetMappingsCustomizer <span class="title">localeCharsetMappingsCustomizer</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">new</span> LocaleCharsetMappingsCustomizer(<span class="keyword">this</span>.properties);</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>组件的值来自于properties</strong></p>
+<blockquote>
+<p>SpringBoot要点</p>
+<ol>
+<li>SpringBoot启动会加载大量的额自动配置类</li>
+<li>我们看我们需要的功能有没有SpringBoot默认写好的自动配置类；</li>
+<li>我们再来看看这个自动配置类到底配置了哪些组件；（只要我们需要的组件有，我们就不需要来配置了）</li>
+<li>给容器自动配置类中添加组件的时候会从properties类中获取某些属性，我们就可以在配置文件中指定这些属性的值。</li>
+</ol>
+</blockquote>
+<blockquote></blockquote>
+<h3 id="静态资源导入"><a class="header-anchor" href="#静态资源导入"></a>静态资源导入</h3>
+<ul>
+<li>WebMvcAutoConfiguration<br>
+我们找到 WebMvcAutoConfigurationAdapter<br>
+找到addResourceHandlers资源管理器：</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addResourceHandlers</span><span class="params">(ResourceHandlerRegistry registry)</span> </span>&#123;</span><br><span class="line">			<span class="keyword">if</span> (!<span class="keyword">this</span>.resourceProperties.isAddMappings()) &#123;</span><br><span class="line">				logger.debug(<span class="string">"Default resource handling disabled"</span>);</span><br><span class="line">				<span class="keyword">return</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			Duration cachePeriod = <span class="keyword">this</span>.resourceProperties.getCache().getPeriod();</span><br><span class="line">			CacheControl cacheControl = <span class="keyword">this</span>.resourceProperties.getCache().getCachecontrol().toHttpCacheControl();</span><br><span class="line">			<span class="keyword">if</span> (!registry.hasMappingForPattern(<span class="string">"/webjars/**"</span>)) &#123;</span><br><span class="line">				customizeResourceHandlerRegistration(registry.addResourceHandler(<span class="string">"/webjars/**"</span>)</span><br><span class="line">						.addResourceLocations(<span class="string">"classpath:/META-INF/resources/webjars/"</span>)</span><br><span class="line">						.setCachePeriod(getSeconds(cachePeriod)).setCacheControl(cacheControl));</span><br><span class="line">			&#125;</span><br><span class="line">			String staticPathPattern = <span class="keyword">this</span>.mvcProperties.getStaticPathPattern();</span><br><span class="line">			<span class="keyword">if</span> (!registry.hasMappingForPattern(staticPathPattern)) &#123;</span><br><span class="line">				customizeResourceHandlerRegistration(registry.addResourceHandler(staticPathPattern)</span><br><span class="line">						.addResourceLocations(getResourceLocations(<span class="keyword">this</span>.resourceProperties.getStaticLocations()))</span><br><span class="line">						.setCachePeriod(getSeconds(cachePeriod)).setCacheControl(cacheControl));</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br></pre></td></tr></table></figure>
+<p>我们看到第一个if语句中this.resourceProperties.isAddMappings()：<br>
+<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1583764481636.png" alt="enter description here"><br>
+如果不自定义静态资源属性，就会加载下面的资源：<br>
+/META-INF/resources/webjars/<br>
+这时我们应该去webjars官网：<br>
+<a href="https://www.webjars.org/" target="_blank" rel="noopener">webjars官网</a><br>
+我们找到jQuery的maven依赖：<br>
+<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1583805077945.png" alt="enter description here"><br>
+<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1583805161986.png" alt="enter description here"><br>
+这时我们启动项目，访问：<br>
+<a href="http://localhost:8080/webjars/jquery/3.4.1/jquery.js%EF%BC%9A" target="_blank" rel="noopener">http://localhost:8080/webjars/jquery/3.4.1/jquery.js：</a><br>
+我们看到页面的内容就是：<br>
+<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1583805347958.png" alt="enter description here"></p>
+<p>我们再看一下代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">String staticPathPattern = <span class="keyword">this</span>.mvcProperties.getStaticPathPattern();</span><br><span class="line">			<span class="keyword">if</span> (!registry.hasMappingForPattern(staticPathPattern)) &#123;</span><br><span class="line">				customizeResourceHandlerRegistration(registry.addResourceHandler(staticPathPattern)</span><br><span class="line">						.addResourceLocations(getResourceLocations(<span class="keyword">this</span>.resourceProperties.getStaticLocations()))</span><br><span class="line">						.setCachePeriod(getSeconds(cachePeriod)).setCacheControl(cacheControl));</span><br><span class="line">			&#125;</span><br></pre></td></tr></table></figure>
+<p>我们首先找到mvcProperties的staticPathPattern：<br>
+这个函数我们点进去：<br>
+<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1583805601970.png" alt="enter description here"><br>
+我们再点击：<br>
+<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1583805644978.png" alt="enter description here"><br>
+我们看到下面的截图：<br>
+<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1583805700892.png" alt="enter description here"><br>
+<strong>静态资源的匹配也就是项目的根目录下所有</strong><br>
+然后我们回头看看：<br>
+如果resourcePrperties没有添加映射，而是自己定义的就会返回：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (!<span class="keyword">this</span>.resourceProperties.isAddMappings()) &#123;</span><br><span class="line">				logger.debug(<span class="string">"Default resource handling disabled"</span>);</span><br><span class="line">				<span class="keyword">return</span>;</span><br><span class="line">		&#125;</span><br></pre></td></tr></table></figure>
+<p>我们接着点进去：<br>
+<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1583805954304.png" alt="enter description here"><br>
+我们会看到下面的静态资源访问类路径：</p>
+<blockquote>
+<p>“classpath:/META-INF/resources/”,<br>
+“classpath:/resources/”,<br>
+“classpath:/static/”,<br>
+“classpath:/public/”</p>
+</blockquote>
+<p>这时我们创建下面的路径：<br>
+<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1583806469256.png" alt="enter description here"><br>
+这时我们测试resources、static、public路径下，如果有相同的静态文件，访问的优先级：<br>
+<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1583807227310.png" alt="enter description here"><br>
+通过测试得出访问的优先级：</p>
+<blockquote>
+<p>resources&gt;static&gt;public</p>
+</blockquote>
+<p>接下来我们继续探讨我们添加自定义的静态资源路径：<br>
+我们在application.properties文件中添加自定义路径时，这就会失效：<br>
+<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1583809621020.png" alt="enter description here"></p>
+
       
 	  <!--增加版权-->
      
@@ -471,6 +921,18 @@ color="45, 241, 10" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Spring Boot源码</a>
+        		</li>
+      		
+		</ul>
+		
+	</div>
+
       
 
       
@@ -531,7 +993,238 @@ color="45, 241, 10" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
            <a href="https://github.com/janlee151/"><img style="position: absolute; top: 0; right: 0; border: 0;height: 30px; width: 30px;color: yellow" src="/img/github.png" alt="Fork me on GitHub"></a>
      </div>
       
-        
+        <h3 id="事务"><a class="header-anchor" href="#事务"></a>事务</h3>
+<h4 id="定义"><a class="header-anchor" href="#定义"></a>定义</h4>
+<p>一个或者一组SQL语句组成一个执行单元，这个执行单元要么全部执行，要么全部不执行。<br>
+案例：转账<br>
+小红账号   1000元<br>
+小明账号    1000元<br>
+小红向小明转账500元<br>
+update 表 set 小红账号 = 500 where name = '小红’<br>
+update 表 set 小明账号 = 1500 where name = '小明’<br>
+假如小红转账成功之后，更新了数据，但是中间突然出现错误，第二条语句未执行这样造成错误；<br>
+回滚：如果单元中有一条语句执行失败或者产生错误，那么所受影响的数据将返回到事务开始以前的状态；<br>
+我们查看自己安装的数据库的存储引擎：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SHOW</span> <span class="keyword">ENGINES</span>;</span><br></pre></td></tr></table></figure>
+<p>运行结果：<br>
+<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1583384134579.png" alt="enter description here"></p>
+<ul>
+<li>事务的ACID属性
+<ol>
+<li>原子性<br>
+事务是一个不可再分割工作单位，事务中的操作要么都发生，要么都不发生。</li>
+<li>一致性<br>
+事务必须使数据库从一个一致性状态变换到另一个一致性状态。<br>
+例如上面的案例：小红向小明转账500之前，小红和小明的总金额树是2000元，转账之后两个人的总金额数还是2000元</li>
+<li>隔离性<br>
+一个事务的执行不受其他事务的干扰，一个事务内部的操作及使用的数据对并发的其他事务是隔离的，并发执行的各个事务之间不能互相干扰。</li>
+<li>持久性<br>
+一个事务一旦被提交，它对数据库数据的改变就是持久性的。</li>
+</ol>
+</li>
+<li>开启事务</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SHOW</span> <span class="keyword">VARIABLES</span> <span class="keyword">LIKE</span> <span class="string">'autocommit'</span></span><br></pre></td></tr></table></figure>
+<p>运行结果：<br>
+<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1583388571588.png" alt="enter description here"><br>
+我们可以看到事务是提交是默认开启的</p>
+<h4 id="事务的创建"><a class="header-anchor" href="#事务的创建"></a>事务的创建</h4>
+<p><strong>隐式事务</strong>：事务没有明显的开始和结束的标记<br>
+比如：insert、update、delete语句这些语句是默认开启事务的，并且是隐式事务。<br>
+但是我们怎样才能让多条语句当做一个事务来处理呢？这时我们开启显示事务：<br>
+<strong>显示事务</strong>：事务有明显的开启和结束的标记<br>
+我们首先关闭自动提交功能：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span> autocommit = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">SHOW</span> <span class="keyword">VARIABLES</span> <span class="keyword">LIKE</span> <span class="string">'autocommit'</span></span><br></pre></td></tr></table></figure>
+<p>运行结果：<br>
+<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1583389298824.png" alt="enter description here"><br>
+显示事务开启步骤：<br>
+步骤一：set autocommit = 0；<br>
+步骤二：start transaction;(可选）<br>
+步骤三：编写事务中SQL语句（select  insert  update  delete)；<br>
+语句一；<br>
+语句二；<br>
+语句三；<br>
+步骤四：结束事务<br>
+commit：提交事务<br>
+或者rollback回滚事务<br>
+案例：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span> autocommit = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">UPDATE</span> <span class="keyword">account</span> <span class="keyword">SET</span> money = <span class="number">500</span> <span class="keyword">WHERE</span> <span class="keyword">name</span> = <span class="string">'小红'</span>;</span><br><span class="line"><span class="keyword">update</span> <span class="keyword">account</span> <span class="keyword">set</span> money = <span class="number">1500</span> <span class="keyword">WHERE</span> <span class="keyword">name</span> = <span class="string">'小明'</span>;</span><br><span class="line"><span class="keyword">commit</span>;</span><br></pre></td></tr></table></figure>
+<p>运行结果：<br>
+<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1583393247159.png" alt="enter description here"><br>
+接下来我们演示回滚：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span> autocommit = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">UPDATE</span> <span class="keyword">account</span> <span class="keyword">SET</span> money = <span class="number">1000</span> <span class="keyword">WHERE</span> <span class="keyword">name</span> = <span class="string">'小红'</span>;</span><br><span class="line"><span class="keyword">update</span> <span class="keyword">account</span> <span class="keyword">set</span> money = <span class="number">1000</span> <span class="keyword">WHERE</span> <span class="keyword">name</span> = <span class="string">'小明'</span>;</span><br><span class="line"><span class="keyword">ROLLBACK</span>;</span><br></pre></td></tr></table></figure>
+<p>运行结果：<br>
+<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1583393369733.png" alt="enter description here"></p>
+<h4 id="事务的隔离级别"><a class="header-anchor" href="#事务的隔离级别"></a>事务的隔离级别</h4>
+<p>对于同时运行多个事务，当这些事务访问数据库中相同的数据，如果没有采取必要的隔离机制，就会导致各种并发问题。<br>
+<strong>脏读</strong><br>
+对于两个事务T1、T2，T1读取了T2更新但是没有提交的数据，如果T2回滚，那么T1读到的数据时临时无效的。<br>
+<strong>不可重复度</strong>（针对更新操作）<br>
+对于两个事务T1、T2，T1读取了一个字段，然后T2更新了该字段，之后T1再读这个字段，值就不同了。<br>
+<strong>幻读</strong>（插入操作）<br>
+对于两个事务T1、T2，T1从一个表中读取了一个字段，然后T2在该表中插入了一些新的行记录，之后T1再次读同一个表，就会觉得多了几行。（像是出现了幻觉）</p>
+<blockquote>
+<p>什么是事务的隔离性？<br>
+数据库系统必须具备隔离并发运行各个事务的能力，使它们不会互相影响，避免各种并发问题。<br>
+什么是隔离级别？<br>
+一个事务与其他事务的隔离程度成为隔离级别</p>
+</blockquote>
+<p><strong>数据库的隔离级别越高，数据的一致性越好，但是并发性越弱</strong><br>
+事务的隔离级别</p>
+<table>
+<thead>
+<tr>
+<th>隔离级别</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>READ UNCOMMITED</td>
+<td>允许事务读取其他事务未提交的数据  脏读、不可重读读和幻读的问题都会出现</td>
+</tr>
+<tr>
+<td>READ COMMITED</td>
+<td>只允许读取其他事务已经提交的变更，可以避免脏读 但是不可重复度和幻读不能避免</td>
+</tr>
+<tr>
+<td>REPEATABLE READ</td>
+<td>确保一个事务可以多次从一个字段中读取相同的值，在这个事务持续期间，禁止其他事务对这个字段进行更新操作，可以避免脏读和可重复读</td>
+</tr>
+<tr>
+<td>SERIALIZABLE</td>
+<td>一个事务可以从一个表中读取相同的行，在这个事务持续期间，禁止其他事务对该表执行插入、删除、更新操作，所有并发问题都能避免，但是性能极其低下</td>
+</tr>
+</tbody>
+</table>
+<p><strong>脏读案例</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> @@tx_isolation;</span><br></pre></td></tr></table></figure>
+<p>运行结果：<br>
+<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1583460426439.png" alt="enter description here"></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span> <span class="keyword">session</span> <span class="keyword">transaction</span> <span class="keyword">isolation</span> <span class="keyword">level</span> <span class="keyword">read</span> uncommitted;</span><br><span class="line"> <span class="keyword">select</span> @@tx_isolation;</span><br></pre></td></tr></table></figure>
+<p>运行结果：<br>
+<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1583464546610.png" alt="enter description here"><br>
+我们再次开启一个窗口（新的session）</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span> <span class="keyword">session</span> <span class="keyword">transaction</span> <span class="keyword">isolation</span> <span class="keyword">level</span> <span class="keyword">read</span> uncommitted;</span><br></pre></td></tr></table></figure>
+<p>然后我们同时为两个session开启事务：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span> autocommit = <span class="number">0</span>;</span><br></pre></td></tr></table></figure>
+<p>我们在黄颜色的窗口执行：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> <span class="keyword">account</span>;</span><br></pre></td></tr></table></figure>
+<p>运行结果：<br>
+<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1583465604162.png" alt="enter description here"><br>
+黄色窗口执行：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">update</span> <span class="keyword">account</span> <span class="keyword">set</span> <span class="keyword">name</span> = <span class="string">'小兰'</span> <span class="keyword">where</span> <span class="keyword">id</span> = <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
+<p>此时黄色窗口开启的事务还未提交，绿色窗口执行：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> <span class="keyword">account</span>;</span><br></pre></td></tr></table></figure>
+<p>运行结果：<br>
+<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1583465876014.png" alt="enter description here"><br>
+我们看到黄色窗口开启的事务更新了表数据，绿色窗口开启的事务却能读到，那么如果这时黄色窗口回滚了，那么绿色窗口再次查询所有数据就会发现刚才小兰的数据又变成了小红：<br>
+黄色窗口执行回滚：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">rollback</span>;</span><br></pre></td></tr></table></figure>
+<p>绿色窗口再次执行查询操作：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> <span class="keyword">account</span>;</span><br></pre></td></tr></table></figure>
+<p>运行结果：<br>
+<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1583466251223.png" alt="enter description here"><br>
+<strong>不可重复读</strong><br>
+黄色框：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span> <span class="keyword">session</span> <span class="keyword">transaction</span> <span class="keyword">isolation</span> <span class="keyword">level</span> <span class="keyword">READ</span> COMMITTED</span><br><span class="line"><span class="keyword">set</span> autocommit = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">update</span> <span class="keyword">account</span> <span class="keyword">set</span> <span class="keyword">name</span> = <span class="string">'小黄'</span> <span class="keyword">where</span> <span class="keyword">id</span> = <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
+<p>绿色框：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">commit</span>;</span><br><span class="line"><span class="keyword">set</span> <span class="keyword">session</span> <span class="keyword">transaction</span> <span class="keyword">isolation</span> <span class="keyword">level</span> <span class="keyword">READ</span> COMMITTED;</span><br><span class="line"><span class="keyword">set</span> autocommit = <span class="number">0</span>;</span><br><span class="line"> <span class="keyword">select</span> * <span class="keyword">from</span> <span class="keyword">account</span>;</span><br></pre></td></tr></table></figure>
+<p>运行结果：<br>
+<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1583468155210.png" alt="enter description here"></p>
+<blockquote>
+<p>通过查看我们知道read committed避免了脏读</p>
+</blockquote>
+<p>但是不可重复读呢？<br>
+黄色框我们提交事务之后，绿色框我们执行：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> <span class="keyword">account</span>;</span><br></pre></td></tr></table></figure>
+<p>我们发现绿色框在同一个事务中我们查询的结果却是不同的：<br>
+<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1583469851184.png" alt="enter description here"><br>
+<strong>可重复读</strong><br>
+在黄色框我们：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span> <span class="keyword">session</span> <span class="keyword">transaction</span> <span class="keyword">isolation</span> <span class="keyword">level</span> REPEATABLE <span class="keyword">READ</span>;</span><br><span class="line"> <span class="keyword">select</span> * <span class="keyword">from</span> <span class="keyword">account</span>;</span><br></pre></td></tr></table></figure>
+<p>运行结果：<br>
+<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1583470297236.png" alt="enter description here"><br>
+我们接着执行：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span> autocommit = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">update</span> <span class="keyword">account</span> <span class="keyword">set</span> <span class="keyword">name</span> = <span class="string">'小红'</span> <span class="keyword">where</span> <span class="keyword">id</span> = <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
+<p>绿色框我们执行：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span> <span class="keyword">session</span> <span class="keyword">transaction</span> <span class="keyword">isolation</span> <span class="keyword">level</span> REPEATABLE <span class="keyword">READ</span>;</span><br><span class="line"><span class="keyword">set</span> autocommit = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> <span class="keyword">account</span>;</span><br></pre></td></tr></table></figure>
+<p>运行结果：<br>
+<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1583470438341.png" alt="enter description here"><br>
+此时证明避免了脏读<br>
+接下来黄色框执行：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">commit</span>;</span><br></pre></td></tr></table></figure>
+<p>绿色框再次执行：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> <span class="keyword">account</span>;</span><br></pre></td></tr></table></figure>
+<p>运行结果：<br>
+<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1583470572719.png" alt="enter description here"><br>
+我们发现绿色框的事务没有提交，读到的数据都已一样的！<br>
+接下来我们在绿色框运行：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">commit</span>;</span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> <span class="keyword">account</span>;</span><br></pre></td></tr></table></figure>
+<p>运行结果：<br>
+<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1583470783463.png" alt="enter description here"><br>
+<strong>幻读</strong><br>
+黄色框（注意：数据库默认的隔离级别就是可重复读）:</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span> autocommit = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> <span class="keyword">account</span>(<span class="keyword">name</span>,money) <span class="keyword">values</span>(<span class="string">'小李'</span>,<span class="number">100</span>);</span><br><span class="line"> <span class="keyword">commit</span>;</span><br></pre></td></tr></table></figure>
+<p>绿色框：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span> autocommit = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> <span class="keyword">account</span>;</span><br></pre></td></tr></table></figure>
+<p>运行结果：<br>
+<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1583471679588.png" alt="enter description here"><br>
+绿色框：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">update</span> <span class="keyword">account</span> <span class="keyword">set</span> <span class="keyword">name</span> = <span class="string">'mmm'</span>;</span><br></pre></td></tr></table></figure>
+<p>运行结果：<br>
+<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1583496308543.png" alt="enter description here"><br>
+<strong>避免所有并发问题</strong><br>
+黄色窗口：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span> <span class="keyword">session</span> <span class="keyword">transaction</span> <span class="keyword">isolation</span> <span class="keyword">level</span> <span class="keyword">SERIALIZABLE</span>;</span><br><span class="line"><span class="keyword">set</span> autocommit = <span class="number">0</span>;</span><br><span class="line"> <span class="keyword">select</span> * <span class="keyword">from</span> <span class="keyword">account</span>;</span><br></pre></td></tr></table></figure>
+<p>运行结果：<br>
+<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1583497389010.png" alt="enter description here"><br>
+绿色框执行：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span> <span class="keyword">session</span> <span class="keyword">transaction</span> <span class="keyword">isolation</span> <span class="keyword">level</span> <span class="keyword">SERIALIZABLE</span>;</span><br><span class="line"><span class="keyword">set</span> autocommit = <span class="number">0</span>;</span><br><span class="line"> <span class="keyword">select</span> * <span class="keyword">from</span> <span class="keyword">account</span>;</span><br></pre></td></tr></table></figure>
+<p>这时我们在黄色框执行：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> <span class="keyword">account</span>(<span class="keyword">name</span>,money) <span class="keyword">values</span>(<span class="string">'小芳'</span>,<span class="number">1000</span>);</span><br></pre></td></tr></table></figure>
+<p><img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1583497632251.png" alt="enter description here"></p>
+<blockquote>
+<p>我们看到黄色框的事务插入数据出现阻塞状态，这就是避免了并发的带来问题。</p>
+</blockquote>
+<h4 id="savepoint"><a class="header-anchor" href="#savepoint"></a>SAVEPOINT</h4>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span> autocommit = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> <span class="keyword">account</span>;</span><br></pre></td></tr></table></figure>
+<p>运行结果：<br>
+<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1583499329593.png" alt="enter description here"></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">delete</span> <span class="keyword">from</span> <span class="keyword">account</span> <span class="keyword">where</span> <span class="keyword">id</span> = <span class="number">3</span>;</span><br><span class="line"><span class="keyword">savepoint</span> a;</span><br><span class="line">detele from account where id = 4;</span><br><span class="line"><span class="keyword">rollback</span> <span class="keyword">to</span> a;</span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> <span class="keyword">account</span>;</span><br></pre></td></tr></table></figure>
+<p>运行结果：<br>
+<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1583499475517.png" alt="enter description here"></p>
+<blockquote>
+<p>通过上面的运行结果我们看到savepoint就是定义回滚点，也就是上面id = 4的数据回滚了没删除，id = 3的数据没回滚，所以删除了。</p>
+</blockquote>
+<h3 id="视图"><a class="header-anchor" href="#视图"></a>视图</h3>
+<p>含义：虚拟表，和普通表一样。<br>
+一种虚拟存在的表，行和列的数据来自定义制图的查询中使用的表，并且是在使用视图时动态生成的，只是保存了SQL逻辑，不是保存查询结果。</p>
+<h4 id="创建视图"><a class="header-anchor" href="#创建视图"></a>创建视图</h4>
+<p>格式 ：CREATE  VIEW   视图名  AS  待封装的SQL语句。</p>
+<ul>
+<li>不使用视图</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> last_name,salary,department_name <span class="keyword">FROM</span> employees <span class="keyword">INNER</span> <span class="keyword">JOIN</span> departments <span class="keyword">on</span> employees.department_id = departments.department_id <span class="keyword">WHERE</span> last_name <span class="keyword">like</span> <span class="string">'%a%'</span>;</span><br></pre></td></tr></table></figure>
+<p>运行结果：<br>
+<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1583501600035.png" alt="enter description here"></p>
+<ul>
+<li>应用视图</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">VIEW</span> my_view <span class="keyword">AS</span> <span class="keyword">SELECT</span> last_name,salary,department_name <span class="keyword">FROM</span> employees <span class="keyword">INNER</span> <span class="keyword">JOIN</span> departments <span class="keyword">on</span> employees.department_id = departments.department_id;</span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">from</span> my_view <span class="keyword">WHERE</span> last_name <span class="keyword">like</span> <span class="string">'%a%'</span>;</span><br></pre></td></tr></table></figure>
+<p>运行结果：<br>
+<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1583501771183.png" alt="enter description here"></p>
+<h4 id="视图更新"><a class="header-anchor" href="#视图更新"></a>视图更新</h4>
+<ol>
+<li>方式一：<br>
+格式：CREATE OR REPLACE VIEW 视图名  AS  SQL语句；</li>
+<li>方式二：<br>
+格式：ALTER  VIEW 视图名 AS SQL语句；</li>
+</ol>
+<h4 id="删除视图"><a class="header-anchor" href="#删除视图"></a>删除视图</h4>
+<p>格式：drop view 视图名1，视图名2，视图名3，。。。</p>
+<p><strong>注意对视图的插入，更新一般是不支持的</strong></p>
+
       
 	  <!--增加版权-->
      
@@ -545,7 +1238,35 @@ color="45, 241, 10" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">MySQL</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">数据库</a>
+        		</li>
+      		
+		</ul>
+		
+	</div>
+
       
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/学习笔记//" class="article-tag-list-link color5">学习笔记</a>
+        		</li>
+      		
+		</ul>
+		
+	</div>
+
 
       
         <p class="article-more-link">
@@ -1210,11 +1931,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">排序</a>
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">堆</a>
+                <a href="javascript:void(0)" class="js-tag color3">初探</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1234,6 +1955,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">排序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">堆</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">进阶指令</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">网络</a>
               </li>
              
@@ -1242,7 +1975,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">进阶指令</a>
+                <a href="javascript:void(0)" class="js-tag color1">redis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">初识redis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">MyBatis</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1250,11 +1995,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">redis</a>
+                <a href="javascript:void(0)" class="js-tag color5">JDBC</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">初识redis</a>
+                <a href="javascript:void(0)" class="js-tag color1">Redis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">缓存技术</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Spring Boot</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">配置文件</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1282,6 +2039,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">子查询</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">接口</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">连接</a>
               </li>
              
@@ -1290,19 +2055,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">子查询</a>
+                <a href="javascript:void(0)" class="js-tag color4">vim</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">递归</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">二叉树</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">二叉树深度</a>
+                <a href="javascript:void(0)" class="js-tag color4">编辑器</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1318,15 +2075,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">接口</a>
+                <a href="javascript:void(0)" class="js-tag color3">递归</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vim</a>
+                <a href="javascript:void(0)" class="js-tag color4">二叉树</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">编辑器</a>
+                <a href="javascript:void(0)" class="js-tag color1">二叉树深度</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">遍历</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1335,18 +2096,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">文档说明</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">遍历</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">分治算法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1366,7 +2115,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">益智问题</a>
+                <a href="javascript:void(0)" class="js-tag color5">消息队列</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">中间件</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">RabbitMQ</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">分治算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1378,7 +2143,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">动态规划</a>
+                <a href="javascript:void(0)" class="js-tag color5">益智问题</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1390,11 +2155,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">动态规划</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">平衡树</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">事务</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Spring Boot源码</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -8,15 +8,25 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>SpringBoot整合Redis | 我的地盘我做主</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="keywords" content="哈哈，开心就好啦">
+  <meta name="description" content="虚拟机上通过docker安装redis 1docker pull redis 运行redis镜像: 1dcoker run -d -p 6379:6379 --name myredis redis 通过Redis DeskTop Manager客户端进行连接redis服务器。 我们创建SpringBoot（2.25版本）项目，在这里我们尤其注意依赖包的引入，参照SpringBoot官方文档  Re">
+<meta name="keywords" content="SpringBoot,Redis,缓存技术">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SpringBoot整合Redis">
 <meta property="og:url" content="http://yoursite.com/2020/03/15/SpringBoot整合Redis/index.html">
 <meta property="og:site_name" content="我的地盘我做主">
+<meta property="og:description" content="虚拟机上通过docker安装redis 1docker pull redis 运行redis镜像: 1dcoker run -d -p 6379:6379 --name myredis redis 通过Redis DeskTop Manager客户端进行连接redis服务器。 我们创建SpringBoot（2.25版本）项目，在这里我们尤其注意依赖包的引入，参照SpringBoot官方文档  Re">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-03-15T13:04:49.137Z">
+<meta property="og:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1584323661538.png">
+<meta property="og:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1584330150038.png">
+<meta property="og:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1584331063489.png">
+<meta property="og:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1584331222014.png">
+<meta property="og:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1584335252106.png">
+<meta property="og:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1584344882593.png">
+<meta property="og:updated_time" content="2020-03-25T12:59:53.420Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SpringBoot整合Redis">
+<meta name="twitter:description" content="虚拟机上通过docker安装redis 1docker pull redis 运行redis镜像: 1dcoker run -d -p 6379:6379 --name myredis redis 通过Redis DeskTop Manager客户端进行连接redis服务器。 我们创建SpringBoot（2.25版本）项目，在这里我们尤其注意依赖包的引入，参照SpringBoot官方文档  Re">
+<meta name="twitter:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1584323661538.png">
   
     <link rel="alternative" href="/atom.xml" title="我的地盘我做主" type="application/atom+xml">
   
@@ -301,7 +311,7 @@ color="45, 241, 10" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> <B>文章字数:</B></span>
-      <span class="post-count"><B>0字</B></span>
+      <span class="post-count"><B>791字</B></span>
     </span>
   </span>
    <b><span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
@@ -311,7 +321,7 @@ color="45, 241, 10" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
       &nbsp; | &nbsp;
 	    <B><i class="icon ion-clock"></i></B>
         <span class="post-meta-item-text"> <B> 阅读时长:</B> </span>
-        <span class="post-count"><B>1分</B></span>
+        <span class="post-count"><B>3分</B></span>
       </span>
     </span>
    <!-- 不蒜子统计 -->
@@ -324,19 +334,130 @@ color="45, 241, 10" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
         
       </header>
     
-			
+	
+    <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none;color:red;">
+          <span class="btn-bg"></span>
+          <span class="btn-text"><i class="icon ion-eye"></i>文章目录</span>
+          </p>
+	<div id="toc-article" class="toc-article">
+	    <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+		<strong class="toc-title">文章目录</strong>
+           <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#redisautoconfiguration源码"><span class="toc-number">1.</span> <span class="toc-text">RedisAutoConfiguration源码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#缓存"><span class="toc-number">2.</span> <span class="toc-text">缓存</span></a></li></ol>
+         </div>
+   <script type="text/javascript">
+	function showToc(){
+		var toc_article = document.getElementById("toc-article");
+		var show_toc_btn = document.getElementById("show-toc-btn");
+		toc_article.setAttribute("style","display:block");
+		show_toc_btn.setAttribute("style","display:none");
+		};
+	function showBtn(){
+		var toc_article = document.getElementById("toc-article");
+		var show_toc_btn = document.getElementById("show-toc-btn");
+		toc_article.setAttribute("style","display:none");
+		show_toc_btn.setAttribute("style","display:block");
+		};
+   </script>
+      		
     <div class="article-entry" itemprop="articleBody">
 	
 	 <div class="headband">
            <a href="https://github.com/janlee151/"><img style="position: absolute; top: 0; right: 0; border: 0;height: 30px; width: 30px;color: yellow" src="/img/github.png" alt="Fork me on GitHub"></a>
      </div>
       
-        
+        <p>虚拟机上通过docker安装redis</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull redis</span><br></pre></td></tr></table></figure>
+<p>运行redis镜像:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dcoker run -d -p 6379:6379 --name myredis redis</span><br></pre></td></tr></table></figure>
+<p>通过Redis DeskTop Manager客户端进行连接redis服务器。<br>
+我们创建SpringBoot（2.25版本）项目，在这里我们尤其注意依赖包的引入，<a href="https://docs.spring.io/spring-boot/docs/2.2.5.RELEASE/reference/html/using-spring-boot.html#using-boot-starter" target="_blank" rel="noopener">参照SpringBoot官方文档</a><br>
+<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1584323661538.png" alt="enter description here"></p>
+<h3 id="redisautoconfiguration源码"><a class="header-anchor" href="#redisautoconfiguration源码"></a>RedisAutoConfiguration源码</h3>
+<blockquote>
+<p>Redis常见的五大数据类型<br>
+String（字符串）、List（列表）、Set（集合）、Hash（散列）、ZSet（有序集合）</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>stringRedisTemplate.opsForVlaue()</td>
+<td>String操作</td>
+</tr>
+<tr>
+<td>stringRedisTemplate.opsForList ()</td>
+<td>List列表操作</td>
+</tr>
+<tr>
+<td>stringRedisTemplate.opsForSet()</td>
+<td>Set集合操作</td>
+</tr>
+<tr>
+<td>stringRedisTemplate.opsForHash</td>
+<td>Hash散列的操作</td>
+</tr>
+<tr>
+<td>stringRedisTemplate.opsForZSet()</td>
+<td>ZSet有序集合的操作</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>RedisTemplate操作的key和value都是Object</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"> <span class="function"><span class="keyword">void</span> <span class="title">test02</span><span class="params">()</span></span>&#123;</span><br><span class="line">   Employee employee = employeeMapper.getEmployeeById(<span class="number">100</span>);</span><br><span class="line">   redisTemplate.opsForValue().set(<span class="string">"emp-01"</span>,employee) ;</span><br><span class="line"></span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<p>控制台报错：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DefaultSerializer <span class="keyword">requires</span> a Serializable payload but received an object of type [com.liyang.mybatisproject.entity.Employee]</span><br></pre></td></tr></table></figure>
+<p>我们让Employee实现Serializable，运行之后：<br>
+<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1584330150038.png" alt="enter description here"><br>
+通过阅读源码我们看到应用的序列化器就是JDK序列化器，数据显示如上图所示，为了让对象序列化之后以json进行显示。<br>
+我们创建一个Redis的配置类RedisConfig,重写RedisAutoConfig中RedisTemplate,我们自己定义一个Template：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"> <span class="meta">@Bean</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> RedisTemplate&lt;Object, Employee&gt; <span class="title">empRedisTemplate</span><span class="params">(RedisConnectionFactory redisConnectionFactory)</span></span></span><br><span class="line"><span class="function">      <span class="keyword">throws</span> UnknownHostException </span>&#123;</span><br><span class="line">    RedisTemplate&lt;Object, Employee&gt; template = <span class="keyword">new</span> RedisTemplate&lt;&gt;();</span><br><span class="line">    template.setConnectionFactory(redisConnectionFactory);</span><br><span class="line">    Jackson2JsonRedisSerializer&lt;Employee&gt; jsonRedisSerializer = <span class="keyword">new</span> Jackson2JsonRedisSerializer&lt;Employee&gt;(Employee.class);</span><br><span class="line">    template.setDefaultSerializer(jsonRedisSerializer);</span><br><span class="line">    <span class="keyword">return</span> template;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">//测试类</span></span><br><span class="line">  <span class="meta">@SpringBootTest</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MybatisprojectApplicationTests</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Autowired</span></span><br><span class="line">  RedisTemplate redisTemplate;</span><br><span class="line">  <span class="meta">@Autowired</span></span><br><span class="line">  StringRedisTemplate stringRedisTemplate;</span><br><span class="line">  <span class="meta">@Autowired</span></span><br><span class="line">  EmployeeMapper employeeMapper;</span><br><span class="line">  <span class="meta">@Autowired</span></span><br><span class="line">  RedisTemplate&lt;Object,Employee&gt; employeeRedisTemplate;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Test</span></span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">contextLoads</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">//保存对象</span></span><br><span class="line">  <span class="meta">@Test</span></span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">test02</span><span class="params">()</span></span>&#123;</span><br><span class="line">    Employee employee = employeeMapper.getEmployeeById(<span class="number">100</span>);</span><br><span class="line">    redisTemplate.opsForValue().set(<span class="string">"emp-01"</span>,employee) ;</span><br><span class="line">    employeeRedisTemplate.opsForValue().set(<span class="string">"emp-02"</span>,employee) ;</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>我们看到方法中参数需要RedisSerializer序列化器：<br>
+<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1584331063489.png" alt="enter description here"><br>
+我们看到RedisSerializer序列化器是一个接口我们传一个实现类实例过来就行:<br>
+使用快捷键Ctrl+H找打这个接口的所有实现类：<br>
+<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1584331222014.png" alt="enter description here"><br>
+运行结果：<br>
+<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1584335252106.png" alt="enter description here"></p>
+<ul>
+<li>StringRedisTemplate操作的key和value都是String<br>
+Redis基本数据类型的操作：</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringBootTest</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MybatisprojectApplicationTests</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Autowired</span></span><br><span class="line">  StringRedisTemplate stringRedisTemplate;</span><br><span class="line">  <span class="meta">@Autowired</span></span><br><span class="line">  EmployeeMapper employeeMapper;</span><br><span class="line">  <span class="meta">@Test</span></span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">contextLoads</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">//保存基本数据类型</span></span><br><span class="line">  <span class="meta">@Test</span></span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">test01</span><span class="params">()</span></span>&#123;</span><br><span class="line">    stringRedisTemplate.opsForValue().append(<span class="string">"info"</span>,<span class="string">"hello world"</span>);</span><br><span class="line">    stringRedisTemplate.opsForList().leftPush(<span class="string">"mylist"</span>,<span class="string">"1"</span>);</span><br><span class="line">    stringRedisTemplate.opsForList().leftPush(<span class="string">"mylist"</span>,<span class="string">"2"</span>);</span><br><span class="line">    stringRedisTemplate.opsForList().leftPush(<span class="string">"mylist"</span>,<span class="string">"3"</span>);</span><br><span class="line">    stringRedisTemplate.opsForList().leftPush(<span class="string">"mylist"</span>,<span class="string">"4"</span>);</span><br><span class="line">    stringRedisTemplate.opsForList().leftPush(<span class="string">"mylist"</span>,<span class="string">"5"</span>);</span><br><span class="line">    stringRedisTemplate.opsForSet().add(<span class="string">"myset"</span>,<span class="string">"1"</span>);</span><br><span class="line">    stringRedisTemplate.opsForSet().add(<span class="string">"myset"</span>,<span class="string">"2"</span>);</span><br><span class="line">    stringRedisTemplate.opsForSet().add(<span class="string">"myset"</span>,<span class="string">"3"</span>);</span><br><span class="line">    stringRedisTemplate.opsForSet().add(<span class="string">"myset"</span>,<span class="string">"4"</span>);</span><br><span class="line">    stringRedisTemplate.opsForSet().add(<span class="string">"myset"</span>,<span class="string">"5"</span>);</span><br><span class="line">    Map&lt;String,String&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">    map.put(<span class="string">"k1"</span>,<span class="string">"v1"</span>);</span><br><span class="line">    map.put(<span class="string">"k2"</span>,<span class="string">"v2"</span>);</span><br><span class="line">    map.put(<span class="string">"k3"</span>,<span class="string">"v3"</span>);</span><br><span class="line">    map.put(<span class="string">"k4"</span>,<span class="string">"v4"</span>);</span><br><span class="line">    map.put(<span class="string">"k5"</span>,<span class="string">"v5"</span>);</span><br><span class="line">    stringRedisTemplate.opsForHash().putAll(<span class="string">"map"</span>,map);</span><br><span class="line">    Map&lt;Object, Object&gt; map1 = stringRedisTemplate.opsForHash().entries(<span class="string">"map"</span>);</span><br><span class="line">    System.out.println(<span class="string">"map1 ="</span>+ map1);</span><br><span class="line">    List&lt;Object&gt; mapValues = stringRedisTemplate.opsForHash().values(<span class="string">"map"</span>);</span><br><span class="line">    System.out.println(<span class="string">"mapValues = "</span>+mapValues);</span><br><span class="line">    Set&lt;Object&gt; mapSet = stringRedisTemplate.opsForHash().keys(<span class="string">"map"</span>);</span><br><span class="line">    System.out.println(<span class="string">"mapSet = "</span>+mapSet);</span><br><span class="line">    Object value = stringRedisTemplate.opsForHash().get(<span class="string">"map"</span>,<span class="string">"k1"</span>);</span><br><span class="line">    System.out.println(<span class="string">"value = "</span>+ value);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="缓存"><a class="header-anchor" href="#缓存"></a>缓存</h3>
+<p>缓存管理器为我们创建缓存组件，缓存组件来实际给缓存中存取数据。我们引入redis依赖之后，我们看到RedisCacheConfiguration匹配到了，我们看到控制台的输出：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">RedisCacheConfiguration matched:</span><br><span class="line">      - <span class="meta">@ConditionalOnClass</span> found required <span class="class"><span class="keyword">class</span> '<span class="title">org</span>.<span class="title">springframework</span>.<span class="title">data</span>.<span class="title">redis</span>.<span class="title">connection</span>.<span class="title">RedisConnectionFactory</span>' (<span class="title">OnClassCondition</span>)</span></span><br><span class="line"><span class="class">      - <span class="title">Cache</span> <span class="title">org</span>.<span class="title">springframework</span>.<span class="title">boot</span>.<span class="title">autoconfigure</span>.<span class="title">cache</span>.<span class="title">RedisCacheConfiguration</span> <span class="title">automatic</span> <span class="title">cache</span> <span class="title">type</span> (<span class="title">CacheCondition</span>)</span></span><br><span class="line">      - @ConditionalOnBean (types: org.springframework.data.redis.connection.RedisConnectionFactory; SearchStrategy: all) found bean 'redisConnectionFactory'; @ConditionalOnMissingBean (types: org.springframework.cache.CacheManager; SearchStrategy: all) did not find any beans (OnBeanCondition)</span><br></pre></td></tr></table></figure>
+<p>SpringBoot默认的缓存SimpleCacheConfiguration不匹配了：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">SimpleCacheConfiguration:</span><br><span class="line">      Did not match:</span><br><span class="line">         - <span class="meta">@ConditionalOnMissingBean</span> (types: org.springframework.cache.CacheManager; SearchStrategy: all) found beans of type <span class="string">'org.springframework.cache.CacheManager'</span> cacheManager (OnBeanCondition)</span><br><span class="line">      Matched:</span><br><span class="line">         - Cache org.springframework.boot.autoconfigure.cache.<span class="function">SimpleCacheConfiguration automatic cache <span class="title">type</span> <span class="params">(CacheCondition)</span></span></span><br></pre></td></tr></table></figure>
+<p>我们看看RedisCacheConfiguration：<br>
+<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1584344882593.png" alt="enter description here"></p>
+
       
 	  <!--增加版权-->
      
   
-  <div class="declare" hidden="hidden"></div>
+   <div class="declare">
+    <strong>本文作者：</strong>
+    
+      JanLee
+    
+    <br>
+    <strong>本文链接：</strong>
+    <a rel="license" href="http://yoursite.com/2020/03/15/SpringBoot整合Redis/">http://yoursite.com/2020/03/15/SpringBoot整合Redis/</a>
+    <br>
+    <strong>版权声明：</strong>
+    本作品采用
+    <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>
+    进行许可。转载请注明出处！
+    
+  </div>
 
 <!--文章末尾添加致谢-->
 
@@ -388,7 +509,39 @@ color="45, 241, 10" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">SpringBoot</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Redis</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">缓存技术</a>
+        		</li>
+      		
+		</ul>
+		
+	</div>
+
       
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/学习笔记//" class="article-tag-list-link color5">学习笔记</a>
+        		</li>
+      		
+		</ul>
+		
+	</div>
+
 
       
 
@@ -674,11 +827,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">排序</a>
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">堆</a>
+                <a href="javascript:void(0)" class="js-tag color3">初探</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -698,6 +851,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">排序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">堆</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">进阶指令</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">网络</a>
               </li>
              
@@ -706,7 +871,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">进阶指令</a>
+                <a href="javascript:void(0)" class="js-tag color1">redis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">初识redis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">MyBatis</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -714,11 +891,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">redis</a>
+                <a href="javascript:void(0)" class="js-tag color5">JDBC</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">初识redis</a>
+                <a href="javascript:void(0)" class="js-tag color1">Redis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">缓存技术</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Spring Boot</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">配置文件</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -746,6 +935,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">子查询</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">接口</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">连接</a>
               </li>
              
@@ -754,19 +951,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">子查询</a>
+                <a href="javascript:void(0)" class="js-tag color4">vim</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">递归</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">二叉树</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">二叉树深度</a>
+                <a href="javascript:void(0)" class="js-tag color4">编辑器</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -782,15 +971,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">接口</a>
+                <a href="javascript:void(0)" class="js-tag color3">递归</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vim</a>
+                <a href="javascript:void(0)" class="js-tag color4">二叉树</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">编辑器</a>
+                <a href="javascript:void(0)" class="js-tag color1">二叉树深度</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">遍历</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -799,18 +992,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">文档说明</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">遍历</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">分治算法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -830,7 +1011,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">益智问题</a>
+                <a href="javascript:void(0)" class="js-tag color5">消息队列</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">中间件</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">RabbitMQ</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">分治算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -842,7 +1039,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">动态规划</a>
+                <a href="javascript:void(0)" class="js-tag color5">益智问题</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -854,11 +1051,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">动态规划</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">平衡树</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">事务</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Spring Boot源码</a>
               </li>
              
               <li class="article-tag-list-item">
