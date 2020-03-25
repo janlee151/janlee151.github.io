@@ -8,13 +8,13 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>MySQL进阶知识 | 我的地盘我做主</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="事务 定义 一个或者一组SQL语句组成一个执行单元，这个执行单元要么全部执行，要么全部不执行。 案例：转账 小红账号   1000元 小明账号    1000元 小红向小明转账500元 update 表 set 小红账号 = 500 where name = &apos;小红’ update 表 set 小明账号 = 1500 where name = &apos;小明’ 假如小红转账成功之后，更新了数据，但是中间突">
+  <meta name="description" content="事务 定义 一个或者一组SQL语句组成一个执行单元，这个执行单元要么全部执行，要么全部不执行。 案例：转账 小红账号   1000元">
 <meta name="keywords" content="MySQL,数据库">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MySQL进阶知识">
 <meta property="og:url" content="http://yoursite.com/2020/03/05/MySQL进阶知识/index.html">
 <meta property="og:site_name" content="我的地盘我做主">
-<meta property="og:description" content="事务 定义 一个或者一组SQL语句组成一个执行单元，这个执行单元要么全部执行，要么全部不执行。 案例：转账 小红账号   1000元 小明账号    1000元 小红向小明转账500元 update 表 set 小红账号 = 500 where name = &apos;小红’ update 表 set 小明账号 = 1500 where name = &apos;小明’ 假如小红转账成功之后，更新了数据，但是中间突">
+<meta property="og:description" content="事务 定义 一个或者一组SQL语句组成一个执行单元，这个执行单元要么全部执行，要么全部不执行。 案例：转账 小红账号   1000元">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1583384134579.png">
 <meta property="og:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1583388571588.png">
@@ -40,10 +40,10 @@
 <meta property="og:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1583499475517.png">
 <meta property="og:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1583501600035.png">
 <meta property="og:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1583501771183.png">
-<meta property="og:updated_time" content="2020-03-25T13:01:04.934Z">
+<meta property="og:updated_time" content="2020-03-25T13:15:15.445Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MySQL进阶知识">
-<meta name="twitter:description" content="事务 定义 一个或者一组SQL语句组成一个执行单元，这个执行单元要么全部执行，要么全部不执行。 案例：转账 小红账号   1000元 小明账号    1000元 小红向小明转账500元 update 表 set 小红账号 = 500 where name = &apos;小红’ update 表 set 小明账号 = 1500 where name = &apos;小明’ 假如小红转账成功之后，更新了数据，但是中间突">
+<meta name="twitter:description" content="事务 定义 一个或者一组SQL语句组成一个执行单元，这个执行单元要么全部执行，要么全部不执行。 案例：转账 小红账号   1000元">
 <meta name="twitter:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1583384134579.png">
   
     <link rel="alternative" href="/atom.xml" title="我的地盘我做主" type="application/atom+xml">
@@ -387,7 +387,7 @@ color="45, 241, 10" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
 <h4 id="定义"><a class="header-anchor" href="#定义"></a>定义</h4>
 <p>一个或者一组SQL语句组成一个执行单元，这个执行单元要么全部执行，要么全部不执行。<br>
 案例：转账<br>
-小红账号   1000元<br>
+小红账号   1000元<a id="more"></a><br>
 小明账号    1000元<br>
 小红向小明转账500元<br>
 update 表 set 小红账号 = 500 where name = '小红’<br>
@@ -1007,6 +1007,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">排序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">堆</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">web</a>
               </li>
              
@@ -1023,11 +1031,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">排序</a>
+                <a href="javascript:void(0)" class="js-tag color3">网络</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">堆</a>
+                <a href="javascript:void(0)" class="js-tag color4">ssh</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1035,11 +1043,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">网络</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ssh</a>
+                <a href="javascript:void(0)" class="js-tag color5">高级指令</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1055,15 +1059,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">MyBatis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">高级指令</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">JDBC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">MyBatis</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1143,15 +1143,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">递归</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">二叉树</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">二叉树深度</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1159,11 +1151,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+                <a href="javascript:void(0)" class="js-tag color3">递归</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">文档说明</a>
+                <a href="javascript:void(0)" class="js-tag color1">二叉树深度</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1180,6 +1172,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">图最短路径</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">文档说明</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1203,15 +1203,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">益智问题</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">ip</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">网络配置</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">益智问题</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1231,15 +1231,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">事务</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">事务</a>
               </li>
              
               <li class="article-tag-list-item">

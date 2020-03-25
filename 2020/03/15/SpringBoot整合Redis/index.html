@@ -8,13 +8,13 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>SpringBoot整合Redis | 我的地盘我做主</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="虚拟机上通过docker安装redis 1docker pull redis 运行redis镜像: 1dcoker run -d -p 6379:6379 --name myredis redis 通过Redis DeskTop Manager客户端进行连接redis服务器。 我们创建SpringBoot（2.25版本）项目，在这里我们尤其注意依赖包的引入，参照SpringBoot官方文档  Re">
+  <meta name="description" content="虚拟机上通过docker安装redis 1docker pull redis 运行redis镜像: 1dcoker run -d -p 6379:6379 --name myredis redis 通过Redis DeskTop Manager客户端进行连接redis服务器。">
 <meta name="keywords" content="SpringBoot,Redis,缓存技术">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SpringBoot整合Redis">
 <meta property="og:url" content="http://yoursite.com/2020/03/15/SpringBoot整合Redis/index.html">
 <meta property="og:site_name" content="我的地盘我做主">
-<meta property="og:description" content="虚拟机上通过docker安装redis 1docker pull redis 运行redis镜像: 1dcoker run -d -p 6379:6379 --name myredis redis 通过Redis DeskTop Manager客户端进行连接redis服务器。 我们创建SpringBoot（2.25版本）项目，在这里我们尤其注意依赖包的引入，参照SpringBoot官方文档  Re">
+<meta property="og:description" content="虚拟机上通过docker安装redis 1docker pull redis 运行redis镜像: 1dcoker run -d -p 6379:6379 --name myredis redis 通过Redis DeskTop Manager客户端进行连接redis服务器。">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1584323661538.png">
 <meta property="og:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1584330150038.png">
@@ -22,10 +22,10 @@
 <meta property="og:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1584331222014.png">
 <meta property="og:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1584335252106.png">
 <meta property="og:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1584344882593.png">
-<meta property="og:updated_time" content="2020-03-25T12:59:53.420Z">
+<meta property="og:updated_time" content="2020-03-25T13:16:06.047Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SpringBoot整合Redis">
-<meta name="twitter:description" content="虚拟机上通过docker安装redis 1docker pull redis 运行redis镜像: 1dcoker run -d -p 6379:6379 --name myredis redis 通过Redis DeskTop Manager客户端进行连接redis服务器。 我们创建SpringBoot（2.25版本）项目，在这里我们尤其注意依赖包的引入，参照SpringBoot官方文档  Re">
+<meta name="twitter:description" content="虚拟机上通过docker安装redis 1docker pull redis 运行redis镜像: 1dcoker run -d -p 6379:6379 --name myredis redis 通过Redis DeskTop Manager客户端进行连接redis服务器。">
 <meta name="twitter:image" content="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1584323661538.png">
   
     <link rel="alternative" href="/atom.xml" title="我的地盘我做主" type="application/atom+xml">
@@ -369,7 +369,7 @@ color="45, 241, 10" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull redis</span><br></pre></td></tr></table></figure>
 <p>运行redis镜像:</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dcoker run -d -p 6379:6379 --name myredis redis</span><br></pre></td></tr></table></figure>
-<p>通过Redis DeskTop Manager客户端进行连接redis服务器。<br>
+<p>通过Redis DeskTop Manager客户端进行连接redis服务器。<a id="more"></a><br>
 我们创建SpringBoot（2.25版本）项目，在这里我们尤其注意依赖包的引入，<a href="https://docs.spring.io/spring-boot/docs/2.2.5.RELEASE/reference/html/using-spring-boot.html#using-boot-starter" target="_blank" rel="noopener">参照SpringBoot官方文档</a><br>
 <img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1584323661538.png" alt="enter description here"></p>
 <h3 id="redisautoconfiguration源码"><a class="header-anchor" href="#redisautoconfiguration源码"></a>RedisAutoConfiguration源码</h3>
@@ -835,6 +835,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">排序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">堆</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">web</a>
               </li>
              
@@ -851,11 +859,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">排序</a>
+                <a href="javascript:void(0)" class="js-tag color3">网络</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">堆</a>
+                <a href="javascript:void(0)" class="js-tag color4">ssh</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -863,11 +871,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">网络</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ssh</a>
+                <a href="javascript:void(0)" class="js-tag color5">高级指令</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -883,15 +887,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">MyBatis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">高级指令</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">JDBC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">MyBatis</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -971,15 +971,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">递归</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">二叉树</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">二叉树深度</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -987,11 +979,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+                <a href="javascript:void(0)" class="js-tag color3">递归</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">文档说明</a>
+                <a href="javascript:void(0)" class="js-tag color1">二叉树深度</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1008,6 +1000,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">图最短路径</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">文档说明</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1031,15 +1031,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">益智问题</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">ip</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">网络配置</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">益智问题</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1059,15 +1059,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">事务</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">事务</a>
               </li>
              
               <li class="article-tag-list-item">
