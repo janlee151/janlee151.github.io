@@ -8,15 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>Nginx | 我的地盘我做主</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="keywords" content="哈哈，开心就好啦">
+  <meta name="description" content="简介 Nginx是一个高性能的HTTP和反向代理web服务器">
+<meta name="keywords" content="反向代理,负载均衡,服务器">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Nginx">
 <meta property="og:url" content="http://yoursite.com/2019/09/02/Nginx/index.html">
 <meta property="og:site_name" content="我的地盘我做主">
+<meta property="og:description" content="简介 Nginx是一个高性能的HTTP和反向代理web服务器">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-09-04T17:50:05.781Z">
+<meta property="og:updated_time" content="2020-03-25T14:05:03.231Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Nginx">
+<meta name="twitter:description" content="简介 Nginx是一个高性能的HTTP和反向代理web服务器">
   
     <link rel="alternative" href="/atom.xml" title="我的地盘我做主" type="application/atom+xml">
   
@@ -301,7 +304,7 @@ color="45, 241, 10" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> <B>文章字数:</B></span>
-      <span class="post-count"><B>0字</B></span>
+      <span class="post-count"><B>18字</B></span>
     </span>
   </span>
    <b><span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
@@ -324,19 +327,59 @@ color="45, 241, 10" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
         
       </header>
     
-			
+	
+    <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none;color:red;">
+          <span class="btn-bg"></span>
+          <span class="btn-text"><i class="icon ion-eye"></i>文章目录</span>
+          </p>
+	<div id="toc-article" class="toc-article">
+	    <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+		<strong class="toc-title">文章目录</strong>
+           <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#简介"><span class="toc-number">1.</span> <span class="toc-text">简介</span></a></li></ol>
+         </div>
+   <script type="text/javascript">
+	function showToc(){
+		var toc_article = document.getElementById("toc-article");
+		var show_toc_btn = document.getElementById("show-toc-btn");
+		toc_article.setAttribute("style","display:block");
+		show_toc_btn.setAttribute("style","display:none");
+		};
+	function showBtn(){
+		var toc_article = document.getElementById("toc-article");
+		var show_toc_btn = document.getElementById("show-toc-btn");
+		toc_article.setAttribute("style","display:none");
+		show_toc_btn.setAttribute("style","display:block");
+		};
+   </script>
+      		
     <div class="article-entry" itemprop="articleBody">
 	
 	 <div class="headband">
            <a href="https://github.com/janlee151/"><img style="position: absolute; top: 0; right: 0; border: 0;height: 30px; width: 30px;color: yellow" src="/img/github.png" alt="Fork me on GitHub"></a>
      </div>
       
-        
+        <h3 id="简介"><a class="header-anchor" href="#简介"></a>简介</h3>
+<p>Nginx是一个高性能的HTTP和反向代理web服务器</p>
+
       
 	  <!--增加版权-->
      
   
-  <div class="declare" hidden="hidden"></div>
+   <div class="declare">
+    <strong>本文作者：</strong>
+    
+      JanLee
+    
+    <br>
+    <strong>本文链接：</strong>
+    <a rel="license" href="http://yoursite.com/2019/09/02/Nginx/">http://yoursite.com/2019/09/02/Nginx/</a>
+    <br>
+    <strong>版权声明：</strong>
+    本作品采用
+    <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>
+    进行许可。转载请注明出处！
+    
+  </div>
 
 <!--文章末尾添加致谢-->
 
@@ -388,7 +431,39 @@ color="45, 241, 10" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">反向代理</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">负载均衡</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">服务器</a>
+        		</li>
+      		
+		</ul>
+		
+	</div>
+
       
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/技术总结//" class="article-tag-list-link color5">技术总结</a>
+        		</li>
+      		
+		</ul>
+		
+	</div>
+
 
       
 
@@ -714,11 +789,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">进阶指令</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">高级指令</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">进阶指令</a>
+                <a href="javascript:void(0)" class="js-tag color5">反向代理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">负载均衡</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">服务器</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -734,19 +821,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">MyBatis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">JDBC</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Redis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">缓存技术</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -758,11 +833,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">函数式编程</a>
+                <a href="javascript:void(0)" class="js-tag color1">Redis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">缓存技术</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">html</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">MyBatis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">函数式编程</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -782,10 +873,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">连接</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">接口</a>
               </li>
              
@@ -794,11 +881,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">html</a>
+                <a href="javascript:void(0)" class="js-tag color3">连接</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -810,7 +893,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vim</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">编辑器</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">递归</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">二叉树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">二叉树深度</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -818,11 +921,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vim</a>
+                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">编辑器</a>
+                <a href="javascript:void(0)" class="js-tag color5">文档说明</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -842,34 +945,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">递归</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">二叉树深度</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">分治算法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">文档说明</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">益智问题</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">消息队列</a>
               </li>
              
@@ -882,11 +957,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">分治算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">ip</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">网络配置</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">益智问题</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -906,15 +993,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">事务</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">事务</a>
               </li>
              
               <li class="article-tag-list-item">
