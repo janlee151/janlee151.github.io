@@ -284,7 +284,7 @@ color="45, 241, 10" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-Nginx" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-JavaWeb" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
   
     
@@ -292,7 +292,7 @@ color="45, 241, 10" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/09/02/Nginx/">Nginx</a>
+      <a class="article-title" href="/2019/10/26/JavaWeb/">JavaWeb</a>
     </h1>
   
 
@@ -309,7 +309,50 @@ color="45, 241, 10" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
            <a href="https://github.com/janlee151/"><img style="position: absolute; top: 0; right: 0; border: 0;height: 30px; width: 30px;color: yellow" src="/img/github.png" alt="Fork me on GitHub"></a>
      </div>
       
-        
+        <h3 id="jsp"><a class="header-anchor" href="#jsp"></a>JSP</h3>
+<h4 id="jsp内置对象"><a class="header-anchor" href="#jsp内置对象"></a>JSP内置对象</h4>
+<ul>
+<li>request<br>
+作用：提供了获取HTTP头信息、cookie、HTTP方法</li>
+<li>response<br>
+作用：用于响应用户的请求，可以添加cookie、时间戳、HTTP状态码</li>
+<li>out<br>
+作用：用于在响应用户请求时，将响应内容写入response对象。</li>
+<li>session<br>
+作用：跟踪在各个客户端请求间的会话</li>
+<li>application<br>
+作用：表示整个JSP页面的声明周期，在此对象保存的属性，在所有组成web应用的JSP文件都可以访问到</li>
+<li>config<br>
+作用：可以让开发者访问Servlet或者JSP引擎的初始化参数</li>
+<li>pageContext<br>
+作用：用来访问页面信息，同时过滤掉大部分实现细节</li>
+<li>page<br>
+作用：它就是整个JSP页面实例的引用，相当于java中的this。</li>
+<li>exception<br>
+作用：它就是先前页面抛出的异常信息，用来产生出错条件的响应。</li>
+</ul>
+<h4 id="servlet"><a class="header-anchor" href="#servlet"></a>Servlet</h4>
+<ul>
+<li>什么是Servlet<br>
+首先Servlet是Server Applet的简写，它就是运行在服务器端的小程序。它就是用来接收客户端的请求和响应请求。<br>
+Servlet就是一个接口，定义了Java类被浏览器访问到的规则。</li>
+<li>创建Servlet
+<ul>
+<li>首相创建一个JavaWeb项目</li>
+<li>创建一个类实现Servlet接口：</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ServletDemo</span> <span class="keyword">implements</span> <span class="title">Servlet</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">init</span><span class="params">(ServletConfig servletConfig)</span> <span class="keyword">throws</span> ServletException </span>&#123;</span><br><span class="line">    </span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> ServletConfig <span class="title">getServletConfig</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">service</span><span class="params">(ServletRequest servletRequest, ServletResponse servletResponse)</span></span></span><br><span class="line"><span class="function">      <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">     System.out.println(<span class="string">"Hello World！！"</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> String <span class="title">getServletInfo</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">destroy</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code> - 配置自己类和服务器映射
+    我们在web.xml中进行如下配置：
+</code></pre>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">servlet</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>demo<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">servlet-class</span>&gt;</span>com.jan.servlet.ServletDemo<span class="tag">&lt;/<span class="name">servlet-class</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">servlet</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!--Servlet与服务器的映射--&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">servlet-mapping</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>demo<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/demo1<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">servlet-mapping</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code>- 我们启动服务器（Tomcat）
+    启动服务器，被服务器拦截的请求：http://localhost:8080/demo1
+- 然后我们看到Idea控制台输出：Hello World！！
+</code></pre>
+
       
 	  <!--增加版权-->
      
@@ -323,11 +366,39 @@ color="45, 241, 10" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">web</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
+        		</li>
+      		
+		</ul>
+		
+	</div>
+
       
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/面试//" class="article-tag-list-link color3">面试</a>
+        		</li>
+      		
+		</ul>
+		
+	</div>
+
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/09/02/Nginx/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/10/26/JavaWeb/">展开全文 >></a>
         </p>
       
 
@@ -358,7 +429,7 @@ color="45, 241, 10" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
 
 
   
-    <article id="post-Linux网络配置" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-益智问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
   
     
@@ -366,7 +437,7 @@ color="45, 241, 10" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/09/01/Linux网络配置/">Linux网络配置</a>
+      <a class="article-title" href="/2019/10/15/益智问题/">益智问题</a>
     </h1>
   
 
@@ -383,9 +454,11 @@ color="45, 241, 10" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
            <a href="https://github.com/janlee151/"><img style="position: absolute; top: 0; right: 0; border: 0;height: 30px; width: 30px;color: yellow" src="/img/github.png" alt="Fork me on GitHub"></a>
      </div>
       
-        <h3 id="网卡"><a class="header-anchor" href="#网卡"></a>网卡</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ifconfig</span><br></pre></td></tr></table></figure>
-<p>查看Linux网卡相关的信息：
+        <ol>
+<li>25匹马赛跑，一共有五个跑道，问最少通过多少次比赛可以获取到25匹马中的前三名？
+<ul>
+<li>首先我们先将25匹马分成5组，每组五匹马，然后每组依次跑完：<br>
+<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1571152206885.png" alt="enter description here">
         
       
 	  <!--增加版权-->
@@ -405,15 +478,7 @@ color="45, 241, 10" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">网络</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ssh</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">益智问题</a>
         		</li>
       		
 		</ul>
@@ -426,7 +491,7 @@ color="45, 241, 10" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/笔记//" class="article-tag-list-link color3">笔记</a>
+        			<a href="/categories/面试//" class="article-tag-list-link color3">面试</a>
         		</li>
       		
 		</ul>
@@ -436,7 +501,7 @@ color="45, 241, 10" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/09/01/Linux网络配置/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/10/15/益智问题/">展开全文 >></a>
         </p>
       
 
@@ -467,7 +532,7 @@ color="45, 241, 10" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
 
 
   
-    <article id="post-Linux用户和用户组" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-趣味算法之饮品兑换" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
   
     
@@ -475,7 +540,7 @@ color="45, 241, 10" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/31/Linux用户和用户组/">Linux用户和用户组</a>
+      <a class="article-title" href="/2019/10/15/趣味算法之饮品兑换/">趣味算法之饮品兑换</a>
     </h1>
   
 
@@ -492,11 +557,11 @@ color="45, 241, 10" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
            <a href="https://github.com/janlee151/"><img style="position: absolute; top: 0; right: 0; border: 0;height: 30px; width: 30px;color: yellow" src="/img/github.png" alt="Fork me on GitHub"></a>
      </div>
       
-        <h3 id="用户和用户组"><a class="header-anchor" href="#用户和用户组"></a>用户和用户组</h3>
-<h4 id="介绍"><a class="header-anchor" href="#介绍"></a>介绍</h4>
-<p>Linux是一个多用户，多任务的操作系统，任何一个使用系统资源的用户必须向系统管理员申请一个账号，然后以账号的身份进入资源。<br>
-每一个用户都必有一个唯一的用户名（系统的所有用户的用户名不能相同）</p>
-<h4 id="管理用户的文件-more"><a class="header-anchor" href="#管理用户的文件-more"></a>管理用户的文件
+        <blockquote>
+<p>问题描述，小明有85个空饮料瓶，已知8个空瓶可以兑换一瓶饮料，问小明最多可以喝多少瓶饮料？</p>
+</blockquote>
+<p>其实我们思考一下，首先我们思考如何得到最多的饮料，最开始我们肯定是先兑换一瓶饮料，然后将饮料喝掉，然后空瓶加1，这样重复操作就可以得到最大结果。</p>
+<p>这样代码实现也就很简单了：
         
       
 	  <!--增加版权-->
@@ -516,7 +581,11 @@ color="45, 241, 10" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">趣味算法</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">练手</a>
         		</li>
       		
 		</ul>
@@ -529,7 +598,7 @@ color="45, 241, 10" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/笔记//" class="article-tag-list-link color3">笔记</a>
+        			<a href="/categories/算法//" class="article-tag-list-link color3">算法</a>
         		</li>
       		
 		</ul>
@@ -539,7 +608,7 @@ color="45, 241, 10" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/08/31/Linux用户和用户组/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/10/15/趣味算法之饮品兑换/">展开全文 >></a>
         </p>
       
 
@@ -570,7 +639,7 @@ color="45, 241, 10" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
 
 
   
-    <article id="post-vim编辑器" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Java基础面试" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
   
     
@@ -578,7 +647,7 @@ color="45, 241, 10" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/31/vim编辑器/">vim编辑器</a>
+      <a class="article-title" href="/2019/10/13/Java基础面试/">Java基础面试</a>
     </h1>
   
 
@@ -595,11 +664,11 @@ color="45, 241, 10" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
            <a href="https://github.com/janlee151/"><img style="position: absolute; top: 0; right: 0; border: 0;height: 30px; width: 30px;color: yellow" src="/img/github.png" alt="Fork me on GitHub"></a>
      </div>
       
-        <h3 id="vim的三种状态"><a class="header-anchor" href="#vim的三种状态"></a>vim的三种状态</h3>
-<p>命令模式、编辑模式、末行模式</p>
-<h4 id="vim命令打开文件"><a class="header-anchor" href="#vim命令打开文件"></a>vim命令打开文件</h4>
-<p>1.#vim 文件路径<br>
-作用是进入vim命令行模式，并且光标定位到你上次修改的地方或者首行起始位置
+        <h3 id="valueof-string-str-或者valueof-string-str-int-radix"><a class="header-anchor" href="#valueof-string-str-或者valueof-string-str-int-radix"></a>valueOf(String str) 或者valueOf(String str , int radix)</h3>
+<p>这个静态函数的作用就是将字符串转换成相应的Number对象，其中第二个函数的作用就是将将字符串转换成radix进制的Number对象，我们转换之后我们如何对Number对象进行比较呢？<br>
+比如：</p>
+<ul>
+<li>Integer.valueOf(“12345”)
         
       
 	  <!--增加版权-->
@@ -619,15 +688,11 @@ color="45, 241, 10" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">java基础</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vim</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">编辑器</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">面试总结</a>
         		</li>
       		
 		</ul>
@@ -640,7 +705,7 @@ color="45, 241, 10" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/笔记//" class="article-tag-list-link color3">笔记</a>
+        			<a href="/categories/面试//" class="article-tag-list-link color3">面试</a>
         		</li>
       		
 		</ul>
@@ -650,7 +715,7 @@ color="45, 241, 10" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/08/31/vim编辑器/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/10/13/Java基础面试/">展开全文 >></a>
         </p>
       
 
@@ -681,7 +746,7 @@ color="45, 241, 10" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
 
 
   
-    <article id="post-虚拟机配置静态IP" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-设计模式讲解" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
   
     
@@ -689,7 +754,7 @@ color="45, 241, 10" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/31/虚拟机配置静态IP/">虚拟机配置静态IP</a>
+      <a class="article-title" href="/2019/10/02/设计模式讲解/">设计模式讲解</a>
     </h1>
   
 
@@ -706,9 +771,86 @@ color="45, 241, 10" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
            <a href="https://github.com/janlee151/"><img style="position: absolute; top: 0; right: 0; border: 0;height: 30px; width: 30px;color: yellow" src="/img/github.png" alt="Fork me on GitHub"></a>
      </div>
       
-        <h4 id="虚拟网络设置"><a class="header-anchor" href="#虚拟网络设置"></a>虚拟网络设置</h4>
-<p>首先我们对虚拟机进行网络适配器的设置：<br>
-<img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1567219220614.png" alt="enter description here">
+        
+      
+	  <!--增加版权-->
+     
+  
+  <div class="declare" hidden="hidden"></div>
+
+<!--文章末尾添加致谢-->
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/10/02/设计模式讲解/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+				
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+      
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-红黑树" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+  
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/09/25/红黑树/">红黑树</a>
+    </h1>
+  
+
+        
+        <link href="https://cdn.staticfile.org/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet">
+
+        
+      </header>
+    
+			
+    <div class="article-entry" itemprop="articleBody">
+	
+	 <div class="headband">
+           <a href="https://github.com/janlee151/"><img style="position: absolute; top: 0; right: 0; border: 0;height: 30px; width: 30px;color: yellow" src="/img/github.png" alt="Fork me on GitHub"></a>
+     </div>
+      
+        <h4 id="性质"><a class="header-anchor" href="#性质"></a>性质</h4>
+<p>我们搞懂一种树的数据结构我们需要知道它的性质：</p>
+<ol>
+<li>首相这是一棵二叉搜索树，也就是左子树节点的值小于根节点，右子树节点的值大于根节点的值</li>
+<li>节点带有颜色，红色或者黑色</li>
+<li>红黑树的根节点是黑色，叶子节点都是黑色
         
       
 	  <!--增加版权-->
@@ -728,15 +870,19 @@ color="45, 241, 10" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">树</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">ip</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">平衡树</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">网络配置</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">红黑树</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">搜索树</a>
         		</li>
       		
 		</ul>
@@ -749,7 +895,7 @@ color="45, 241, 10" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/技术总结//" class="article-tag-list-link color5">技术总结</a>
+        			<a href="/categories/算法//" class="article-tag-list-link color3">算法</a>
         		</li>
       		
 		</ul>
@@ -759,7 +905,7 @@ color="45, 241, 10" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/08/31/虚拟机配置静态IP/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/09/25/红黑树/">展开全文 >></a>
         </p>
       
 
@@ -790,7 +936,7 @@ color="45, 241, 10" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
 
 
   
-    <article id="post-Linux高级指令" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-MySQL事务" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
   
     
@@ -798,7 +944,7 @@ color="45, 241, 10" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/30/Linux高级指令/">Linux高级指令</a>
+      <a class="article-title" href="/2019/09/25/MySQL事务/">MySQL事务</a>
     </h1>
   
 
@@ -815,332 +961,10 @@ color="45, 241, 10" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
            <a href="https://github.com/janlee151/"><img style="position: absolute; top: 0; right: 0; border: 0;height: 30px; width: 30px;color: yellow" src="/img/github.png" alt="Fork me on GitHub"></a>
      </div>
       
-        <h4 id="ps-ef"><a class="header-anchor" href="#ps-ef"></a>ps -ef</h4>
-<p>-e 列出全部进程<br>
--f 列出全部的列信息<br>
-执行结果是列出系统当前的全部进程。
-        
-      
-	  <!--增加版权-->
-     
-  
-  <div class="declare" hidden="hidden"></div>
-
-<!--文章末尾添加致谢-->
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">高级指令</a>
-        		</li>
-      		
-		</ul>
-		
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/笔记//" class="article-tag-list-link color3">笔记</a>
-        		</li>
-      		
-		</ul>
-		
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/08/30/Linux高级指令/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-				
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-      
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Linux进阶指令" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-  
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/30/Linux进阶指令/">Linux进阶指令</a>
-    </h1>
-  
-
-        
-        <link href="https://cdn.staticfile.org/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet">
-
-        
-      </header>
-    
-			
-    <div class="article-entry" itemprop="articleBody">
-	
-	 <div class="headband">
-           <a href="https://github.com/janlee151/"><img style="position: absolute; top: 0; right: 0; border: 0;height: 30px; width: 30px;color: yellow" src="/img/github.png" alt="Fork me on GitHub"></a>
-     </div>
-      
-        <h3 id="进阶指令"><a class="header-anchor" href="#进阶指令"></a>进阶指令</h3>
-<h4 id="df指令"><a class="header-anchor" href="#df指令"></a>df指令</h4>
-<p>用于查看磁盘的占用情况</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df</span><br></pre></td></tr></table></figure>
-<p><img src="https://www.github.com/janlee151/imags.github.io/raw/imags/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1567128702383.png" alt="enter description here"></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df -h</span><br></pre></td></tr></table></figure>
-        
-      
-	  <!--增加版权-->
-     
-  
-  <div class="declare" hidden="hidden"></div>
-
-<!--文章末尾添加致谢-->
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">进阶指令</a>
-        		</li>
-      		
-		</ul>
-		
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/笔记//" class="article-tag-list-link color3">笔记</a>
-        		</li>
-      		
-		</ul>
-		
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/08/30/Linux进阶指令/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-				
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-      
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Linux基础命令" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-  
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/29/Linux基础命令/">Linux基础命令</a>
-    </h1>
-  
-
-        
-        <link href="https://cdn.staticfile.org/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet">
-
-        
-      </header>
-    
-			
-    <div class="article-entry" itemprop="articleBody">
-	
-	 <div class="headband">
-           <a href="https://github.com/janlee151/"><img style="position: absolute; top: 0; right: 0; border: 0;height: 30px; width: 30px;color: yellow" src="/img/github.png" alt="Fork me on GitHub"></a>
-     </div>
-      
-        <h3 id="基础指令"><a class="header-anchor" href="#基础指令"></a>基础指令</h3>
-<h4 id="指令格式"><a class="header-anchor" href="#指令格式"></a>指令格式</h4>
-<p>#  指令 [选项] [操作对象]<br>
-指令格式中[]表示这个内容是可选的内容，并且选项和操作对象都可以是多个。</p>
-<h4 id="基础指令-more"><a class="header-anchor" href="#基础指令-more"></a>基础指令
-        
-      
-	  <!--增加版权-->
-     
-  
-  <div class="declare" hidden="hidden"></div>
-
-<!--文章末尾添加致谢-->
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">基础指令</a>
-        		</li>
-      		
-		</ul>
-		
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/笔记//" class="article-tag-list-link color3">笔记</a>
-        		</li>
-      		
-		</ul>
-		
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/08/29/Linux基础命令/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-				
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-      
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-mysql索引" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-  
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/28/mysql索引/">mysql索引</a>
-    </h1>
-  
-
-        
-        <link href="https://cdn.staticfile.org/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet">
-
-        
-      </header>
-    
-			
-    <div class="article-entry" itemprop="articleBody">
-	
-	 <div class="headband">
-           <a href="https://github.com/janlee151/"><img style="position: absolute; top: 0; right: 0; border: 0;height: 30px; width: 30px;color: yellow" src="/img/github.png" alt="Fork me on GitHub"></a>
-     </div>
-      
-        <h3 id="索引"><a class="header-anchor" href="#索引"></a>索引</h3>
+        <h3 id="事务"><a class="header-anchor" href="#事务"></a>事务</h3>
 <h4 id="定义"><a class="header-anchor" href="#定义"></a>定义</h4>
-<p>帮助MySQL高效获取数据的数据结构。</p>
-<h4 id="分类"><a class="header-anchor" href="#分类"></a>分类</h4>
-<p>1.单值索引：表的一个字段作为索引，并且一个数据库表可以有多个单值索引
+<p>一个或者一组SQL语句组成的单元，这个单元中执行的SQL语句不能分割。如果单元中某一条SQL语句执行失败，那么事务就会回滚，将数据库的状态恢复到执行单元之前的状态。如果单元执行成功，那么事务就执行完毕了。</p>
+<h4 id="存储引擎-more"><a class="header-anchor" href="#存储引擎-more"></a>存储引擎
         
       
 	  <!--增加版权-->
@@ -1164,7 +988,7 @@ color="45, 241, 10" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">索引</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">事务</a>
         		</li>
       		
 		</ul>
@@ -1187,7 +1011,7 @@ color="45, 241, 10" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/08/28/mysql索引/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/09/25/MySQL事务/">展开全文 >></a>
         </p>
       
 
@@ -1218,7 +1042,7 @@ color="45, 241, 10" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
 
 
   
-    <article id="post-三个数之和" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-AVLTree" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
   
     
@@ -1226,7 +1050,7 @@ color="45, 241, 10" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/25/三个数之和/">三个数之和</a>
+      <a class="article-title" href="/2019/09/20/AVLTree/">AVLTree</a>
     </h1>
   
 
@@ -1243,13 +1067,13 @@ color="45, 241, 10" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
            <a href="https://github.com/janlee151/"><img style="position: absolute; top: 0; right: 0; border: 0;height: 30px; width: 30px;color: yellow" src="/img/github.png" alt="Fork me on GitHub"></a>
      </div>
       
-        <h3 id="三个数之和"><a class="header-anchor" href="#三个数之和"></a><a href="https://leetcode-cn.com/problems/3sum/" target="_blank" rel="noopener">三个数之和</a></h3>
-<h4 id="题目描述"><a class="header-anchor" href="#题目描述"></a>题目描述</h4>
-<blockquote>
-<p>给定一个包含 n 个整数的数组 nums，判断 nums 中是否存在三个元素 a，b，c ，使得 a + b + c = 0 ？找出所有满足条件且不重复的三元组。</p>
-</blockquote>
-<p>注意：答案中不可以包含重复的三元组。</p>
-<h4 id="解决思路-more"><a class="header-anchor" href="#解决思路-more"></a>解决思路
+        <h3 id="avl树"><a class="header-anchor" href="#avl树"></a>AVL树</h3>
+<h4 id="特点"><a class="header-anchor" href="#特点"></a>特点</h4>
+<ol>
+<li>首先是一个二叉搜索树</li>
+<li>每个节点的左右子树的高度差的绝对值小于等于1</li>
+</ol>
+<h4 id="插入节点-more"><a class="header-anchor" href="#插入节点-more"></a>插入节点
         
       
 	  <!--增加版权-->
@@ -1269,7 +1093,11 @@ color="45, 241, 10" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">leetcode</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">树</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">平衡树</a>
         		</li>
       		
 		</ul>
@@ -1292,7 +1120,189 @@ color="45, 241, 10" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/08/25/三个数之和/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/09/20/AVLTree/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+				
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+      
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-MyBatis-1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+  
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/09/19/MyBatis-1/">MyBatis-1</a>
+    </h1>
+  
+
+        
+        <link href="https://cdn.staticfile.org/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet">
+
+        
+      </header>
+    
+			
+    <div class="article-entry" itemprop="articleBody">
+	
+	 <div class="headband">
+           <a href="https://github.com/janlee151/"><img style="position: absolute; top: 0; right: 0; border: 0;height: 30px; width: 30px;color: yellow" src="/img/github.png" alt="Fork me on GitHub"></a>
+     </div>
+      
+        
+      
+	  <!--增加版权-->
+     
+  
+  <div class="declare" hidden="hidden"></div>
+
+<!--文章末尾添加致谢-->
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/09/19/MyBatis-1/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+				
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+      
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-二叉搜索树" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+  
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/09/17/二叉搜索树/">二叉搜索树</a>
+    </h1>
+  
+
+        
+        <link href="https://cdn.staticfile.org/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet">
+
+        
+      </header>
+    
+			
+    <div class="article-entry" itemprop="articleBody">
+	
+	 <div class="headband">
+           <a href="https://github.com/janlee151/"><img style="position: absolute; top: 0; right: 0; border: 0;height: 30px; width: 30px;color: yellow" src="/img/github.png" alt="Fork me on GitHub"></a>
+     </div>
+      
+        <h3 id="二叉搜索树"><a class="header-anchor" href="#二叉搜索树"></a>二叉搜索树</h3>
+<h4 id="性质"><a class="header-anchor" href="#性质"></a>性质</h4>
+<ul>
+<li>若任意节点的左子树不为空，则左子树上的节点的值都小于它的根节点的值</li>
+<li>若任意节点的右子树不为空，则右子树上的节点的值都大于它的根节点的值</li>
+<li>左右子树同样也是二叉搜索树
+        
+      
+	  <!--增加版权-->
+     
+  
+  <div class="declare" hidden="hidden"></div>
+
+<!--文章末尾添加致谢-->
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">二叉搜索树</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">树</a>
+        		</li>
+      		
+		</ul>
+		
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/算法//" class="article-tag-list-link color3">算法</a>
+        		</li>
+      		
+		</ul>
+		
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/09/17/二叉搜索树/">展开全文 >></a>
         </p>
       
 
@@ -1325,7 +1335,7 @@ color="45, 241, 10" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
     </nav>
   
 
@@ -1368,7 +1378,7 @@ setInterval("createtime()",250);
 </script><br>
     <div id="footer-info">
 	<div class="footer-left">
-             2019@JanLee - <a href="http://www.miitbeian.gov.cn/" target="_blank">京ICP备16022690号</a>
+             2020@JanLee - <a href="http://www.miitbeian.gov.cn/" target="_blank">京ICP备16022690号</a>
         </div>
       	<div class="footer-right">
       	  <a href="http://hexo.io/" target="_blank">Hexo</a>  Blog <a href="https://janlee151.github.io/" target="_blank">Record My Life</a> by JanLee
@@ -1456,15 +1466,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">排序</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">堆</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">web</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">笔记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1480,19 +1498,31 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">高级指令</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">进阶指令</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">函数式编程</a>
+                <a href="javascript:void(0)" class="js-tag color5">高级指令</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">redis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">初识redis</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">html</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">函数式编程</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1504,19 +1534,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">html</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">接口</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">mysql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">子查询</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1528,11 +1546,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vim</a>
+                <a href="javascript:void(0)" class="js-tag color4">子查询</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">编辑器</a>
+                <a href="javascript:void(0)" class="js-tag color3">递归</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">二叉树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">二叉树深度</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1541,6 +1571,38 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">接口</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vim</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">编辑器</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">文档说明</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">遍历</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">分治算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1560,43 +1622,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">二叉树</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">遍历</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">递归</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">二叉树深度</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">文档说明</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">益智问题</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">分治算法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1608,15 +1634,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">动态规划</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">趣味算法</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">练手</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">动态规划</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1663,7 +1689,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           </ul>
         </div>
 		  
-		   <span style="color:#0BF9D5;background:black">&nbsp;&nbsp;&nbsp;<i class="icon ion-document"></i>&nbsp;&nbsp;博客文章数 ：36</span>
+		   <span style="color:#0BF9D5;background:black">&nbsp;&nbsp;&nbsp;<i class="icon ion-document"></i>&nbsp;&nbsp;博客文章数 ：51</span>
         <ul class="search-ul">
           <p q-show="jsonFail" style="padding: 20px; font-size: 12px;">
             缺失模块。<br/>1、请确保node版本大于6.2<br/>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br/> npm i hexo-generator-json-content --save<br/><br/>
